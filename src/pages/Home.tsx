@@ -9,11 +9,16 @@ export default function Home() {
   return (
     <StyledHome>
       <Header></Header>
-      <Mosaico src={mosaico}/>
+      <Mosaico src={mosaico} />
       <HomeContent>
         <p>PRESENTEIE ALGUÉM ESPECIAL PARA VOCÊ!</p>
-        <sub>Confira em nossa loja, monte sua cesta personalizada para presentear aquela pessoa amada.</sub>
-        <button>CONFERIR</button>
+        <sub>
+          Confira em nossa loja, monte sua cesta personalizada para presentear
+          aquela pessoa amada.
+        </sub>
+        <span>
+          <button>CONFERIR</button>
+        </span>
       </HomeContent>
       <Footer></Footer>
     </StyledHome>
