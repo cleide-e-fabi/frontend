@@ -5,7 +5,7 @@ export const Footer = styled.footer`
   position: fixed;
   bottom: 0px;
   width: 100%;
-  height: 8%;
+  height: 7%;
   background: linear-gradient(
     to right,
     ${theme.colors.secondary} 50%,

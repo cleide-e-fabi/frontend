@@ -6,7 +6,7 @@ export const HomeContent = styled.header`
   left: 0px;
   top: 0px;
   width: 50%;
-  height: 92%;
+  height: 93%;
   display: flex;
   align-items: center;
   justify-content: center;

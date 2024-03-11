@@ -16,7 +16,7 @@ export const FooterElement = styled.div`
   }
 
   @media (max-width: 1400px) {
-    font-size: 14px;
+    font-size: 13px;
 
     img {
       margin-right: 18px;
