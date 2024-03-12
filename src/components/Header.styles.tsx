@@ -9,11 +9,6 @@ export const Header = styled.header`
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  background: linear-gradient(
-    to right,
-    ${theme.colors.secondary} 60%,
-    ${theme.colors.primary} 0%
-  );
   z-index: 9;
   display: flex;
   font-family: "Montserrat";
@@ -25,16 +20,55 @@ export const Header = styled.header`
     height: 80%;
   }
 
+  .produtos-option {
+  }
+
   .header-options,
   .header-icons {
     display: flex;
     align-items: center;
     justify-content: flex-end;
+    height: 100%;
+    font-family: "Montserrat", sans-serif;
+    font-size: 14px;
+  }
+
+  .header-options {
+    width: 58%;
+    background-color: ${theme.colors.secondary};
+
+    .route-option {
+      height: 100%;
+      display: flex;
+      align-items: center;
+      box-sizing: border-box;
+      padding: 0px 30px;
+      color: ${theme.colors.primary};
+      transition: 300ms;
+      font-size: 14px;
+
+      .header-triangle {
+        margin-left: 9px;
+        font-size: 20px;
+
+        &:hover {
+          cursor: pointer;
+        }
+      }
+      &:hover {
+        background-color: ${theme.colors.primary};
+        color: ${theme.colors.secondary};
+        box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px,
+          rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+      }
+    }
   }
 
   .header-icons {
-    font-family: "Montserrat", sans-serif;
-    font-size: 14px;
+    width: 42%;
+    display: flex;
+    padding: 0px 22px;
+    background-color: ${theme.colors.primary};
 
     .header-register {
       width: max-content;
@@ -44,15 +78,10 @@ export const Header = styled.header`
       border-color: ${theme.colors.primary};
       transition: 300ms;
 
-      &:hover{
+      &:hover {
         border-color: ${theme.colors.secondary};
       }
     }
-
-    width: 40%;
-    height: 100%;
-    display: flex;
-    padding: 0px 22px;
 
     .icon-option {
       height: 40%;
@@ -68,6 +97,18 @@ export const Header = styled.header`
     top: 55px;
     height: 45px;
     font-size: 13px;
+
+    .header-options {
+      font-size: 13px;
+      .route-option {
+        padding: 0px 20px;
+
+        .header-triangle {
+          margin-left: 7px;
+          font-size: 18px;
+        }
+      }
+    }
 
     .header-icons {
       font-size: 13px;

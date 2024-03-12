@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { Header } from "../components/Header.styles";
 import { StyledHome } from "../components/Home.styles";
 import { HomeContent } from "../components/HomeContent.styles";
@@ -13,8 +14,8 @@ import securite from "../assets/svgs/securite.svg";
 import edit from "../assets/svgs/edit.svg";
 import star from "../assets/svgs/star.svg";
 import logo from "../assets/svgs/logo.svg";
+import { GoTriangleDown } from "react-icons/go";
 import theme from "../styles/theme";
-import { Link } from "react-router-dom";
 
 export default function Home() {
   return (
@@ -22,10 +23,10 @@ export default function Home() {
       <Header>
         <img className="header-logo" src={logo} />
         <div className="header-options">
-          <Link to="/">HOME</Link>
-          <Link to="/produtos">PRODUTOS</Link>
-          <Link to="/sobre">SOBRE NÓS</Link>
-          <Link to="/contatos">CONTATOS</Link>
+          <Link className="route-option" to="/">HOME</Link>
+          <div className="route-option">PRODUTOS <GoTriangleDown className="header-triangle"/></div>
+          <Link className="route-option" to="/sobre">SOBRE NÓS</Link>
+          <Link className="route-option" to="/contatos">CONTATOS</Link>
         </div>
         <div className="header-icons">
           <Link className="header-register" to="/login">
