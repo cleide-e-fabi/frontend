@@ -14,7 +14,7 @@ export const HomeContent = styled.header`
   color: ${theme.colors.secondary};
   font-family: "Montserrat", sans-serif;
   box-sizing: border-box;
-  padding-top: 30px;
+  padding-top: 60px;
 
   p {
     width: 88%;
@@ -49,14 +49,15 @@ export const HomeContent = styled.header`
   }
 
   @media (max-width: 1400px) {
+    padding-top: 100px;
     p {
-      font-size: 49px;
+      font-size: 46px;
       line-height: 52px;
     }
 
     sub {
       margin-top: 10px;
-      font-size: 16.5px;
+      font-size: 15.5px;
       line-height: 20px;
     }
 

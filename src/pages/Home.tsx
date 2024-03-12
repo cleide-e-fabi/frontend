@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Header } from "../components/Header.styles";
 import { StyledHome } from "../components/Home.styles";
@@ -18,15 +19,55 @@ import { GoTriangleDown } from "react-icons/go";
 import theme from "../styles/theme";
 
 export default function Home() {
+  const [productListChanged, setProductListChanged] =
+    useState("productsListHidden");
+  const [productChanged, setProductChanged] = useState("productsNoChanged");
+
+  function changeProductsList() {
+    productChanged === "productsChanged"
+      ? setProductChanged("productsNoChanged")
+      : setProductChanged("productsChanged");
+
+    productListChanged === "productsListHidden"
+      ? setProductListChanged("productsListShow")
+      : setProductListChanged("productsListHidden");
+  }
+
   return (
     <StyledHome>
       <Header>
         <img className="header-logo" src={logo} />
         <div className="header-options">
-          <Link className="route-option" to="/">HOME</Link>
-          <div className="route-option">PRODUTOS <GoTriangleDown className="header-triangle"/></div>
-          <Link className="route-option" to="/sobre">SOBRE NÓS</Link>
-          <Link className="route-option" to="/contatos">CONTATOS</Link>
+          <Link className="route-option" to="/">
+            HOME
+          </Link>
+          <div className={productChanged + " route-option header-products"}>
+            PRODUTOS
+            <GoTriangleDown
+              className="header-triangle"
+              onClick={changeProductsList}
+            />
+            <div className={productListChanged + " products-options"}>
+              <Link className="product-option" to="/">
+                MAIS VENDIDOS
+              </Link>
+              <Link className="product-option" to="/">
+                CESTAS FITS
+              </Link>
+              <Link className="product-option" to="/">
+                SEM GLÚTEN
+              </Link>
+              <Link className="product-option" to="/">
+                SEM LACTOSE
+              </Link>
+            </div>
+          </div>
+          <Link className="route-option" to="/sobre">
+            SOBRE NÓS
+          </Link>
+          <Link className="route-option" to="/contatos">
+            CONTATOS
+          </Link>
         </div>
         <div className="header-icons">
           <Link className="header-register" to="/login">

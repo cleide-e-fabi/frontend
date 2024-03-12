@@ -20,9 +20,6 @@ export const Header = styled.header`
     height: 80%;
   }
 
-  .produtos-option {
-  }
-
   .header-options,
   .header-icons {
     display: flex;
@@ -37,6 +34,26 @@ export const Header = styled.header`
     width: 58%;
     background-color: ${theme.colors.secondary};
 
+    .productsNoChanged {
+      background-color: ${theme.colors.secondary};
+      color: ${theme.colors.primary};
+      .header-triangle {
+        transition: 300ms;
+      }
+    }
+
+    .productsChanged {
+      background-color: ${theme.colors.primary};
+      color: ${theme.colors.secondary} !important;
+      box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px,
+        rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+
+      .header-triangle {
+        rotate: 180deg;
+        transition: 300ms;
+      }
+    }
+
     .route-option {
       height: 100%;
       display: flex;
@@ -47,6 +64,16 @@ export const Header = styled.header`
       transition: 300ms;
       font-size: 14px;
 
+      &:hover {
+        background-color: ${theme.colors.primary};
+        color: ${theme.colors.secondary};
+        box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px,
+          rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+      }
+    }
+
+    .header-products {
+      position: relative;
       .header-triangle {
         margin-left: 9px;
         font-size: 20px;
@@ -55,11 +82,51 @@ export const Header = styled.header`
           cursor: pointer;
         }
       }
-      &:hover {
-        background-color: ${theme.colors.primary};
-        color: ${theme.colors.secondary};
-        box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px,
-          rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+
+      .productsListHidden {
+        height: 0;
+
+        .product-option{
+          scale: 0;
+        }
+        
+      }
+
+      .productsListShow {
+        height: 200px;
+        background-color: ${theme.colors.secondary};
+
+        @media (max-width: 1400px) {
+          height: 180px;
+        }
+      }
+
+      .products-options {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        position: absolute;
+        width: 100%;
+        right: 0px;
+        top: 118%;
+        transition: 0.6s;
+
+        .product-option {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          width: 100%;
+          height: 25%;
+          box-sizing: border-box;
+          color: ${theme.colors.primary};
+          transition: 300ms;
+          &:hover {
+            background-color: ${theme.colors.primary};
+            color: ${theme.colors.secondary};
+            box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
+              rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+          }
+        }
       }
     }
   }
@@ -94,14 +161,14 @@ export const Header = styled.header`
   }
 
   @media (max-width: 1400px) {
-    top: 55px;
+    top: 35px;
     height: 45px;
     font-size: 13px;
 
     .header-options {
-      font-size: 13px;
       .route-option {
         padding: 0px 20px;
+        font-size: 13px;
 
         .header-triangle {
           margin-left: 7px;
