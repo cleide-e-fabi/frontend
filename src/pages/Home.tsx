@@ -48,16 +48,32 @@ export default function Home() {
               onClick={changeProductsList}
             />
             <div className={productListChanged + " products-options"}>
-              <Link className="product-option" to="/">
+              <Link
+                className="product-option"
+                to="/mais-vendidos"
+                onClick={changeProductsList}
+              >
                 MAIS VENDIDOS
               </Link>
-              <Link className="product-option" to="/">
+              <Link
+                className="product-option"
+                to="/cestas"
+                onClick={changeProductsList}
+              >
                 CESTAS FITS
               </Link>
-              <Link className="product-option" to="/">
+              <Link
+                className="product-option"
+                to="/sem-gluten"
+                onClick={changeProductsList}
+              >
                 SEM GLÚTEN
               </Link>
-              <Link className="product-option" to="/">
+              <Link
+                className="product-option"
+                to="/sem-lactose"
+                onClick={changeProductsList}
+              >
                 SEM LACTOSE
               </Link>
             </div>
@@ -74,7 +90,7 @@ export default function Home() {
             ENTRAR
           </Link>{" "}
           /
-          <Link className="header-register" to="/registro">
+          <Link className="header-register" to="/register">
             REGISTRAR
           </Link>
           <Link className="icon-option" to="/">
@@ -83,7 +99,7 @@ export default function Home() {
           <Link className="icon-option" to="/">
             <img src={comparar} />
           </Link>
-          <Link className="icon-option" to="/">
+          <Link className="icon-option" to="/carrinho">
             <img src={carrinho} />
           </Link>
         </div>
