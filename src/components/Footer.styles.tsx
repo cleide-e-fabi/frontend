@@ -2,8 +2,6 @@ import styled from "styled-components";
 import theme from "../styles/theme";
 
 export const Footer = styled.footer`
-  position: fixed;
-  bottom: 0px;
   width: 100%;
   height: 7%;
   background: linear-gradient(

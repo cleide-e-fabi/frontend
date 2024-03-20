@@ -27,6 +27,9 @@ const GlobalStyle = createGlobalStyle`
     }
     body {
 	    line-height: 1;
+        &::-webkit-scrollbar {
+            width: 0px;
+        }
     }
     ol, ul {
 	    list-style: none;

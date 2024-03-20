@@ -4,7 +4,7 @@ import theme from "../styles/theme";
 export const Header = styled.header`
   width: 80%;
   height: 50px;
-  position: fixed;
+  position: absolute;
   top: 65px;
   display: flex;
   align-items: center;
