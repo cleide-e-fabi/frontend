@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Header } from "../components/Header.styles";
 import { StyledHome } from "../components/Home.styles";
@@ -19,20 +18,6 @@ import { GoTriangleDown } from "react-icons/go";
 import theme from "../styles/theme";
 
 export default function Home() {
-  const [productListChanged, setProductListChanged] =
-    useState("productsListHidden");
-  const [productChanged, setProductChanged] = useState("productsNoChanged");
-
-  function changeProductsList() {
-    productChanged === "productsChanged"
-      ? setProductChanged("productsNoChanged")
-      : setProductChanged("productsChanged");
-
-    productListChanged === "productsListHidden"
-      ? setProductListChanged("productsListShow")
-      : setProductListChanged("productsListHidden");
-  }
-
   return (
     <StyledHome>
       <Header>
@@ -41,39 +26,20 @@ export default function Home() {
           <Link className="route-option" to="/">
             HOME
           </Link>
-          <div className={productChanged + " route-option header-products"}>
+          <div className={"route-option header-products"}>
             PRODUTOS
-            <GoTriangleDown
-              className="header-triangle"
-              onClick={changeProductsList}
-            />
-            <div className={productListChanged + " products-options"}>
-              <Link
-                className="product-option"
-                to="/mais-vendidos"
-                onClick={changeProductsList}
-              >
+            <GoTriangleDown className="header-triangle" />
+            <div className={" products-options"}>
+              <Link className="product-option" to="/mais-vendidos">
                 MAIS VENDIDOS
               </Link>
-              <Link
-                className="product-option"
-                to="/cestas"
-                onClick={changeProductsList}
-              >
+              <Link className="product-option" to="/cestas">
                 CESTAS FITS
               </Link>
-              <Link
-                className="product-option"
-                to="/sem-gluten"
-                onClick={changeProductsList}
-              >
+              <Link className="product-option" to="/sem-gluten">
                 SEM GLÚTEN
               </Link>
-              <Link
-                className="product-option"
-                to="/sem-lactose"
-                onClick={changeProductsList}
-              >
+              <Link className="product-option" to="/sem-lactose">
                 SEM LACTOSE
               </Link>
             </div>

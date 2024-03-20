@@ -77,28 +77,7 @@ export const Header = styled.header`
       .header-triangle {
         margin-left: 9px;
         font-size: 20px;
-
-        &:hover {
-          cursor: pointer;
-        }
-      }
-
-      .productsListHidden {
-        height: 0;
-
-        .product-option{
-          scale: 0;
-        }
-        
-      }
-
-      .productsListShow {
-        height: 200px;
-        background-color: ${theme.colors.secondary};
-
-        @media (max-width: 1400px) {
-          height: 180px;
-        }
+        transition: 0.6s;
       }
 
       .products-options {
@@ -107,9 +86,11 @@ export const Header = styled.header`
         justify-content: space-around;
         position: absolute;
         width: 100%;
+        height: 0px;
         right: 0px;
         top: 118%;
         transition: 0.6s;
+        background-color: ${theme.colors.secondary};
 
         .product-option {
           display: flex;
@@ -120,12 +101,31 @@ export const Header = styled.header`
           box-sizing: border-box;
           color: ${theme.colors.primary};
           transition: 300ms;
+          scale: 0;
           &:hover {
             background-color: ${theme.colors.primary};
             color: ${theme.colors.secondary};
             box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
               rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
           }
+        }
+      }
+      &:hover {
+        cursor: pointer;
+        .products-options {
+          height: 200px;
+          background-color: ${theme.colors.secondary};
+
+          .product-option{
+            scale: 1;
+          }
+
+          @media (max-width: 1400px) {
+            height: 180px;
+          }
+        }
+        .header-triangle {
+          transform: rotate(180deg);
         }
       }
     }
