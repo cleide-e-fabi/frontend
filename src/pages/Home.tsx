@@ -16,6 +16,10 @@ import edit from "../assets/svgs/edit.svg";
 import star from "../assets/svgs/star.svg";
 import logo from "../assets/svgs/logo.svg";
 import presente from "../assets/svgs/presente.svg";
+import cesta1 from "../assets/imgs/cesta1.png";
+import cesta2 from "../assets/imgs/cesta2.png";
+import flowers from "../assets/imgs/flowers.png";
+import ursos from "../assets/imgs/ursos.png";
 import { GoTriangleDown } from "react-icons/go";
 import theme from "../styles/theme";
 
@@ -142,18 +146,37 @@ export default function Home() {
         </div>
         <ul className="categories">
           <li className="category">
-            <p></p>
+            <div
+              style={{ backgroundImage: `url(${cesta1})` }}
+              className="category-img"
+            ></div>
+            <p className="category-title">CESTAS</p>
           </li>
           <li className="category">
-            <p></p>
+            <div
+              style={{ backgroundImage: `url(${ursos})` }}
+              className="category-img"
+            ></div>
+            <p className="category-title">PELÚCIAS</p>
           </li>
           <li className="category">
-            <p></p>
+            <div
+              style={{ backgroundImage: `url(${cesta2})` }}
+              className="category-img"
+            ></div>
+            <p className="category-title">LEMBRANCINHAS</p>
           </li>
           <li className="category">
-            <p></p>
+            <div
+              style={{ backgroundImage: `url(${flowers})` }}
+              className="category-img"
+            ></div>
+            <p className="category-title">BUQUÊS</p>
           </li>
         </ul>
+        <h6 className="favorites-title">OS FAVORITOS</h6>
+        <span className="sub-line"></span>
+        <div className="favorites-list"></div>
       </SubHome>
     </>
   );

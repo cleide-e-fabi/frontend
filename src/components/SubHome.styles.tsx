@@ -4,7 +4,7 @@ import banner from "../assets/imgs/banner.png";
 
 export const SubHome = styled.section`
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   flex-direction: column;
   width: 100%;
   height: max-content;
@@ -36,8 +36,8 @@ export const SubHome = styled.section`
         height: 220px;
         border-radius: 20px;
         background-color: #f7f7f7;
-        box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
-          rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+        box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+
         display: flex;
         align-items: center;
         justify-content: space-between;
@@ -74,9 +74,7 @@ export const SubHome = styled.section`
               border: none;
               border-radius: 10px;
               color: #fff;
-              box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08),
-                0 2px 2px rgba(0, 0, 0, 0.12), 0 4px 4px rgba(0, 0, 0, 0.16),
-                0 8px 8px rgba(0, 0, 0, 0.2);
+              box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
               font-size: 14px;
               font-family: "Montserrat", sans-serif;
             }
@@ -121,8 +119,49 @@ export const SubHome = styled.section`
     .category {
       width: 23%;
       height: 320px;
-      border-radius: 30px;
-      background-color: #d7d7d7;
+      display: flex;
+      flex-direction: column;
+
+      .category-img {
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center center;
+        border-top-right-radius: 30px;
+        border-top-left-radius: 30px;
+        width: 100%;
+        height: 80%;
+      }
+
+      .category-title {
+        width: 100%;
+        height: 20%;
+        background-color: ${theme.colors.secondary};
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: "Montserrat", sans-serif;
+        font-weight: 700;
+        font-size: 22px;
+        color: #fff;
+        border-bottom-right-radius: 30px;
+        border-bottom-left-radius: 30px;
+      }
     }
+  }
+
+  .favorites-title {
+    width: 100%;
+    margin-top: 40px;
+    margin-bottom: 8px;
+    font-family: "Montserrat", sans-serif;
+    font-size: 25px;
+    font-weight: 700;
+    color: ${theme.colors.secondary};
+  }
+
+  .sub-line {
+    width: 120px;
+    height: 5px;
+    background-color: ${theme.colors.secondary};
   }
 `;
