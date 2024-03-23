@@ -163,5 +163,82 @@ export const SubHome = styled.section`
     width: 120px;
     height: 5px;
     background-color: ${theme.colors.secondary};
+    margin-bottom: 14px;
+  }
+
+  .favorites-list {
+    width: 100%;
+    height: 240px;
+    display: flex;
+    justify-content: space-between;
+
+    .favorites-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+
+      .add-item {
+        position: absolute;
+        right: 0px;
+        top: 0px;
+        width: 20px;
+        height: 20px;
+      }
+
+      img {
+        height: 80%;
+        margin-bottom: 8px;
+        margin-left: 24px;
+      }
+
+      p,
+      h1 {
+        font-family: "Montserrat", sans-serif;
+        font-size: 15px;
+        color: ${theme.colors.secondary};
+      }
+
+      p {
+        font-weight: 700;
+        margin-bottom: 6px;
+      }
+
+      h1 {
+        font-weight: 400;
+      }
+    }
+
+    .custom-container {
+      width: 46%;
+      display: flex;
+      align-items: center;
+      background-color: rgba(234, 234, 234, 1);
+      position: relative;
+      border-radius: 38px;
+
+      .custom-text {
+        font-family: "Montserrat", sans-serif;
+        font-size: 44px;
+        font-weight: 700;
+        color: ${theme.colors.secondary};
+        margin-left: 8%;
+      }
+
+      .custom-img {
+        position: absolute;
+        height: 100%;
+        right: 20px;
+      }
+    }
+  }
+  .comments-container {
+    width: 100%;
+    height: 600px;
+    background-color: ${theme.colors.secondary};
+
+    .wave {
+      width: 100%;
+    }
   }
 `;

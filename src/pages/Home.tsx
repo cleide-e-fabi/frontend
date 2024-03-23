@@ -6,6 +6,7 @@ import { Mosaico } from "../components/Mosaico.styles";
 import { Footer } from "../components/Footer.styles";
 import { FooterElement } from "../components/FooterElement.styles";
 import { SubHome } from "../components/SubHome.styles";
+import { CommentsSection } from "../components/CommentsSection";
 import desejo from "../assets/svgs/desejo.svg";
 import comparar from "../assets/svgs/comparar.svg";
 import carrinho from "../assets/svgs/carrinho.svg";
@@ -15,11 +16,15 @@ import securite from "../assets/svgs/securite.svg";
 import edit from "../assets/svgs/edit.svg";
 import star from "../assets/svgs/star.svg";
 import logo from "../assets/svgs/logo.svg";
-import presente from "../assets/svgs/presente.svg";
+import entrega from "../assets/svgs/entrega.svg";
 import cesta1 from "../assets/imgs/cesta1.png";
 import cesta2 from "../assets/imgs/cesta2.png";
 import flowers from "../assets/imgs/flowers.png";
 import ursos from "../assets/imgs/ursos.png";
+import boxes from "../assets/imgs/boxes.png";
+import caneca from "../assets/imgs/caneca.png";
+import wave from "../assets/svgs/wave.svg";
+import add from "../assets/svgs/add.svg";
 import { GoTriangleDown } from "react-icons/go";
 import theme from "../styles/theme";
 
@@ -121,7 +126,7 @@ export default function Home() {
         <div className="banner">
           <div className="cep-container">
             <div className="cep-content">
-              <img className="cep-img" src={presente} />
+              <img className="cep-img" src={entrega} />
               <div className="cep-search">
                 <p className="cep-title">1. CEP de Entrega:</p>
                 <form className="cep-form">
@@ -176,8 +181,36 @@ export default function Home() {
         </ul>
         <h6 className="favorites-title">OS FAVORITOS</h6>
         <span className="sub-line"></span>
-        <div className="favorites-list"></div>
+        <ul className="favorites-list">
+          <li className="favorites-item">
+            <img src={add} className="add-item" />
+            <img src={caneca} />
+            <p>CANECA PERSONALIZADA</p>
+            <h1>R$45,00</h1>
+          </li>
+          <li className="favorites-item">
+            <img src={add} className="add-item" />
+            <img src={caneca} />
+            <p>CANECA PERSONALIZADA</p>
+            <h1>R$45,00</h1>
+          </li>
+          <li className="favorites-item">
+            <img src={add} className="add-item" />
+            <img src={caneca} />
+            <p>CANECA PERSONALIZADA</p>
+            <h1>R$45,00</h1>
+          </li>
+          <div className="custom-container">
+            <p className="custom-text">
+              Personalize <br /> seu presente aqui
+            </p>
+            <img className="custom-img" src={boxes} />
+          </div>
+        </ul>
       </SubHome>
+      <CommentsSection>
+          <img className="wave" src={wave}/>
+      </CommentsSection>
     </>
   );
 }
