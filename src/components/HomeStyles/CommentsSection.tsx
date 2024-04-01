@@ -85,4 +85,52 @@ export const CommentsSection = styled.section`
       }
     }
   }
+
+  @media (max-width: 1400px) {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 88%);
+    background-color: ${theme.colors.secondary};
+    .wave {
+      margin-bottom: 70px;
+    }
+
+    .comment-title {
+      font-size: 30px;
+
+      line-height: 36px;
+    }
+    .comment-cards {
+      margin-bottom: 280px;
+
+      .comment-card {
+        width: 360px;
+        height: 240px;
+        border-radius: 36px;
+        padding: 10px 22px;
+
+        .comment-stars {
+          margin-bottom: 16px;
+
+          .star {
+            width: 44px;
+            font-size: 36px;
+          }
+        }
+
+        .product-name {
+          font-size: 22px;
+          margin-bottom: 12px;
+        }
+
+        .comment-text {
+          font-size: 22px;
+        }
+
+        .comment-date {
+          font-size: 22px;
+          bottom: 20px;
+          right: 32px;
+        }
+      }
+    }
+  }
 `;

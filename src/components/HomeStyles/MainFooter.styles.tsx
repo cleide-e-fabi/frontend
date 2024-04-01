@@ -49,4 +49,41 @@ export const MainFooter = styled.footer`
     width: 32px;
     left: 120px;
   }
+  @media (max-width: 1400px){
+
+  padding-bottom: 110px;
+
+
+  .footer-logo {
+    width: 100px;
+    margin-bottom: 56px;
+  }
+  .footer-info {
+
+    font-size: 15px;
+    line-height: 18px;
+  }
+
+  .footer-wpp,
+  .footer-wppline,
+  .footer-instagram {
+    bottom: 35px;
+
+  }
+
+  .footer-wpp {
+    width: 66px;
+    right: 40px;
+  }
+
+  .footer-wppline {
+    width: 30px;
+    left: 40px;
+  }
+
+  .footer-instagram {
+    width: 30px;
+    left: 110px;
+  }
+  }
 `;

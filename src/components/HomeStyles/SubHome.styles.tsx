@@ -182,6 +182,9 @@ export const SubHome = styled.section`
         top: 0px;
         width: 20px;
         height: 20px;
+        &:hover {
+          cursor: pointer;
+        }
       }
 
       img {
@@ -214,6 +217,12 @@ export const SubHome = styled.section`
       background-color: rgba(234, 234, 234, 1);
       position: relative;
       border-radius: 38px;
+      transition: 400ms;
+
+      &:hover {
+        cursor: pointer;
+        box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+      }
 
       .custom-text {
         font-family: "Montserrat", sans-serif;
@@ -237,6 +246,90 @@ export const SubHome = styled.section`
 
     .wave {
       width: 100%;
+    }
+  }
+
+  @media (max-width: 1400px) {
+    .banner {
+      width: 100%;
+      height: 480px;
+      border-radius: 50px;
+      .cep-container {
+        bottom: -142px;
+
+        .cep-content {
+          width: 50%;
+          height: 180px;
+          border-radius: 18px;
+          padding: 0px 42px;
+
+          .cep-img {
+            height: 66%;
+          }
+
+          .cep-search {
+            width: 74%;
+
+            .cep-title {
+              font-size: 26px;
+            }
+            .cep-form {
+              height: 40px;
+              margin-bottom: 10px;
+
+              input,
+              button {
+                font-size: 13px;
+              }
+              input {
+                padding: 10px 14px;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .categories {
+      margin-top: 200px;
+
+      .category {
+        height: 280px;
+
+        .category-title {
+          font-size: 19px;
+        }
+      }
+    }
+
+    .favorites-title {
+      font-size: 22px;
+    }
+
+    .sub-line {
+      width: 90px;
+      height: 4px;
+    }
+
+    .favorites-list {
+      height: 180px;
+
+      .favorites-item {
+        .add-item {
+          top: 4px;
+        }
+
+        p,
+        h1 {
+          font-size: 13px;
+        }
+      }
+
+      .custom-container {
+        .custom-text {
+          font-size: 33px;
+        }
+      }
     }
   }
 `;
