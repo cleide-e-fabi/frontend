@@ -1,3 +1,4 @@
+import styled from "styled-components";
 import { useState } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import GlobalStyle from "./styles/GlobalStyle";
@@ -11,7 +12,7 @@ export default function App() {
   const [token, setToken] = useState("");
 
   return (
-    <>
+    <Body>
       <GlobalStyle />
       <UserContext.Provider value={{ name, setName, token, setToken }}>
         <BrowserRouter>
@@ -22,6 +23,10 @@ export default function App() {
           </Routes>
         </BrowserRouter>
       </UserContext.Provider>
-    </>
+    </Body>
   );
 }
+
+const Body = styled.div`
+  width: 100vw;
+`;

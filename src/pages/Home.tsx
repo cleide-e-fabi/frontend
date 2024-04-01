@@ -1,12 +1,12 @@
 import { Link } from "react-router-dom";
-import { Header } from "../components/Header.styles";
-import { StyledHome } from "../components/Home.styles";
-import { HomeContent } from "../components/HomeContent.styles";
-import { Mosaico } from "../components/Mosaico.styles";
-import { Footer } from "../components/Footer.styles";
-import { FooterElement } from "../components/FooterElement.styles";
-import { SubHome } from "../components/SubHome.styles";
-import { CommentsSection } from "../components/CommentsSection";
+import { Header } from "../components/HomeStyles/Header.styles";
+import { StyledHome } from "../components/HomeStyles/Home.styles";
+import { HomeContent } from "../components/HomeStyles/HomeContent.styles";
+import { Mosaico } from "../components/HomeStyles/Mosaico.styles";
+import { Footer } from "../components/HomeStyles/Footer.styles";
+import { FooterElement } from "../components/HomeStyles/FooterElement.styles";
+import { SubHome } from "../components/HomeStyles/SubHome.styles";
+import { CommentsSection } from "../components/HomeStyles/CommentsSection";
 import desejo from "../assets/svgs/desejo.svg";
 import comparar from "../assets/svgs/comparar.svg";
 import carrinho from "../assets/svgs/carrinho.svg";
@@ -84,13 +84,13 @@ export default function Home() {
         </Header>
         <div className="middle-content">
           <HomeContent>
-            <p>PRESENTEIE ALGUÉM ESPECIAL PARA VOCÊ!</p>
+            <p>{`PRESENTEIE ALGUÉM ESPECIAL PARA VOCÊ!`}</p>
             <sub>
-              Confira em nossa loja, monte sua cesta personalizada para
-              presentear aquela pessoa amada.
+              {`Confira em nossa loja, monte sua cesta personalizada para
+              presentear aquela pessoa amada.`}
             </sub>
             <span>
-              <button>CONFERIR</button>
+              <button>{`CONFERIR`}</button>
             </span>
           </HomeContent>
           <Mosaico src={mosaico} />
@@ -99,25 +99,26 @@ export default function Home() {
           <FooterElement>
             <img src={truck}></img>
             <h1 style={{ color: `${theme.colors.primary}` }}>
-              ENTREGAMOS EM <br /> TODO BRASIL
+              {"ENTREGAMOS EM"} <br />
+              {"TODO BRASIL"}
             </h1>
           </FooterElement>
           <FooterElement>
             <img src={securite}></img>
             <h1 style={{ color: `${theme.colors.primary}` }}>
-              PAGAMENTO SEGURO
+              {"PAGAMENTO SEGURO"}
             </h1>
           </FooterElement>
           <FooterElement>
             <img src={edit}></img>
             <h1 style={{ color: `${theme.colors.secondary}` }}>
-              PEDIDO PERSONALIZADO
+              {"PEDIDO PERSONALIZADO"}
             </h1>
           </FooterElement>
           <FooterElement>
             <img src={star}></img>
             <h1 style={{ color: `${theme.colors.secondary}` }}>
-              SELO DE QUALIDADE
+              {"SELO DE QUALIDADE"}
             </h1>
           </FooterElement>
         </Footer>
@@ -128,7 +129,7 @@ export default function Home() {
             <div className="cep-content">
               <img className="cep-img" src={entrega} />
               <div className="cep-search">
-                <p className="cep-title">1. CEP de Entrega:</p>
+                <p className="cep-title">{`1. CEP de Entrega:`}</p>
                 <form className="cep-form">
                   <input
                     type="number"
@@ -136,14 +137,14 @@ export default function Home() {
                     placeholder="00000-000"
                     required
                   ></input>
-                  <button>Buscar</button>
+                  <button>{`Buscar`}</button>
                 </form>
                 <a
                   href="https://buscacepinter.correios.com.br/app/endereco/index.php"
                   target="blank"
                   className="cep-link"
                 >
-                  Não sei o CEP
+                  {`Não sei o CEP`}
                 </a>
               </div>
             </div>
@@ -202,14 +203,53 @@ export default function Home() {
           </li>
           <div className="custom-container">
             <p className="custom-text">
-              Personalize <br /> seu presente aqui
+              {`Personalize `} <br /> {`seu presente aqui`}
             </p>
             <img className="custom-img" src={boxes} />
           </div>
         </ul>
       </SubHome>
       <CommentsSection>
-          <img className="wave" src={wave}/>
+        <img className="wave" src={wave} />
+        <p className="comment-title">
+          {"Deixe seu comentário"} <br />
+          <strong>{"A Cleide e Fabi quer saber!"}</strong>
+        </p>
+        <ul className="comment-cards">
+          <li className="comment-card">
+            <ul className="comment-stars">
+              <li className="star">{`★`}</li>
+              <li className="star">{`★`}</li>
+              <li className="star">{`★`}</li>
+              <li className="star">{`★`}</li>
+              <li className="star">{`★`}</li>
+            </ul>
+            <h6 className="product-name">{`Nome do produto`}</h6>
+            <h5 className="comment-text">{`Deu tudo certo. Vcs são maravilhosas!`}</h5>
+            <div className="comment-date">{`03/02/24`}</div>
+          </li>
+          <li className="comment-card">
+            <ul className="comment-stars">
+              <li className="star">{`★`}</li>
+              <li className="star">{`★`}</li>
+              <li className="star">{`★`}</li>
+              <li className="star">{`★`}</li>
+            </ul>
+            <h6 className="product-name">{`Nome do produto`}</h6>
+            <h5 className="comment-text">{`Deu tudo certo. Vcs são maravilhosas!`}</h5>
+            <div className="comment-date">{`03/02/24`}</div>
+          </li>
+          <li className="comment-card">
+            <ul className="comment-stars">
+              <li className="star">{`★`}</li>
+              <li className="star">{`★`}</li>
+              <li className="star">{`★`}</li>
+            </ul>
+            <h6 className="product-name">{`Nome do produto`}</h6>
+            <h5 className="comment-text">{`Deu tudo certo. Vcs são maravilhosas!`}</h5>
+            <div className="comment-date">{`03/02/24`}</div>
+          </li>
+        </ul>
       </CommentsSection>
     </>
   );

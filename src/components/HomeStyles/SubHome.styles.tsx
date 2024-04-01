@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import theme from "../styles/theme";
-import banner from "../assets/imgs/banner.png";
+import theme from "../../styles/theme";
+import banner from "../../assets/imgs/banner.png";
 
 export const SubHome = styled.section`
   display: flex;
@@ -8,7 +8,6 @@ export const SubHome = styled.section`
   flex-direction: column;
   width: 100%;
   height: max-content;
-  background-color: ${theme.colors.primary};
   box-sizing: border-box;
   padding: 45px 30px;
   background-color: ${theme.colors.gray};
@@ -17,7 +16,6 @@ export const SubHome = styled.section`
     width: 100%;
     height: 600px;
     border-radius: 60px;
-
     position: relative;
     background-image: url(${banner});
     background-repeat: no-repeat;
