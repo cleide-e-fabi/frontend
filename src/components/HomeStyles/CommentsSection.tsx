@@ -3,9 +3,9 @@ import theme from "../../styles/theme";
 
 export const CommentsSection = styled.section`
   width: 100%;
-  height: 1200px;
+  height: max-content;
   box-sizing: border-box;
-  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 74%);
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 78%);
   background-color: ${theme.colors.secondary};
   display: flex;
   flex-direction: column;
@@ -33,6 +33,7 @@ export const CommentsSection = styled.section`
     height: max-content;
     display: flex;
     justify-content: space-around;
+    margin-bottom: 360px;
 
     .comment-card {
       width: 438px;

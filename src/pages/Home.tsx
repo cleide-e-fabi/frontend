@@ -7,25 +7,10 @@ import { Footer } from "../components/HomeStyles/Footer.styles";
 import { FooterElement } from "../components/HomeStyles/FooterElement.styles";
 import { SubHome } from "../components/HomeStyles/SubHome.styles";
 import { CommentsSection } from "../components/HomeStyles/CommentsSection";
-import desejo from "../assets/svgs/desejo.svg";
-import comparar from "../assets/svgs/comparar.svg";
-import carrinho from "../assets/svgs/carrinho.svg";
-import mosaico from "../assets/imgs/mosaico.png";
-import truck from "../assets/svgs/truck.svg";
-import securite from "../assets/svgs/securite.svg";
-import edit from "../assets/svgs/edit.svg";
-import star from "../assets/svgs/star.svg";
-import logo from "../assets/svgs/logo.svg";
-import entrega from "../assets/svgs/entrega.svg";
-import cesta1 from "../assets/imgs/cesta1.png";
-import cesta2 from "../assets/imgs/cesta2.png";
-import flowers from "../assets/imgs/flowers.png";
-import ursos from "../assets/imgs/ursos.png";
-import boxes from "../assets/imgs/boxes.png";
-import caneca from "../assets/imgs/caneca.png";
-import wave from "../assets/svgs/wave.svg";
-import add from "../assets/svgs/add.svg";
+import { MainFooter } from "../components/HomeStyles/MainFooter.styles";
 import { GoTriangleDown } from "react-icons/go";
+import * as imgs from "../assets/imgs";
+import * as svgs from "../assets/svgs";
 import theme from "../styles/theme";
 
 export default function Home() {
@@ -33,7 +18,7 @@ export default function Home() {
     <>
       <StyledHome>
         <Header>
-          <img className="header-logo" src={logo} />
+          <img className="header-logo" src={svgs.logo} />
           <div className="header-options">
             <Link className="route-option" to="/">
               HOME
@@ -72,13 +57,13 @@ export default function Home() {
               REGISTRAR
             </Link>
             <Link className="icon-option" to="/">
-              <img src={desejo} />
+              <img src={svgs.desejo} />
             </Link>
             <Link className="icon-option" to="/">
-              <img src={comparar} />
+              <img src={svgs.comparar} />
             </Link>
             <Link className="icon-option" to="/carrinho">
-              <img src={carrinho} />
+              <img src={svgs.carrinho} />
             </Link>
           </div>
         </Header>
@@ -93,30 +78,30 @@ export default function Home() {
               <button>{`CONFERIR`}</button>
             </span>
           </HomeContent>
-          <Mosaico src={mosaico} />
+          <Mosaico src={imgs.mosaico} />
         </div>
         <Footer>
           <FooterElement>
-            <img src={truck}></img>
+            <img src={svgs.truck}></img>
             <h1 style={{ color: `${theme.colors.primary}` }}>
               {"ENTREGAMOS EM"} <br />
               {"TODO BRASIL"}
             </h1>
           </FooterElement>
           <FooterElement>
-            <img src={securite}></img>
+            <img src={svgs.securite}></img>
             <h1 style={{ color: `${theme.colors.primary}` }}>
               {"PAGAMENTO SEGURO"}
             </h1>
           </FooterElement>
           <FooterElement>
-            <img src={edit}></img>
+            <img src={svgs.edit}></img>
             <h1 style={{ color: `${theme.colors.secondary}` }}>
               {"PEDIDO PERSONALIZADO"}
             </h1>
           </FooterElement>
           <FooterElement>
-            <img src={star}></img>
+            <img src={svgs.star}></img>
             <h1 style={{ color: `${theme.colors.secondary}` }}>
               {"SELO DE QUALIDADE"}
             </h1>
@@ -127,7 +112,7 @@ export default function Home() {
         <div className="banner">
           <div className="cep-container">
             <div className="cep-content">
-              <img className="cep-img" src={entrega} />
+              <img className="cep-img" src={svgs.entrega} />
               <div className="cep-search">
                 <p className="cep-title">{`1. CEP de Entrega:`}</p>
                 <form className="cep-form">
@@ -153,28 +138,28 @@ export default function Home() {
         <ul className="categories">
           <li className="category">
             <div
-              style={{ backgroundImage: `url(${cesta1})` }}
+              style={{ backgroundImage: `url(${imgs.cesta1})` }}
               className="category-img"
             ></div>
             <p className="category-title">CESTAS</p>
           </li>
           <li className="category">
             <div
-              style={{ backgroundImage: `url(${ursos})` }}
+              style={{ backgroundImage: `url(${imgs.ursos})` }}
               className="category-img"
             ></div>
             <p className="category-title">PELÚCIAS</p>
           </li>
           <li className="category">
             <div
-              style={{ backgroundImage: `url(${cesta2})` }}
+              style={{ backgroundImage: `url(${imgs.cesta2})` }}
               className="category-img"
             ></div>
             <p className="category-title">LEMBRANCINHAS</p>
           </li>
           <li className="category">
             <div
-              style={{ backgroundImage: `url(${flowers})` }}
+              style={{ backgroundImage: `url(${imgs.flowers})` }}
               className="category-img"
             ></div>
             <p className="category-title">BUQUÊS</p>
@@ -184,20 +169,20 @@ export default function Home() {
         <span className="sub-line"></span>
         <ul className="favorites-list">
           <li className="favorites-item">
-            <img src={add} className="add-item" />
-            <img src={caneca} />
+            <img src={svgs.add} className="add-item" />
+            <img src={imgs.caneca} />
             <p>CANECA PERSONALIZADA</p>
             <h1>R$45,00</h1>
           </li>
           <li className="favorites-item">
-            <img src={add} className="add-item" />
-            <img src={caneca} />
+            <img src={svgs.add} className="add-item" />
+            <img src={imgs.caneca} />
             <p>CANECA PERSONALIZADA</p>
             <h1>R$45,00</h1>
           </li>
           <li className="favorites-item">
-            <img src={add} className="add-item" />
-            <img src={caneca} />
+            <img src={svgs.add} className="add-item" />
+            <img src={imgs.caneca} />
             <p>CANECA PERSONALIZADA</p>
             <h1>R$45,00</h1>
           </li>
@@ -205,12 +190,12 @@ export default function Home() {
             <p className="custom-text">
               {`Personalize `} <br /> {`seu presente aqui`}
             </p>
-            <img className="custom-img" src={boxes} />
+            <img className="custom-img" src={imgs.boxes} />
           </div>
         </ul>
       </SubHome>
       <CommentsSection>
-        <img className="wave" src={wave} />
+        <img className="wave" src={svgs.wave} />
         <p className="comment-title">
           {"Deixe seu comentário"} <br />
           <strong>{"A Cleide e Fabi quer saber!"}</strong>
@@ -251,6 +236,15 @@ export default function Home() {
           </li>
         </ul>
       </CommentsSection>
+      <MainFooter>
+        <img className="footer-logo" src={svgs.logov} />
+        <h5 className="footer-info">{`Cleide e Fabi | CNPJ: 13.895.943/0001-71`}</h5>
+        <h5 className="footer-info">{`Porto Velho 597 - Jd Cumbica Guarulhos - São Paulo - SP - 07.240-060`}</h5>
+        <h5 className="footer-info">{`cleidefabi.com.br | Whatsapp: (11) 94729-2964`}</h5>
+        <img className="footer-wpp" src={svgs.wpp} />
+        <img className="footer-wppline" src={svgs.wppline} />
+        <img className="footer-instagram" src={svgs.instagram} />
+      </MainFooter>
     </>
   );
 }
