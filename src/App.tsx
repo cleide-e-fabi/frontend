@@ -8,13 +8,13 @@ import Login from "./pages/Login";
 import Register from "./pages/Register";
 
 export default function App() {
-  const [name, setName] = useState("");
-  const [token, setToken] = useState("");
+  const [name, setNameLS] = useState("");
+  const [token, setTokenLS] = useState("");
 
   return (
     <Body>
       <GlobalStyle />
-      <UserContext.Provider value={{ name, setName, token, setToken }}>
+      <UserContext.Provider value={{ name, setNameLS, token, setTokenLS }}>
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Home />} />
