@@ -1,5 +1,3 @@
-import { Link } from "react-router-dom";
-import { Header } from "../components/Home/Header.styles";
 import { StyledHome } from "../components/Home/Home.styles";
 import { HomeContent } from "../components/Home/HomeContent.styles";
 import { Mosaico } from "../components/Home/Mosaico.styles";
@@ -8,65 +6,16 @@ import { FooterElement } from "../components/Home/FooterElement.styles";
 import { SubHome } from "../components/Home/SubHome.styles";
 import { CommentsSection } from "../components/Home/CommentsSection";
 import { MainFooter } from "../components/Home/MainFooter.styles";
-import { GoTriangleDown } from "react-icons/go";
 import * as imgs from "../assets/imgs";
 import * as svgs from "../assets/svgs";
 import theme from "../styles/theme";
+import Header from "../components/Home/Header/Header";
 
 export default function Home() {
   return (
     <>
       <StyledHome>
-        <Header>
-          <img className="header-logo" src={svgs.logo} />
-          <div className="header-options">
-            <Link className="route-option" to="/">
-              HOME
-            </Link>
-            <div className={"route-option header-products"}>
-              PRODUTOS
-              <GoTriangleDown className="header-triangle" />
-              <div className={" products-options"}>
-                <Link className="product-option" to="/mais-vendidos">
-                  MAIS VENDIDOS
-                </Link>
-                <Link className="product-option" to="/cestas">
-                  CESTAS FITS
-                </Link>
-                <Link className="product-option" to="/sem-gluten">
-                  SEM GLÚTEN
-                </Link>
-                <Link className="product-option" to="/sem-lactose">
-                  SEM LACTOSE
-                </Link>
-              </div>
-            </div>
-            <Link className="route-option" to="/sobre">
-              SOBRE NÓS
-            </Link>
-            <Link className="route-option" to="/contatos">
-              CONTATOS
-            </Link>
-          </div>
-          <div className="header-icons">
-            <Link className="header-register" to="/login">
-              ENTRAR
-            </Link>{" "}
-            /
-            <Link className="header-register" to="/register">
-              REGISTRAR
-            </Link>
-            <Link className="icon-option" to="/">
-              <img src={svgs.desejo} />
-            </Link>
-            <Link className="icon-option" to="/">
-              <img src={svgs.comparar} />
-            </Link>
-            <Link className="icon-option" to="/carrinho">
-              <img src={svgs.carrinho} />
-            </Link>
-          </div>
-        </Header>
+        <Header/>
         <div className="middle-content">
           <HomeContent>
             <p>{`PRESENTEIE ALGUÉM ESPECIAL PARA VOCÊ!`}</p>

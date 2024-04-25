@@ -1,7 +1,7 @@
 import styled from "styled-components";
-import theme from "../../styles/theme";
+import theme from "../../../styles/theme";
 
-export const Header = styled.header`
+export const HeaderStyles = styled.header`
   width: 80%;
   height: 50px;
   position: absolute;

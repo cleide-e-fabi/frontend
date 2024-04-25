@@ -6,6 +6,9 @@ import UserContext from "./contexts/UserContext";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
+import Products from "./pages/Products";
+import About from "./pages/About";
+import theme from "./styles/theme";
 
 export default function App() {
   const [name, setNameLS] = useState("");
@@ -20,6 +23,8 @@ export default function App() {
             <Route path="/" element={<Home />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
+            <Route path="/produtos" element={<Products />} />
+            <Route path="/sobre" element={<About />} />
           </Routes>
         </BrowserRouter>
       </UserContext.Provider>
@@ -29,4 +34,5 @@ export default function App() {
 
 const Body = styled.div`
   width: 100vw;
+  background-color: ${theme.colors.gray};
 `;

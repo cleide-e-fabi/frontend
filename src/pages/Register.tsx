@@ -21,14 +21,14 @@ export default function Register() {
     headers: {
       'Content-Type': 'application/json',
       Accept: 'application/json',
-      Authorization: 'Vfk16Hi9uwSB7cnvfR2eEuWEjTFnlHxmCtH5gRwxhYPLGerZWbfk5zEqri9c'
+      Authorization: 'Bearer 123'
     },
     data: {
       email: email,
       first_name: name,
       last_name: lastName,
       phone: '+55' + phone,
-      cpf: cpf,
+      cpf: '512.516.999.44',
       cpn: '',
       house_number: '',
       tags: '',
