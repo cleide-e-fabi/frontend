@@ -4,8 +4,6 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import GlobalStyle from "./styles/GlobalStyle";
 import UserContext from "./contexts/UserContext";
 import Home from "./pages/Home";
-import Login from "./pages/Login";
-import Register from "./pages/Register";
 import Products from "./pages/Products";
 import About from "./pages/About";
 import theme from "./styles/theme";
@@ -21,8 +19,6 @@ export default function App() {
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/register" element={<Register />} />
             <Route path="/produtos" element={<Products />} />
             <Route path="/sobre" element={<About />} />
           </Routes>

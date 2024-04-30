@@ -1,10 +1,8 @@
 import axios from "axios";
 import { ProductsContainer } from "../components/Products/Products.styles";
-import { useState, useEffect } from "react";
 
 export default function Products() {
 
-  const [data, setData] = useState(null);
 //   const [error, setError] = useState(null);
 
 // const options = {
