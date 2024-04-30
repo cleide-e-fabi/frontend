@@ -1,25 +1,36 @@
-// import axios from "axios";
+import axios from "axios";
 import { ProductsContainer } from "../components/Products/Products.styles";
-// import { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 
 export default function Products() {
 
-// const [productsList, setProductsList] = useState([]);
-// const auth = "Vfk16Hi9uwSB7cnvfR2eEuWEjTFnlHxmCtH5gRwxhYPLGerZWbfk5zEqri9c";
-// const URL = "https://accounts.cartpanda.com/api/fanaiana/products/2"
-// const config = {
-//     'headers': {
-//         "Accept": "application/json",
-//         "Authorization": `Bearer ${auth}`
-//     }
-// }
-// useEffect(() => {
-//     const promise = axios.get(URL, config)
-//     promise.then((res) => setProductsList(res.data))
-//     promise.catch((err)=>{alert(err.response.data.message)})
-//     console.log(productsList);
-// }, [])
+  const [data, setData] = useState(null);
+//   const [error, setError] = useState(null);
 
+// const options = {
+//   method: 'GET',
+//   url: 'https://accounts.cartpanda.com/api/fafgf/products',
+//   params: {'': ''},
+//   headers: {
+//     Authorization: 'Bearer fdgfdgdfgf'
+//   }
+// };
+
+const fetchDataOnClick = async () => {
+  try {
+
+    const headers = {
+      'Authorization': 'Bearer dfsfsd'
+    };
+    const response = await axios.get('https://accounts.cartpanda.com/api/v3/fanaiana/products', { headers });
+
+    console.log('dados', response.data);
+
+  } catch (err) {
+    console.log('erro:', err);
+  }
+};
   return <ProductsContainer>
+    <button onClick={fetchDataOnClick}>requisicao</button>
   </ProductsContainer>;
 }

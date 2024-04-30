@@ -16,7 +16,7 @@ export default function Header() {
               PRODUTOS
               <GoTriangleDown className="header-triangle" />
               <div className={" products-options"}>
-                <Link className="product-option" to="/mais-vendidos">
+                <Link className="product-option" to="/produtos">
                   MAIS VENDIDOS
                 </Link>
                 <Link className="product-option" to="/cestas">
