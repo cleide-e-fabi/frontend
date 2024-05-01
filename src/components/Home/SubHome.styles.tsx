@@ -147,23 +147,6 @@ export const SubHome = styled.section`
     }
   }
 
-  .favorites-title {
-    width: 100%;
-    margin-top: 40px;
-    margin-bottom: 8px;
-    font-family: "Montserrat", sans-serif;
-    font-size: 25px;
-    font-weight: 700;
-    color: ${theme.colors.secondary};
-  }
-
-  .sub-line {
-    width: 120px;
-    height: 5px;
-    background-color: ${theme.colors.secondary};
-    margin-bottom: 14px;
-  }
-
   .favorites-list {
     width: 100%;
     height: 240px;

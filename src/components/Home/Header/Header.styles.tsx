@@ -97,7 +97,7 @@ export const HeaderStyles = styled.header`
           justify-content: center;
           align-items: center;
           width: 100%;
-          height: 25%;
+          height: 50%;
           box-sizing: border-box;
           color: ${theme.colors.primary};
           transition: 300ms;
@@ -113,7 +113,7 @@ export const HeaderStyles = styled.header`
       &:hover {
         cursor: pointer;
         .products-options {
-          height: 200px;
+          height: 100px;
           background-color: ${theme.colors.secondary};
 
           .product-option{

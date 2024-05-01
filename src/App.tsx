@@ -7,6 +7,7 @@ import Home from "./pages/Home";
 import Products from "./pages/Products";
 import About from "./pages/About";
 import theme from "./styles/theme";
+import Replacement from "./pages/Replacement";
 
 export default function App() {
   const [name, setNameLS] = useState("");
@@ -18,9 +19,10 @@ export default function App() {
       <UserContext.Provider value={{ name, setNameLS, token, setTokenLS }}>
         <BrowserRouter>
           <Routes>
-            <Route path="/" element={<Home />} />
+            <Route path="/" element={<Home />} /> 
             <Route path="/produtos" element={<Products />} />
             <Route path="/sobre" element={<About />} />
+            <Route path="/troca" element={<Replacement/>}/>
           </Routes>
         </BrowserRouter>
       </UserContext.Provider>

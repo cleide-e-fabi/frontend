@@ -1,34 +1,33 @@
-import axios from "axios";
 import { ProductsContainer } from "../components/Products/Products.styles";
+import { ProductsList } from "../components/Products/ProductsList";
+import Header from "../components/Home/Header/Header";
+import { arrayproducts } from "./arrayproducts";
+import * as svgs from "../assets/svgs/index";
+import { Title } from "../components/Title";
 
 export default function Products() {
 
-//   const [error, setError] = useState(null);
+  return (
+    <ProductsContainer>
+      <Header />
+      <Title>
+        <h6>PRODUTOS</h6>
+        <span className="line"></span>
+      </Title>
+      <ProductsList>
+        {arrayproducts.map(i =>
+          <li key={i.id} className="product-item">
+            <div
+              className="product-img"
+              style={{ backgroundImage: `url(${i.url})` }}>
+            </div>
+            <p className="product-title">{i.nome}</p>
+            <h2 className="product-price">{i.preco}</h2>
+            <img className="product-plus" src={svgs.plus} />
+          </li>
+        )}
+      </ProductsList>
 
-// const options = {
-//   method: 'GET',
-//   url: 'https://accounts.cartpanda.com/api/fafgf/products',
-//   params: {'': ''},
-//   headers: {
-//     Authorization: 'Bearer fdgfdgdfgf'
-//   }
-// };
-
-const fetchDataOnClick = async () => {
-  try {
-
-    const headers = {
-      'Authorization': 'Bearer dfsfsd'
-    };
-    const response = await axios.get('https://accounts.cartpanda.com/api/v3/fanaiana/products', { headers });
-
-    console.log('dados', response.data);
-
-  } catch (err) {
-    console.log('erro:', err);
-  }
-};
-  return <ProductsContainer>
-    <button onClick={fetchDataOnClick}>requisicao</button>
-  </ProductsContainer>;
+    </ProductsContainer>
+  );
 }

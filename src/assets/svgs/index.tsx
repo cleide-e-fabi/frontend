@@ -14,6 +14,7 @@ import add from "./add.svg";
 import wpp from "./wpp.svg";
 import wppline from "./wppline.svg";
 import instagram from "./instagram.svg";
+import plus from "./plus.svg";
 
 export {
   desejo,
@@ -31,4 +32,5 @@ export {
   wpp,
   wppline,
   instagram,
+  plus,
 };

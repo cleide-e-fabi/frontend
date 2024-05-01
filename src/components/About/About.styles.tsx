@@ -12,31 +12,6 @@ export const AboutContainer = styled.div`
     justify-content: flex-start;
     box-sizing: border-box;
     padding-top: 170px;
-    .about-title {
-        width: 100%;
-        margin-top: 40px;
-        margin-bottom: 8px;
-        font-family: "Montserrat", sans-serif;
-        font-size: 25px;
-        font-weight: 700;
-        color: ${theme.colors.secondary};
-        display: flex;
-        flex-direction: column;
-        box-sizing: border-box;
-        padding: 0px 40px;
-
-        :nth-child(1){
-            margin-left: 20px;
-            margin-bottom: 2px;
-        }
-
-        .about-line {
-            width: 142px;
-            height: 5px;
-            background-color: ${theme.colors.secondary};
-            margin-bottom: 14px;
-        }
-    }
 
     .about-content{
         width: 100%;

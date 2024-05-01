@@ -1,15 +1,16 @@
 import { AboutContainer } from "../components/About/About.styles";
 import Header from "../components/Home/Header/Header";
 import * as svgs from "../assets/svgs";
+import { Title } from "../components/Title";
 
 export default function About() {
     return (
         <AboutContainer>
             <Header />
-            <div className="about-title">
+            <Title>
                 <h6>SOBRE NÓS</h6>
-                <span className="about-line"></span>
-            </div>
+                <span className="line"></span>
+            </Title>
             <div className="about-content">
                 <div className="div-container"></div>
                 <p className="about-text">{`Lorem Ipsum é simplesmente uma simulação de 

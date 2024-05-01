@@ -6,6 +6,7 @@ import { FooterElement } from "../components/Home/FooterElement.styles";
 import { SubHome } from "../components/Home/SubHome.styles";
 import { CommentsSection } from "../components/Home/CommentsSection";
 import { MainFooter } from "../components/Home/MainFooter.styles";
+import { Title } from "../components/Title";
 import * as imgs from "../assets/imgs";
 import * as svgs from "../assets/svgs";
 import theme from "../styles/theme";
@@ -114,8 +115,10 @@ export default function Home() {
             <p className="category-title">BUQUÊS</p>
           </li>
         </ul>
-        <h6 className="favorites-title">OS FAVORITOS</h6>
-        <span className="sub-line"></span>
+        <Title>
+            <h6>FAVORITOS</h6>
+            <span className="line"></span>
+        </Title>
         <ul className="favorites-list">
           <li className="favorites-item">
             <img src={svgs.add} className="add-item" />
