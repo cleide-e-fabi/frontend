@@ -10,6 +10,7 @@ import theme from "./styles/theme";
 import Replacement from "./pages/Replacement";
 import Policy from "./pages/Policy";
 import Contact from "./pages/Contact";
+import Product from "./pages/Product";
 
 export default function App() {
   const [name, setNameLS] = useState("");
@@ -27,6 +28,7 @@ export default function App() {
             <Route path="/troca" element={<Replacement/>}/>
             <Route path="/termos" element={<Policy/>}/>
             <Route path="/contato" element={<Contact/>}/>
+            <Route path="/produto" element={<Product />} />
           </Routes>
         </BrowserRouter>
       </UserContext.Provider>

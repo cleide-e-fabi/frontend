@@ -18,7 +18,7 @@ export default function Header() {
             <Link className="route-option" to="/sobre">
               SOBRE NÓS
             </Link>
-            <Link className="route-option" to="/contatos">
+            <Link className="route-option" to="/contato">
               CONTATOS
             </Link>
             <div className={"route-option header-products"}>
