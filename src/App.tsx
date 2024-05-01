@@ -9,6 +9,7 @@ import About from "./pages/About";
 import theme from "./styles/theme";
 import Replacement from "./pages/Replacement";
 import Policy from "./pages/Policy";
+import Contact from "./pages/Contact";
 
 export default function App() {
   const [name, setNameLS] = useState("");
@@ -24,7 +25,8 @@ export default function App() {
             <Route path="/produtos" element={<Products />} />
             <Route path="/sobre" element={<About />} />
             <Route path="/troca" element={<Replacement/>}/>
-            <Route path="termos" element={<Policy/>}/>
+            <Route path="/termos" element={<Policy/>}/>
+            <Route path="/contatos" element={<Contact/>}/>
           </Routes>
         </BrowserRouter>
       </UserContext.Provider>

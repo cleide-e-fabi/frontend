@@ -7,10 +7,10 @@ export const ProductsList = styled.ul`
     justify-content: space-between;
     flex-wrap: wrap;
     box-sizing: border-box;
-    padding: 0px 60px;
+    padding: 0px 40px;
 
     .product-item{
-        width: 320px;
+        width: 310px;
         height: 380px;
         border-radius: 30px;
         box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
@@ -22,7 +22,10 @@ export const ProductsList = styled.ul`
         box-sizing: border-box;
         padding: 24px 20px;
         position: relative;
-        margin-bottom: 40px;
+        margin-left: 20px;
+        margin-right: 20px;
+        margin-top: 20px;
+        margin-bottom: 20px;
         transition: 0.3s;
 
         &:hover{

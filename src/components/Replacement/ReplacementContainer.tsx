@@ -22,7 +22,8 @@ export const ReplacementContainer = styled.div`
         text-align: justify;
         font-family: "Montserrat", sans-serif;
         font-weight: 400;
-        font-size: 14px;
+        font-size: 15px;
+        line-height: 18px;
 
         h2, strong{
             font-weight: 700;

@@ -15,6 +15,7 @@ import wpp from "./wpp.svg";
 import wppline from "./wppline.svg";
 import instagram from "./instagram.svg";
 import plus from "./plus.svg";
+import magnmagnifyingGlass from "./magnifying-glass.svg";
 
 export {
   desejo,
@@ -33,4 +34,5 @@ export {
   wppline,
   instagram,
   plus,
+  magnmagnifyingGlass,
 };
