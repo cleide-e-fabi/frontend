@@ -3,14 +3,15 @@ import theme from "../../styles/theme";
 
 export const ReplacementContainer = styled.div`
     width: 100vw;
-    height: 100vh;
+    min-height: 100vh;
     background-color: ${theme.colors.gray};
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
     box-sizing: border-box;
-    padding-top: 140px;
+    padding-top: 120px;
+    padding-bottom: 30px;
     color: ${theme.colors.secondary};
 
     .replacement-text{
@@ -21,7 +22,7 @@ export const ReplacementContainer = styled.div`
         text-align: justify;
         font-family: "Montserrat", sans-serif;
         font-weight: 400;
-        font-size: 18px;
+        font-size: 14px;
 
         h2, strong{
             font-weight: 700;
