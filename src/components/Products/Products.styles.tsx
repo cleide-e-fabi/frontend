@@ -3,7 +3,7 @@ import theme from "../../styles/theme";
 
 export const ProductsContainer = styled.div`
     width: 100vw;
-    height: max-content;
+    min-height: 100vh;
     background-color: ${theme.colors.gray};
     display: flex;
     flex-direction: column;
@@ -42,6 +42,9 @@ export const ProductsContainer = styled.div`
                 padding: 0px 0px 0px 20px;
                 outline: none; 
 
+                &::placeholder{
+                    color: ${theme.colors.primary};
+                }
             }
 
             .search-icon{

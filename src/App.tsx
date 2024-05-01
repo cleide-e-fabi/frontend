@@ -26,7 +26,7 @@ export default function App() {
             <Route path="/sobre" element={<About />} />
             <Route path="/troca" element={<Replacement/>}/>
             <Route path="/termos" element={<Policy/>}/>
-            <Route path="/contatos" element={<Contact/>}/>
+            <Route path="/contato" element={<Contact/>}/>
           </Routes>
         </BrowserRouter>
       </UserContext.Provider>

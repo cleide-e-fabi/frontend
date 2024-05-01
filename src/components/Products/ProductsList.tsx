@@ -4,7 +4,7 @@ export const ProductsList = styled.ul`
     width: 100%;
     height: max-content;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     flex-wrap: wrap;
     box-sizing: border-box;
     padding: 0px 40px;

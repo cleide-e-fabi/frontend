@@ -1,3 +1,4 @@
+import React, { useState } from 'react';
 import { ProductsContainer } from "../components/Products/Products.styles";
 import { ProductsList } from "../components/Products/ProductsList";
 import Header from "../components/Home/Header/Header";
@@ -12,6 +13,16 @@ import { FaSearch } from "react-icons/fa";
 
 export default function Products() {
 
+  const [searchTerm, setSearchTerm] = useState<string>('');
+
+  const handleSearch = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchTerm(event.target.value);
+  };
+
+  const filteredProducts = arrayproducts.filter(product =>
+    product.nome.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
   return (
     <ProductsContainer>
       <Header />
@@ -21,9 +32,15 @@ export default function Products() {
       </Title>
       <div className="product-filters">
         <div className="products-form">
-        <input className="product-search" type="search" />
+          <input
+            className="product-search"
+            type="search"
+            placeholder="Pesquisar produto..."
+            value={searchTerm}
+            onChange={handleSearch}
+          />
           <div className="search-icon">
-          <FaSearch />
+            <FaSearch />
           </div>
         </div>
         <ul className="filters">
@@ -42,7 +59,7 @@ export default function Products() {
         </ul>
       </div>
       <ProductsList>
-        {arrayproducts.map(i =>
+        {filteredProducts.map(i =>
           <li key={i.id} className="product-item">
             <div
               className="product-img"
