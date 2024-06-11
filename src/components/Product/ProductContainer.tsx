@@ -14,7 +14,7 @@ export const ProductContainer = styled.div`
     color: ${theme.colors.secondary};
 
     .product-content{
-        width: 100%;
+        width: max-content;
         height: max-content;
         display: flex;
         align-items: flex-start;
@@ -31,13 +31,13 @@ export const ProductContainer = styled.div`
             position: relative;
 
             .img-list{
-                width: 62px;
+                width: 68px;
                 height: max-content;
                 background-color: ${theme.colors.gray_bg};
                 margin-right: 12px;
                 border-radius: 12px;
                 box-sizing: border-box;
-                padding: 10px 6px;
+                padding: 2px 4px 2px 4px; 
                 display: flex;
                 flex-direction: column;
                 align-items: center;
@@ -48,9 +48,18 @@ export const ProductContainer = styled.div`
 
                 .img-select{
                     width: 100%;
-                    margin-bottom: 10px;
+                    margin-top: 4px;
+                    margin-bottom: 4px;
+                    border-width: 2px;
+                    border-style: solid;
+                    border-color: transparent;
+                    border-radius: 6px;
+                    box-sizing: border-box;
+                    padding: 3px;
+                    transition: 300ms;
                     &:hover{
                         cursor: pointer;
+                        border-color: ${theme.colors.secondary};
                     }
                 }
             }

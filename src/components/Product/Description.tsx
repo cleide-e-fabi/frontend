@@ -9,6 +9,8 @@ export const Description = styled.div`
         font-weight: 400 !important;
         color: ${theme.colors.secondary} !important;
         text-align: justify !important;
+        background-color: transparent !important;
+        margin-top: 4px !important;
         
     }
 

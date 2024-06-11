@@ -27,11 +27,16 @@ export const ProductsList = styled.ul`
         margin-right: 20px;
         margin-top: 20px;
         margin-bottom: 20px;
-        transition: 0.3s;
         color: ${theme.colors.secondary};
+        border-style: solid;
+        border-width: 1px;
+        border-color: transparent;
+        transition: 300ms;
 
         &:hover{
             box-shadow: 0px 4px 4px 0px #00000040;
+            border-color: ${theme.colors.secondary};
+            scale: 1.02;
         }
 
         .product-img{

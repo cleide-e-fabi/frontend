@@ -4,6 +4,8 @@ import { Description } from "../components/Product/Description";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import SimpleFooter from "../components/SimpleFooter/SimpleFooter";
+import ShopInfo from "../components/ShopInfo/ShopInfo";
 
 export default function Product() {
     const { idProduto } = useParams() as any;
@@ -34,42 +36,53 @@ export default function Product() {
     };
 
     if (!product) {
-        return <div>Carregando...</div>;
+        return (
+            <ProductContainer>
+                <Header />
+                <div className="product-content">
+                    Carregando...
+                </div>
+            </ProductContainer>
+        );
     }
 
     return (
-        <ProductContainer>
-            <Header />
-            <div className="product-content">
-                <div className="product-info">
-                    <ul className="img-list">
-                        {product[0].url_image.map((image: string, index: number) => (
-                            <li key={index}>
-                                <img
-                                    className="img-select"
-                                    src={image}
-                                    alt={`Product ${index}`}
-                                    onClick={() => handleImageClick(image)}
-                                />
-                            </li>
-                        ))}
-                    </ul>
-                    <div className="img-container">
-                        <img
-                            className="product-img"
-                            src={selectedImage}
-                            alt={product[0].title}
-                        />
+        <>
+            <ProductContainer>
+                <Header />
+                <div className="product-content">
+                    <div className="product-info">
+                        <ul className="img-list">
+                            {product[0].url_image.map((image: string, index: number) => (
+                                <li key={index}>
+                                    <img
+                                        className="img-select"
+                                        src={image}
+                                        alt={`Product ${index}`}
+                                        onClick={() => handleImageClick(image)}
+                                    />
+                                </li>
+                            ))}
+                        </ul>
+                        <div className="img-container">
+                            <img
+                                className="product-img"
+                                src={selectedImage}
+                                alt={product[0].title}
+                            />
+                        </div>
+                        <div className="product-description">
+                            <h1 className="description-title">Descrição</h1>
+                            <Description dangerouslySetInnerHTML={renderHTML(product[0].description)}></Description>
+                        </div>
                     </div>
-                    <div className="product-description">
-                        <h1 className="description-title">Descrição</h1>
-                        <Description dangerouslySetInnerHTML={renderHTML(product[0].description)}></Description>
+                    <div className="product-payment">
+                        <p>Preço: {product[0].price}</p>
                     </div>
                 </div>
-                <div className="product-payment">
-                    <p>Preço: {product[0].price}</p>
-                </div>
-            </div>
-        </ProductContainer>
+                <ShopInfo />
+            </ProductContainer>
+            <SimpleFooter />
+        </>
     );
 }
