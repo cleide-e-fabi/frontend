@@ -8,7 +8,7 @@ export default function Policy() {
         <ReplacementContainer>
             <Header />
             <Title>
-                <h6>TERMOS DE USO</h6>
+                <p>TERMOS DE USO</p>
                 <span className="line"></span>
             </Title>
             <p className="replacement-text">

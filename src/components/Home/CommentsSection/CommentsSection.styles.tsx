@@ -1,7 +1,7 @@
 import styled from "styled-components";
-import theme from "../../styles/theme";
+import theme from "../../../styles/theme";
 
-export const CommentsSection = styled.section`
+export const CommentsSectionStyles = styled.section`
   width: 100%;
   height: max-content;
   box-sizing: border-box;

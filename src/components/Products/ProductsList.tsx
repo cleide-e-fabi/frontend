@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import theme from "../../styles/theme";
 
 export const ProductsList = styled.ul`
     width: 100%;
@@ -27,6 +28,7 @@ export const ProductsList = styled.ul`
         margin-top: 20px;
         margin-bottom: 20px;
         transition: 0.3s;
+        color: ${theme.colors.secondary};
 
         &:hover{
             box-shadow: 0px 4px 4px 0px #00000040;

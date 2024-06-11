@@ -8,7 +8,7 @@ export default function Replacement() {
         <ReplacementContainer>
             <Header />
             <Title>
-                <h6>TROCAS E DEVOLUÇÕES</h6>
+                <p>TROCAS E DEVOLUÇÕES</p>
                 <span className="line"></span>
             </Title>
             <p className="replacement-text">

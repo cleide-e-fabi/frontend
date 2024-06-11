@@ -1,33 +1,36 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { ProductsContainer } from "../components/Products/Products.styles";
 import { ProductsList } from "../components/Products/ProductsList";
 import Header from "../components/Home/Header/Header";
-import { arrayproducts } from "./arrayproducts";
 import * as svgs from "../assets/svgs/index";
 import { Title } from "../components/Title";
 import { AiFillHeart } from "react-icons/ai";
 import { FaArrowCircleUp } from "react-icons/fa";
 import { FaArrowCircleDown } from "react-icons/fa";
 import { FaSearch } from "react-icons/fa";
+import UserContext from '../contexts/UserContext';
+import { Link } from 'react-router-dom';
 
 
 export default function Products() {
 
   const [searchTerm, setSearchTerm] = useState<string>('');
 
+  const { products } = useContext(UserContext) as any;
+
   const handleSearch = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSearchTerm(event.target.value);
   };
 
-  const filteredProducts = arrayproducts.filter(product =>
-    product.nome.toLowerCase().includes(searchTerm.toLowerCase())
+  const filteredProducts = products.filter((product: { title: string; }) =>
+    product.title.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
   return (
     <ProductsContainer>
       <Header />
       <Title>
-        <h6>PRODUTOS</h6>
+        <p>PRODUTOS</p>
         <span className="line"></span>
       </Title>
       <div className="product-filters">
@@ -59,16 +62,16 @@ export default function Products() {
         </ul>
       </div>
       <ProductsList>
-        {filteredProducts.map(i =>
-          <li key={i.id} className="product-item">
+        {filteredProducts.map((i: any) =>
+          <Link key={i.id} className="product-item" to={`/produtos/${i.id}`}>
             <div
               className="product-img"
-              style={{ backgroundImage: `url(${i.url})` }}>
+              style={{ backgroundImage: `url(${i.url_image[0]})` }}>
             </div>
-            <p className="product-title">{i.nome}</p>
-            <h2 className="product-price">R$ {i.preco}</h2>
+            <p className="product-title">{i.title}</p>
+            <h2 className="product-price">R$ {i.price}</h2>
             <img className="product-plus" src={svgs.plus} />
-          </li>
+          </Link>
         )}
       </ProductsList>
 

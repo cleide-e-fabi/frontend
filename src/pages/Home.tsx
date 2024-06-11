@@ -4,19 +4,24 @@ import { Mosaico } from "../components/Home/Mosaico.styles";
 import { Footer } from "../components/Home/Footer.styles";
 import { FooterElement } from "../components/Home/FooterElement.styles";
 import { SubHome } from "../components/Home/SubHome.styles";
-import { CommentsSection } from "../components/Home/CommentsSection";
 import { MainFooter } from "../components/Home/MainFooter.styles";
 import { Title } from "../components/Title";
 import * as imgs from "../assets/imgs";
 import * as svgs from "../assets/svgs";
 import theme from "../styles/theme";
 import Header from "../components/Home/Header/Header";
+import CommentsSection from "../components/Home/CommentsSection/CommentsSection";
+import { useContext } from "react";
+import UserContext from "../contexts/UserContext";
 
 export default function Home() {
+
+  const { products } = useContext(UserContext) as any;
+
   return (
     <>
       <StyledHome>
-        <Header/>
+        <Header />
         <div className="middle-content">
           <HomeContent>
             <p>{`PRESENTEIE ALGUÉM ESPECIAL PARA VOCÊ!`}</p>
@@ -116,28 +121,18 @@ export default function Home() {
           </li>
         </ul>
         <Title>
-            <h6>FAVORITOS</h6>
-            <span className="line"></span>
+          <p>FAVORITOS</p>
+          <span className="line"></span>
         </Title>
         <ul className="favorites-list">
-          <li className="favorites-item">
-            <img src={svgs.add} className="add-item" />
-            <img src={imgs.caneca} />
-            <p>CANECA PERSONALIZADA</p>
-            <h1>R$45,00</h1>
-          </li>
-          <li className="favorites-item">
-            <img src={svgs.add} className="add-item" />
-            <img src={imgs.caneca} />
-            <p>CANECA PERSONALIZADA</p>
-            <h1>R$45,00</h1>
-          </li>
-          <li className="favorites-item">
-            <img src={svgs.add} className="add-item" />
-            <img src={imgs.caneca} />
-            <p>CANECA PERSONALIZADA</p>
-            <h1>R$45,00</h1>
-          </li>
+          {products.slice(0, 3).map((i: any) =>
+            <li key={i.id} className="favorites-item">
+              <img src={svgs.add} className="add-item" />
+              <img src={i.url_image} />
+              <p>{i.title}</p>
+              <h1>{i.price}</h1>
+            </li>
+          )}
           <div className="custom-container">
             <p className="custom-text">
               {`Personalize `} <br /> {`seu presente aqui`}
@@ -146,48 +141,7 @@ export default function Home() {
           </div>
         </ul>
       </SubHome>
-      <CommentsSection>
-        <img className="wave" src={svgs.wave} />
-        <p className="comment-title">
-          {"Deixe seu comentário"} <br />
-          <strong>{"A Cleide e Fabi quer saber!"}</strong>
-        </p>
-        <ul className="comment-cards">
-          <li className="comment-card">
-            <ul className="comment-stars">
-              <li className="star">{`★`}</li>
-              <li className="star">{`★`}</li>
-              <li className="star">{`★`}</li>
-              <li className="star">{`★`}</li>
-              <li className="star">{`★`}</li>
-            </ul>
-            <h6 className="product-name">{`Nome do produto`}</h6>
-            <h5 className="comment-text">{`Deu tudo certo. Vcs são maravilhosas!`}</h5>
-            <div className="comment-date">{`03/02/24`}</div>
-          </li>
-          <li className="comment-card">
-            <ul className="comment-stars">
-              <li className="star">{`★`}</li>
-              <li className="star">{`★`}</li>
-              <li className="star">{`★`}</li>
-              <li className="star">{`★`}</li>
-            </ul>
-            <h6 className="product-name">{`Nome do produto`}</h6>
-            <h5 className="comment-text">{`Deu tudo certo. Vcs são maravilhosas!`}</h5>
-            <div className="comment-date">{`03/02/24`}</div>
-          </li>
-          <li className="comment-card">
-            <ul className="comment-stars">
-              <li className="star">{`★`}</li>
-              <li className="star">{`★`}</li>
-              <li className="star">{`★`}</li>
-            </ul>
-            <h6 className="product-name">{`Nome do produto`}</h6>
-            <h5 className="comment-text">{`Deu tudo certo. Vcs são maravilhosas!`}</h5>
-            <div className="comment-date">{`03/02/24`}</div>
-          </li>
-        </ul>
-      </CommentsSection>
+      <CommentsSection />
       <MainFooter>
         <img className="footer-logo" src={svgs.logov} />
         <h5 className="footer-info">{`Cleide e Fabi | CNPJ: 13.895.943/0001-71`}</h5>

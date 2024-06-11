@@ -8,7 +8,7 @@ export default function Contact() {
         <ReplacementContainer>
             <Header />
             <Title>
-                <h6>CONTATO</h6>
+                <p>CONTATO</p>
                 <span className="line"></span>
             </Title>
             <p className="replacement-text">

@@ -23,17 +23,76 @@ export const ProductContainer = styled.div`
         padding: 0px 60px;
 
         .product-info{
-            width: 46%;
-            height: 800px;
-            background-color: red;
+            max-width: 500px;
+            height: max-content;
             display: flex;
             flex-direction: column;
             margin-right: 20px;
+            position: relative;
+
+            .img-list{
+                width: 62px;
+                height: max-content;
+                background-color: ${theme.colors.gray_bg};
+                margin-right: 12px;
+                border-radius: 12px;
+                box-sizing: border-box;
+                padding: 10px 6px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                position: absolute;
+                top: 0px;
+                left: -78px;
+
+                .img-select{
+                    width: 100%;
+                    margin-bottom: 10px;
+                    &:hover{
+                        cursor: pointer;
+                    }
+                }
+            }
+
+            .img-container{
+                width: 100%;
+                height: max-content;
+                background-color: ${theme.colors.gray_bg};
+                box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+                box-sizing: border-box;
+                padding: 20px 20px;
+                border-radius: 12px;
+                margin-bottom: 20px;
+
+                .product-img{
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+
+            .product-description{
+                width: 100%;
+                height: max-content;
+                background-color: ${theme.colors.gray_bg};
+                box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+                box-sizing: border-box;
+                padding: 20px 20px;
+                border-radius: 12px;
+
+                .description-title{
+                    font-family: "Montserrat", sans-serif;
+                    font-size: 20px;
+                    font-weight: 700;
+                    margin-bottom: 20px;
+                }
+            }
+
         }
 
         .product-payment{
-            width: 38%;
-            height: 800px;
+            width:500px;
+            height: max-content;
             background-color: green;
             display: flex;
             flex-direction: column;
