@@ -72,7 +72,7 @@ export default function Products() {
                 style={{ backgroundImage: `url(${i.url_image[0]})` }}>
               </div>
               <p className="product-title">{i.title}</p>
-              <h2 className="product-price">R$ {i.price}</h2>
+              <h2 className="product-price">R$ {i.price} <span>R$ {i.compare_at_price}</span></h2>
               <img className="product-plus" src={svgs.plus} />
             </Link>
           )}

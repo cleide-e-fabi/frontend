@@ -58,6 +58,15 @@ export const ProductsList = styled.ul`
             font-family: 'Montserrat', sans-serif;
             font-size: 18px;
             font-weight: 700;
+
+            span{
+                width: 100%;
+                font-size: 16px;
+                font-weight: 500;
+                color: #9c9c9c;
+                margin-left: 3px;
+                text-decoration: line-through;
+            }
         }
         
         .product-plus{
