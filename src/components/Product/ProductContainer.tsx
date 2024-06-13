@@ -99,7 +99,12 @@ export const ProductContainer = styled.div`
 
         }
 
-        .product-payment{
+        .product-payment-container{
+
+            width: max-content;
+            height: max-content;
+
+            .product-payment{
             width:500px;
             height: max-content;
             background-color: ${theme.colors.gray_bg};
@@ -224,71 +229,145 @@ export const ProductContainer = styled.div`
                 }
             }
 
-            .product-count{
-                width: max-content;
-                height: max-content;
-                display: flex;
-                align-items: center;
-                margin-bottom: 26px;
-
-                .product-quantity{
-                    font-size: 16px;
-                    font-weight: 700;
-                    margin-right: 8px;
-                }
-
-                .quantity-button{
-                    width: 36px;
-                    height: 32px;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    border-radius: 6px;
-                    background-color: ${theme.colors.secondary};
-                    color: ${theme.colors.primary};
-                    font-size: 20px;
-                    font-weight: 900;
-                    box-sizing: border-box;
-                    padding: 0px 0px;
-
-                    &:hover{
-                        border: none;
-                    }
-                }
-
-                .plus{
-                    border-bottom-left-radius: 0px;
-                    border-top-left-radius: 0px;
-                }
-
-                .minus{
-                    border-top-right-radius: 0px;
-                    border-bottom-right-radius: 0px;
-                }
-
-                .quantity-value{
-                    width: 34px;
-                    height: 30px;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    border-style: solid;
-                    border-color: ${theme.colors.secondary};
-                    border-width: 1px;
-                }
-            }
-
             .product-ship-text{
                 font-size: 14px;
                 font-weight: 700;
                 margin-right: 8px;
-                margin-bottom: 6px;
+                margin-bottom: 8px;
 
                 span{
                     font-weight: 400;
+                    font-size: 13px;
                 }
             }
-            
+
+            .buy-button, .cart-button{
+                width: 100%;
+                height: 50px;
+                border-radius: 10px;
+                font-size: 18px;
+                font-weight: 800;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                transition: 300ms;
+            }
+
+            .buy-button{
+                margin-top: 28px;
+                margin-bottom: 12px;
+                background-color: ${theme.colors.secondary};
+                color: ${theme.colors.primary};
+
+                :nth-child(1){
+                    font-size: 30px;
+                    margin-right: 12px;
+                }
+
+                &:hover{
+                    background-color: ${theme.colors.primary};
+                    color: ${theme.colors.secondary};
+                    scale: 1.02;
+                    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+                    border-color: ${theme.colors.secondary};
+                    cursor: pointer;
+                }
+
+            }
+
+            .cart-button{
+                border-color: ${theme.colors.secondary};
+                color: ${theme.colors.secondary};
+                background-color: ${theme.colors.gray_bg};
+
+                &:hover{
+                    background-color: ${theme.colors.secondary};
+                    color: ${theme.colors.primary};
+                    scale: 1.02;
+                    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+                    border-color: ${theme.colors.secondary};
+                    cursor: pointer;
+                }
+            }
+
+            .info-credit-cards{
+                height: max-content;
+                margin-top: 18px;
+                margin-bottom: 12px;
+                display: flex;
+                align-items: center;
+                justify-content: flex-start;
+
+                .card-icon{
+                    font-size: 36px;
+                    margin-right: 10px;
+                }
+
+                .info-credit-card-text{
+                    height: 100%;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    font-size: 15px;
+
+                    h2{
+                        font-weight: 400;
+                    }
+                    h3{
+                        font-weight: 700;
+                    }
+                }
+            }
+
+            .card-flags{
+                width: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin-top: 14px;
+
+                .flag{
+                    width: 38px;
+                    margin-left: 4px;
+                    margin-right: 4px;
+                }
+            }   
+        }
+
+        .payment-warning{
+            width:500px;
+            height: max-content;
+            background-color: ${theme.colors.gray_bg};
+            display: flex;
+            flex-direction: column;
+            margin-top: 20px;
+            margin-left: 20px;
+            box-sizing: border-box;
+            padding: 12px 20px;
+            border-radius: 12px;
+            font-family: "Montserrat", sans-serif;
+            color: ${theme.colors.secondary};
+            box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+            position: relative;
+
+            .warning-lock{
+                font-size: 24px;
+                position: absolute;
+                top: 12px;
+                right: 14px;
+            }
+
+            h1{
+                font-weight: 700;
+                margin-bottom: 12px;
+                font-size: 16px;
+            }
+
+            h2{
+                font-size: 16px;
+            }
+        }
+
         }
     }
 `;
