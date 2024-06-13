@@ -13,12 +13,12 @@ import Contact from "./pages/Contact";
 import Product from "./pages/Product";
 import { useEffect } from "react";
 import axios from "axios";
+import Cart from "./pages/Cart";
 
 export default function App() {
 
-  const [name, setNameLS] = useState("");
-  const [token, setTokenLS] = useState("");
   const [products, setProducts] = useState<any[]>([]);
+  const [cartProducts, setCartProducts] = useState<any[]>([]);
 
   useEffect(() => {
     const promise = axios.get("http://localhost:3333/products")
@@ -28,17 +28,17 @@ export default function App() {
   return (
     <Body>
       <GlobalStyle />
-      <UserContext.Provider value={{ name, setNameLS, token, setTokenLS, products }}>
+      <UserContext.Provider value={{ products, cartProducts, setCartProducts }}>
         <BrowserRouter>
           <Routes>
-            <Route path="/" element={<Home />} /> 
+            <Route path="/" element={<Home />} />
             <Route path="/produtos" element={<Products />} />
             <Route path="/produtos/:idProduto" element={<Product />} />
             <Route path="/sobre" element={<About />} />
-            <Route path="/troca" element={<Replacement/>}/>
-            <Route path="/termos" element={<Policy/>}/>
-            <Route path="/contato" element={<Contact/>}/>
-    
+            <Route path="/troca" element={<Replacement />} />
+            <Route path="/termos" element={<Policy />} />
+            <Route path="/contato" element={<Contact />} />
+            <Route path="/carrinho" element={<Cart />} />
           </Routes>
         </BrowserRouter>
       </UserContext.Provider>

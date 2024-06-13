@@ -35,12 +35,6 @@ export default function Header() {
             </div>
           </div>
           <div className="header-icons">
-            <Link className="icon-option" to="/">
-              <img src={svgs.desejo} />
-            </Link>
-            <Link className="icon-option" to="/">
-              <img src={svgs.comparar} />
-            </Link>
             <Link className="icon-option" to="/carrinho">
               <img src={svgs.carrinho} />
             </Link>
