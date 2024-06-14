@@ -26,6 +26,17 @@ export default function Products() {
     product.title.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
+  if (!products) {
+    return (
+      <ProductsContainer>
+        <Header />
+        <div className="product-content">
+          Carregando...
+        </div>
+      </ProductsContainer>
+    );
+  }
+
   return (
     <>
       <ProductsContainer>

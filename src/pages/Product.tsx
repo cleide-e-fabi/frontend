@@ -33,7 +33,7 @@ export default function Product() {
     };
 
     useEffect(() => {
-        axios.get(`http://localhost:3333/products/${idProduto}`)
+        axios.get(`https://gifts-back.onrender.com/products/${idProduto}`)
             .then(response => {
                 setProduct(response.data);
                 setSelectedImage(response.data[0].url_image[0]);

@@ -22,7 +22,7 @@ export default function App() {
   const [cartProducts, setCartProducts] = useState<any[]>(cartFromLS);
   
   useEffect(() => {
-    const promise = axios.get("http://localhost:3333/products")
+    const promise = axios.get("https://gifts-back.onrender.com/products")
     promise.then(answer => { (setProducts(answer.data)) })
   }, [])
 
