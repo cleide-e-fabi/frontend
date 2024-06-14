@@ -1,34 +1,37 @@
 import { useState } from "react";
 import { ShipFormStyles } from "./ShipFormStyles.styles";
 import axios from "axios";
+import loading from "../../assets/anim/loading.webp";
 
 export default function ShipForm() {
 
     const [invalidCep, setInvalidCep] = useState<boolean>(false);
     const [validCep, setValidCep] = useState<boolean>(false);
+    const [showLoading, setShowLoading] = useState<boolean>(false);
     const [cep, setCep] = useState("");
 
     const verifyCep = async (e: React.FormEvent) => {
         e.preventDefault();
+        setShowLoading(true);
 
         try {
             const response = await axios.get(`https://viacep.com.br/ws/${cep}/json/`);
 
             const hasCep = 'cep' in response.data;
 
-            console.log('olha a respostaaa', cep, response.data);
-
             if (hasCep) {
                 setInvalidCep(false);
                 setValidCep(true);
+                setShowLoading(false);
             } else {
                 setInvalidCep(true);
                 setValidCep(false);
+                setShowLoading(false);
             }
         } catch (error) {
             setInvalidCep(true);
             setValidCep(false);
-            console.error('Erro ao buscar o CEP:', error);
+            setShowLoading(false);
         }
     };
 
@@ -45,7 +48,7 @@ export default function ShipForm() {
                         maxLength={8}
                         required
                     ></input>
-                    <button type="submit">{`Calcular`}</button>
+                    <button type="submit">{`Calcular`}{showLoading ? <img className="loading-gif" src={loading} alt="loading..." /> : <></>}</button>
                 </form>
                 <a
                     href="https://buscacepinter.correios.com.br/app/endereco/index.php"

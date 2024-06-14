@@ -2,7 +2,6 @@ import React, { useState, useContext } from 'react';
 import { ProductsContainer } from "../components/Products/Products.styles";
 import { ProductsList } from "../components/Products/ProductsList";
 import Header from "../components/Home/Header/Header";
-import * as svgs from "../assets/svgs/index";
 import { Title } from "../components/Title";
 import { AiFillHeart } from "react-icons/ai";
 import { FaArrowCircleUp } from "react-icons/fa";
@@ -17,7 +16,6 @@ import ShopInfo from '../components/ShopInfo/ShopInfo';
 export default function Products() {
 
   const [searchTerm, setSearchTerm] = useState<string>('');
-
   const { products } = useContext(UserContext) as any;
 
   const handleSearch = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -73,7 +71,6 @@ export default function Products() {
               </div>
               <p className="product-title">{i.title}</p>
               <h2 className="product-price">R$ {i.price} <span>R$ {i.compare_at_price}</span></h2>
-              <img className="product-plus" src={svgs.plus} />
             </Link>
           )}
         </ProductsList>

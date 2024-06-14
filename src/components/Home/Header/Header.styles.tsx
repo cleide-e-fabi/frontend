@@ -136,19 +136,7 @@ export const HeaderStyles = styled.header`
     display: flex;
     padding: 0px 22px;
     background-color: ${theme.colors.primary};
-
-    .header-register {
-      width: max-content;
-      color: ${theme.colors.secondary};
-      border-bottom-width: 1px;
-      border-style: solid;
-      border-color: ${theme.colors.primary};
-      transition: 300ms;
-
-      &:hover {
-        border-color: ${theme.colors.secondary};
-      }
-    }
+    position: relative;
 
     .icon-option {
       height: 40%;
@@ -158,6 +146,36 @@ export const HeaderStyles = styled.header`
         height: 100%;
       }
     }
+
+    .added{
+        width: 300px;
+        height: 44px;
+        background-color: ${theme.colors.secondary};
+        position: absolute;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        top: 55px;
+        right: 0px;
+        color: ${theme.colors.primary};
+        font-family: 'Montserrat', sans-serif;
+        font-size: 16px;
+        font-weight: 700;
+        border-radius: 8px 0px 8px 8px;
+        transition: 300ms;
+      }
+
+      .added-show{
+        transform: translateY(0%) translateX(0%);
+        opacity: 1;
+        scale: 1;
+      }
+
+      .added-hidden{
+        transform: translateY(100%) translateX(100%);
+        opacity: 0;
+        scale: 0;
+      }
   }
 
   @media (max-width: 1400px) {

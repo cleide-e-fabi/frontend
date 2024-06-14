@@ -157,6 +157,8 @@ export const CartContainer = styled.div`
 
             .cart-product-quantities{
                 display: flex;
+                height: max-content;
+                align-items: center;
 
                 .cart-product-amount{
                     display: flex;
@@ -230,6 +232,7 @@ export const CartContainer = styled.div`
                 align-items: center;
                 justify-content: center;
                 transition: 300ms;
+                border: ${theme.colors.secondary} solid 1px;
             }
 
             .finalize-purchase{

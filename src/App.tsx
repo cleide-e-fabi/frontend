@@ -17,13 +17,18 @@ import Cart from "./pages/Cart";
 
 export default function App() {
 
+  const cartFromLS = JSON.parse(localStorage.getItem('cartProducts') as any) || [];
   const [products, setProducts] = useState<any[]>([]);
-  const [cartProducts, setCartProducts] = useState<any[]>([]);
-
+  const [cartProducts, setCartProducts] = useState<any[]>(cartFromLS);
+  
   useEffect(() => {
     const promise = axios.get("http://localhost:3333/products")
     promise.then(answer => { (setProducts(answer.data)) })
   }, [])
+
+  useEffect(() => {
+    localStorage.setItem("cartProducts", JSON.stringify(cartProducts));
+  }, [cartProducts]);
 
   return (
     <Body>

@@ -1,9 +1,9 @@
+import { useContext, useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
+import axios from 'axios';
 import { ProductContainer } from "../components/Product/ProductContainer";
 import Header from "../components/Home/Header/Header";
 import { Description } from "../components/Product/Description";
-import { useParams } from "react-router-dom";
-import { useEffect, useState } from "react";
-import axios from "axios";
 import SimpleFooter from "../components/SimpleFooter/SimpleFooter";
 import ShopInfo from "../components/ShopInfo/ShopInfo";
 import { FaPix } from "react-icons/fa6";
@@ -11,25 +11,38 @@ import { CiShoppingCart } from "react-icons/ci";
 import { FaCreditCard } from "react-icons/fa6";
 import { IoMdLock } from "react-icons/io";
 import ShipForm from "../components/ShipForm/ShipForm";
-import Counter from "../components/Counter/Counter";
+import { CounterStyles } from '../components/Counter/CounterStyles.styles';
 import * as flags from "../assets/flags";
+import UserContext from "../contexts/UserContext";
 
 export default function Product() {
 
     const { idProduto } = useParams() as any;
     const [product, setProduct] = useState<any>(null);
     const [selectedImage, setSelectedImage] = useState<string>("");
+    const { setCartProducts } = useContext(UserContext) as any;
+    const [count, setCount] = useState<number>(1);
+    const [showAdded, setShowAdded] = useState<string>("added-hidden");
+
+    const increment = () => {
+        setCount((prevCount) => prevCount + 1);
+    };
+
+    const decrement = () => {
+        setCount((prevCount) => Math.max(prevCount - 1, 1));
+    };
 
     useEffect(() => {
         axios.get(`http://localhost:3333/products/${idProduto}`)
             .then(response => {
                 setProduct(response.data);
-                setSelectedImage(response.data[0].url_image[0]); // Set initial selected image here
+                setSelectedImage(response.data[0].url_image[0]);
             })
             .catch(error => {
                 console.error("Erro ao buscar o produto:", error);
             });
     }, [idProduto]);
+
 
     const handleImageClick = (image: string) => {
         setSelectedImage(image);
@@ -41,6 +54,29 @@ export default function Product() {
 
     const renderHTML = (htmlString: string) => {
         return { __html: stripStyles(htmlString) };
+    };
+
+    const handleAddToCart = () => {
+        if (product && product.length > 0) {
+            const productToAdd = { ...product[0], amount: count };
+            setCartProducts((prevCartProducts: any[]) => {
+                const existingProductIndex = prevCartProducts.findIndex(
+                    (cartProduct: any) => cartProduct.id === productToAdd.id
+                );
+
+                if (existingProductIndex !== -1) {
+                    const updatedCartProducts = [...prevCartProducts];
+                    updatedCartProducts[existingProductIndex].amount += 1;
+                    return updatedCartProducts;
+                } else {
+                    return [...prevCartProducts, productToAdd];
+                }
+            });
+            setShowAdded("added-show");
+            setTimeout(() => {
+                setShowAdded("added-hidden");
+            }, 1500);
+        }
     };
 
     if (!product) {
@@ -57,7 +93,7 @@ export default function Product() {
     return (
         <>
             <ProductContainer>
-                <Header />
+                <Header showAdded={showAdded} />
                 <div className="product-content">
                     <div className="product-info">
                         <ul className="img-list">
@@ -91,20 +127,25 @@ export default function Product() {
                             <span className="product-line"></span>
                             <h3 className="product-compare">R$ {product[0].compare_at_price}</h3>
                             <div className="product-price"><h1 className="price-value">R$ {product[0].price}</h1> <span className="discount-percent">🡻 {Math.round(((product[0].compare_num - product[0].price_num) / product[0].compare_num) * 100)}%</span></div>
-                            <h2 className="product-saving">{`Economia de R$ ${product[0].compare_at_price - product[0].price}`}</h2>
+                            <h2 className="product-saving">{`Economia de R$ ${((product[0].compare_at_price - product[0].price)).toFixed(2)}`}</h2>
                             <div className="product-pix-info">
                                 <FaPix />
                                 <h4 className="descount-pix">Até <strong className="descount-pix-value">5% off</strong> no PIX!</h4>
                             </div>
                             <div className="product-pay-options">Ver mais opções de pagamento</div>
-                            <Counter />
+                            <CounterStyles>
+                                <h6 className="product-quantity">Quantidade:</h6>
+                                <button className="minus quantity-button" onClick={decrement}>-</button>
+                                <div className="quantity-value">{count}</div>
+                                <button className="plus quantity-button" onClick={increment}>+</button>
+                            </CounterStyles>
                             <p className="product-ship-text">Entrega: <span>Calcular frete e prazo</span></p>
                             <ShipForm />
                             <button className="buy-button">
                                 <CiShoppingCart />
                                 <span>COMPRAR AGORA</span>
                             </button>
-                            <button className="cart-button">ADICIONAR AO CARRINHO</button>
+                            <button className="cart-button" onClick={handleAddToCart}>ADICIONAR AO CARRINHO</button>
                             <div className="info-credit-cards">
                                 <FaCreditCard className="card-icon" />
                                 <div className="info-credit-card-text">
@@ -121,7 +162,7 @@ export default function Product() {
                             </ul>
                         </div>
                         <div className="payment-warning">
-                            <IoMdLock className="warning-lock"/>
+                            <IoMdLock className="warning-lock" />
                             <h1>
                                 Pagamento Seguro
                             </h1>
@@ -139,3 +180,5 @@ export default function Product() {
         </>
     );
 }
+
+

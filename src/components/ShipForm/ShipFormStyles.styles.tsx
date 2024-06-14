@@ -24,7 +24,14 @@ export const ShipFormStyles = styled.div`
                         box-sizing: border-box;
                         padding: 0px 8px;
                         background-color: ${theme.colors.secondary};
-                        color: ${theme.colors.primary}
+                        color: ${theme.colors.primary};
+                        display: flex;
+                        align-items: center;
+
+                        .loading-gif{
+                            height: 50%;
+                            margin-left: 10px;
+                        }
 
                     }
 

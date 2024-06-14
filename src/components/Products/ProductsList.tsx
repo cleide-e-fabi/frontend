@@ -68,14 +68,5 @@ export const ProductsList = styled.ul`
                 text-decoration: line-through;
             }
         }
-        
-        .product-plus{
-            position: absolute;
-            bottom: 20px;
-            right: 30px;
-            &:hover{
-                cursor: pointer;
-            }
-        }
     }
 `;
