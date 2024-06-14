@@ -14,6 +14,7 @@ import Product from "./pages/Product";
 import { useEffect } from "react";
 import axios from "axios";
 import Cart from "./pages/Cart";
+import Checkout from "./pages/Checkout";
 
 export default function App() {
 
@@ -44,6 +45,7 @@ export default function App() {
             <Route path="/termos" element={<Policy />} />
             <Route path="/contato" element={<Contact />} />
             <Route path="/carrinho" element={<Cart />} />
+            <Route path="/checkout" element={<Checkout/>}/>
           </Routes>
         </BrowserRouter>
       </UserContext.Provider>
