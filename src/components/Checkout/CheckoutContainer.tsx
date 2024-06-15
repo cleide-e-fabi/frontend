@@ -53,7 +53,7 @@ export const CheckoutContainer = styled.div`
                 width: 100%;
                 height: 46px;
                 font-family: "Montserrat", sans-serif;
-                font-size: 15px;
+                font-size: 16px;
                 font-weight: 500;
                 border-radius: 8px;
                 background-color: ${theme.colors.gray};
@@ -117,6 +117,22 @@ export const CheckoutContainer = styled.div`
                     left: 20px;
                     font-size: 18px;
                     color: #01fc50;
+                }
+            }
+
+            .form-card{
+                .card-details{
+                    width: 100%;
+                    display: flex;
+                    justify-content: space-between;
+
+                    .card-comp{
+                        width: 38%;
+                        .input-card-comp{
+                            width: 100%;
+                        }
+
+                    }
                 }
             }
 
