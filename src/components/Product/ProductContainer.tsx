@@ -345,6 +345,10 @@ export const ProductContainer = styled.div`
                     margin-right: 12px;
                 }
 
+                :nth-child(2){
+                    color: ${theme.colors.primary};
+                }
+
                 &:hover{
                     background-color: ${theme.colors.primary};
                     color: ${theme.colors.secondary};
@@ -352,6 +356,11 @@ export const ProductContainer = styled.div`
                     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
                     border-color: ${theme.colors.secondary};
                     cursor: pointer;
+
+                    :nth-child(2){
+                        color: ${theme.colors.secondary};
+                    }
+
                 }
 
             }

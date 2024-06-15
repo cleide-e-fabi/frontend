@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import axios from 'axios';
 import { ProductContainer } from "../components/Product/ProductContainer";
 import Header from "../components/Home/Header/Header";
@@ -178,7 +178,7 @@ export default function Product() {
                             </div>
                             <button className="buy-button">
                                 <CiShoppingCart />
-                                <span>COMPRAR AGORA</span>
+                                <Link to="/checkout">COMPRAR AGORA</Link>
                             </button>
                             <button className="cart-button" onClick={handleAddToCart}>ADICIONAR AO CARRINHO</button>
                             <div className="info-credit-cards">
