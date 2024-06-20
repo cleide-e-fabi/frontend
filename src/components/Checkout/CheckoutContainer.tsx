@@ -126,12 +126,57 @@ export const CheckoutContainer = styled.div`
                     display: flex;
                     justify-content: space-between;
 
+                    .rccs{
+                        box-sizing: border-box;
+                        padding: 0px 0px;
+                        margin: 0px 0px;
+                    }
+
                     .card-comp{
                         width: 38%;
                         .input-card-comp{
                             width: 100%;
                         }
 
+                    }
+                }
+
+                .select-container{
+                    width: 100%;
+                    height: max-content;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    margin-top: 16px;
+
+                    label{
+                        font-size: 16px;
+                        font-weight: 600;
+                    }
+
+                    select{
+                        width: 82%;
+                        height: 46px;
+                        font-family: "Montserrat", sans-serif;
+                        font-size: 16px;
+                        font-weight: 500;
+                        border-radius: 8px;
+                        background-color: ${theme.colors.gray};
+                        border: none;
+                        box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+                        color: #000000;
+                        box-sizing: border-box;
+                        padding: 0px 16px;
+                            option{
+                                width: 100%;
+                                height: max-content;
+
+                                .option-content{
+                                    width: 100%;
+                                    height: 130px;
+                                    background-color: blue;
+                                }
+                            }
                     }
                 }
             }

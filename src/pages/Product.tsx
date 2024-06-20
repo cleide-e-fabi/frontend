@@ -1,6 +1,5 @@
 import { useContext, useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
-import axios from 'axios';
 import { ProductContainer } from "../components/Product/ProductContainer";
 import Header from "../components/Home/Header/Header";
 import { Description } from "../components/Product/Description";
@@ -18,10 +17,10 @@ import UserContext from "../contexts/UserContext";
 export default function Product() {
 
     const { idProduto } = useParams() as any;
+    const { products, setCartProducts } = useContext(UserContext) as any;
     const [product, setProduct] = useState<any>(null);
     const [price, setPrice] = useState<number>(0);
     const [selectedImage, setSelectedImage] = useState<string>("");
-    const { setCartProducts } = useContext(UserContext) as any;
     const [count, setCount] = useState<number>(1);
     const [showAdded, setShowAdded] = useState<string>("added-hidden");
     const fees = [0.1087, 0.1231, 0.1369, 0.1470, 0.1619, 0.1774, 0.1861, 0.2013, 0.2168];
@@ -35,15 +34,15 @@ export default function Product() {
     };
 
     useEffect(() => {
-        axios.get(`https://gifts-back.onrender.com/products/${idProduto}`)
-            .then(response => {
-                setProduct(response.data);
-                setPrice(response.data[0].price);
-                setSelectedImage(response.data[0].url_image[0]);
-            })
-            .catch(error => {
-                console.error("Erro ao buscar o produto:", error);
-            });
+
+        products.forEach((i: any) => {
+            if (Number(i.id) === Number(idProduto)) {
+                setProduct([i]);
+                setPrice(idProduto.price);
+                setSelectedImage(i.url_image[0]);
+
+            }
+        });
 
     }, [idProduto]);
 
@@ -176,10 +175,10 @@ export default function Product() {
                                 <h6 className='fees-text'>{`Com juros*`}</h6>
                                 <h2 className='pix-discount'>{`5% de desconto no PIX | `}<strong> {`R$ ${(Number(price) * 0.95).toFixed(2)}`}</strong></h2>
                             </div>
-                            <button className="buy-button">
+                            <Link to="/checkout" className="buy-button">
                                 <CiShoppingCart />
-                                <Link to="/checkout">COMPRAR AGORA</Link>
-                            </button>
+                                <span>COMPRAR AGORA</span>
+                            </Link>
                             <button className="cart-button" onClick={handleAddToCart}>ADICIONAR AO CARRINHO</button>
                             <div className="info-credit-cards">
                                 <FaCreditCard className="card-icon" />

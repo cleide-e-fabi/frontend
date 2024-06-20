@@ -2,25 +2,34 @@ import { CheckoutContainer } from "../components/Checkout/CheckoutContainer";
 import Header from "../components/Home/Header/Header";
 import SimpleFooter from "../components/SimpleFooter/SimpleFooter";
 import { Title } from "../components/Title";
-import { useState } from "react";
+import { useState, useContext, useEffect } from "react";
 import { FaCircleCheck } from "react-icons/fa6";
 import Cards from 'react-credit-cards-2';
 import "react-credit-cards-2/dist/es/styles-compiled.css";
+import UserContext from "../contexts/UserContext";
+import { TbShoppingBagExclamation } from "react-icons/tb";
 
 
 export default function () {
 
-    const [email, setEmail] = useState<any>("");
-    const [name, setName] = useState<any>("");
+    const { cartProducts, setCartProducts } = useContext(UserContext) as any;
+    const [cartLS, setCartLS] = useState<any[]>([]);
+    const [totalPrice, setTotalPrice] = useState<number>(0);
+    const [discount, setDiscount] = useState<number>(0);
+    const [quotas, setQuotas] = useState<any[]>([]);
+    const [selectedQuota, setSelectedQuota] = useState('');
+    const fees = [0.1087, 0.1231, 0.1369, 0.1470, 0.1619, 0.1774, 0.1861, 0.2013, 0.2168];
+    const [email, setEmail] = useState<string>("");
+    const [name, setName] = useState<string>("");
     const [phone, setPhone] = useState<any>("");
-    const [cpf, setCpf] = useState<any>("");
+    const [cpf, setCpf] = useState<string>("");
     const [cep, setCep] = useState<any>("");
-    const [city, setCity] = useState<any>("");
-    const [state, setState] = useState<any>("");
-    const [num, setNum] = useState<any>("");
-    const [address, setAddress] = useState<any>("");
-    const [district, setDistrict] = useState<any>("");
-    const [comp, setComp] = useState<any>("");
+    const [city, setCity] = useState<string>("");
+    const [state, setState] = useState<string>("");
+    const [num, setNum] = useState<string>("");
+    const [address, setAddress] = useState<string>("");
+    const [district, setDistrict] = useState<string>("");
+    const [comp, setComp] = useState<string>("");
     const [cardInfo, setCardInfo] = useState<any>({
         number: '',
         expiry: '',
@@ -29,10 +38,43 @@ export default function () {
         focus: '',
     });
 
+    const handleSelectChange = (event: any) => {
+        setSelectedQuota(event.target.value);
+    };
+
+    useEffect(() => {
+        setCartLS(JSON.parse(localStorage.getItem('cartProducts') as any));
+
+        let newTotalPrice: number = 0.00;
+        let newDiscount: number = 0.00;
+        let quotasArray = [];
+
+        cartProducts.forEach((product: any) => {
+            let diff = product.compare_at_price - product.price;
+            newTotalPrice += product.price * product.amount;
+            newDiscount += diff * product.amount;
+        });
+
+        for (let j = 1; j <= 12; j++) {
+            if (j <= 3) {
+                quotasArray.push((newTotalPrice / j).toFixed(2));
+            } else {
+                quotasArray.push(((newTotalPrice * fees[j - 4]) / j).toFixed(2));
+            }
+        }
+
+        setTotalPrice(newTotalPrice);
+        setDiscount(newDiscount);
+        setQuotas(quotasArray);
+
+
+
+    }, [cartProducts]);
+
+    console.log('parcelas', quotas);
+
     const formatExpiry = (value: string) => {
-        // Remove todos os caracteres não numéricos
         let formattedValue = value.replace(/\D/g, '');
-        // Adiciona uma barra após os dois primeiros dígitos
         if (formattedValue.length > 2) {
             formattedValue = formattedValue.slice(0, 2) + '/' + formattedValue.slice(2, 4);
         }
@@ -167,6 +209,7 @@ export default function () {
                             type="text"
                             name="name"
                             placeholder="Nome"
+                            maxLength={30}
                             pattern='[a-z A-Z-]+'
                             value={cardInfo.name}
                             onChange={handleInputChange}
@@ -223,11 +266,39 @@ export default function () {
                                 />
                             </div>
                         </div>
+                        <div className="select-container">
+                            <label>Parcelas: </label>
+                            <select onChange={handleSelectChange}>
+                                {quotas.map((q: any, index) => (
+                                    (index <= 2) ?
+                                        <option value={index + 1} key={index}>
+                                            {`${index + 1}x de R$ ${q}`} : {`${index + 1}x de R$ ${q}`}
+                                        </option>
+                                        :
+                                        <option value={index + 1} key={index}>
+                                            {`${index + 1}x de R$ ${q}`} : {`${index + 1}x de R$ ${q}*`}
+                                        </option>
+                                ))}
+                            </select>
+                        </div>
                     </div>
 
                 </div>
                 <div className="checkout-products">
-                    pindamoiangaba
+                    {(cartLS.length !== 0) ?
+                        <ul className="checkout-list">
+                            {cartProducts.map((product: any) => (
+                                <li key={product.id}>
+                                    <h1>{product.title}</h1>
+                                </li>
+                            ))}
+                        </ul>
+                        :
+                        <div className="empty-checkout">
+                            <TbShoppingBagExclamation />
+                            <h6>Jorge</h6>
+                        </div>
+                    }
                 </div>
             </form>
         </CheckoutContainer>

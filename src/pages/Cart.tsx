@@ -93,7 +93,7 @@ export default function Cart() {
                             <p className="total-price">Total: <span>{`R$ ${totalPrice.toFixed(2)}`}</span></p>
                             <h5 className="total-economy">{`Você economizou R$ ${discount.toFixed(2)}`}</h5>
                             <h6 className="ship-info">Todas as entregas possuem código de rastreio ❤</h6>
-                            <button className="finalize-purchase">FINALIZAR COMPRA</button>
+                            <Link to="/checkout" className="finalize-purchase">FINALIZAR COMPRA</Link>
                             <Link to="/produtos" className="keep-buying">CONTINUAR COMPRANDO</Link>
                         </div>
                     </div>

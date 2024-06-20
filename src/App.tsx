@@ -12,19 +12,18 @@ import Policy from "./pages/Policy";
 import Contact from "./pages/Contact";
 import Product from "./pages/Product";
 import { useEffect } from "react";
-import axios from "axios";
 import Cart from "./pages/Cart";
 import Checkout from "./pages/Checkout";
+import { productsConst } from "./assets/consts/productsConst";
 
 export default function App() {
 
   const cartFromLS = JSON.parse(localStorage.getItem('cartProducts') as any) || [];
   const [products, setProducts] = useState<any[]>([]);
   const [cartProducts, setCartProducts] = useState<any[]>(cartFromLS);
-  
+
   useEffect(() => {
-    const promise = axios.get("https://gifts-back.onrender.com/products")
-    promise.then(answer => { (setProducts(answer.data)) })
+    setProducts(productsConst);
   }, [])
 
   useEffect(() => {
@@ -44,8 +43,8 @@ export default function App() {
             <Route path="/troca" element={<Replacement />} />
             <Route path="/termos" element={<Policy />} />
             <Route path="/contato" element={<Contact />} />
+            <Route path="/checkout" element={<Checkout />} />
             <Route path="/carrinho" element={<Cart />} />
-            <Route path="/checkout" element={<Checkout/>}/>
           </Routes>
         </BrowserRouter>
       </UserContext.Provider>
