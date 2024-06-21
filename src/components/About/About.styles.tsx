@@ -20,13 +20,12 @@ export const AboutContainer = styled.div`
         align-items: center;
         justify-content: space-around;
         box-sizing: border-box;
-        padding-top: 40px;
+        padding-top: 10px;
         padding-bottom: 80px;
 
         .div-container{
             width: 480px;
-            height: 530px;
-            border-radius: 37px;
+            border-radius: 80px;
             background-color:#F2F2F2;
             box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset;
         }

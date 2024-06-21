@@ -175,7 +175,7 @@ export default function Product() {
                                 <h6 className='fees-text'>{`Com juros*`}</h6>
                                 <h2 className='pix-discount'>{`5% de desconto no PIX | `}<strong> {`R$ ${(Number(price) * 0.95).toFixed(2)}`}</strong></h2>
                             </div>
-                            <Link to="/checkout" className="buy-button">
+                            <Link to="/checkout" className="buy-button" onClick={handleAddToCart}>
                                 <CiShoppingCart />
                                 <span>COMPRAR AGORA</span>
                             </Link>

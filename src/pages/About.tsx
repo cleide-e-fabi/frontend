@@ -2,27 +2,37 @@ import { AboutContainer } from "../components/About/About.styles";
 import Header from "../components/Home/Header/Header";
 import * as svgs from "../assets/svgs";
 import { Title } from "../components/Title";
+import cleidefabi from "../assets/imgs/cleidefabi_img.jpeg";
 
 export default function About() {
     return (
         <AboutContainer>
             <Header />
             <Title>
-                <p>SOBRE NÓS</p>
+                <p>ONDE TUDO COMEÇOU</p>
                 <span className="line"></span>
             </Title>
             <div className="about-content">
-                <div className="div-container"></div>
-                <p className="about-text">{`Lorem Ipsum é simplesmente uma simulação de 
-                texto da indústria tipográfica e de impressos, e vem sendo utilizado desde 
-                o século XVI, quando um impressor desconhecido pegou uma bandeja de tipos e 
-                os embaralhou para fazer um livro de modelos de tipos. Lorem Ipsum sobreviveu 
-                não só a cinco séculos, como também ao salto para a editoração eletrônica, 
-                permanecendo essencialmente inalterado. Se popularizou na década de 60, 
-                quando a Letraset lançou decalques contendo passagens de Lorem Ipsum, e 
-                mais recentemente quando passou a ser integrado a softwares de editoração 
-                eletrônica como Aldus PageMaker.`}
-                </p>
+                <img src={cleidefabi} className="div-container" />
+                <div className="about-text">
+                    <p>{`Tudo começou com o sonho da Cleide de abrir o seu próprio negócio. Como somos muito unidas, 
+                ela me convidou para sermos sócias. Mergulhamos juntas nesse sonho que se tornou a nossa realidade. Já trabalhamos juntas 
+                há 15 anos e tornamos a loja CleideFabiPresentes conhecida em nossa região. Agora, estamos expandindo para a internet e o 
+                e-commerce, pois recebemos muitos relatos de clientes que não encontravam lojas semelhantes à nossa em suas localidades.`}
+                    </p>
+                    <br />
+                    <p>{`Assim, surgiu o desejo de criar um site para atender cada seguidor e cliente. Há décadas confeccionamos presentes com excelência, 
+                que transmitem amor e alegria a quem os recebe.`}</p>
+                    <br />
+                    <p>
+                        {`É um prazer atender você como nosso cliente. Seja bem-vindo à loja CleideFabiPresentes. 
+                Você é muito especial para nós.`}
+                    </p>
+                    <br />
+                    <p>
+                        {` att. Cleide e Fabi`}
+                    </p>
+                </div>
             </div>
             <footer className="about-footer">
                 <img className="about-footer-wpp" src={svgs.wpp} />
