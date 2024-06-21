@@ -3,7 +3,7 @@ import Header from "../components/Home/Header/Header";
 import SimpleFooter from "../components/SimpleFooter/SimpleFooter";
 import { Title } from "../components/Title";
 import { useState, useContext, useEffect } from "react";
-import { FaCircleCheck } from "react-icons/fa6";
+import { Link } from "react-router-dom";
 import "react-credit-cards-2/dist/es/styles-compiled.css";
 import UserContext from "../contexts/UserContext";
 import { TbShoppingBagExclamation } from "react-icons/tb";
@@ -62,8 +62,6 @@ export default function Checkout() {
         }
     }, [cartToken]);
 
-    console.log("xheckout data", checkoutLink);
-
     return (
         <><CheckoutContainer>
             <Header />
@@ -71,29 +69,44 @@ export default function Checkout() {
                 <p>RESUMO DA COMPRA</p>
                 <span className="line"></span>
             </Title>
-            <form className="checkout-form">
-                <div className="checkout-products">
-                    {(cartLS.length !== 0) ?
-                        <>
-                            <ul className="checkout-list">
-                                {cartProducts.map((product: any) => (
-                                    <li key={product.id}>
+            <div className="checkout-form">
+                {(cartLS.length !== 0) ?
+                    <>
+                        <ul className="checkout-list">
+                            {cartProducts.map((product: any) => (
+                                <li className="checkout-li" key={product.id}>
+                                    <img className="product-img-check" src={product.url_image[0]} />
+                                    <div className="product-info-check">
                                         <h1>{product.title}</h1>
-                                    </li>
-                                ))}
-                            </ul>
-                            {checkoutLink ? <a href={checkoutLink}>Finalizar compra</a> :
-                                <img src={loading}></img>
-                            }
+                                        <h2>{`R$ ${product.price}`}<span>{`R$ ${product.compare_at_price}`}</span></h2>
+                                        <h3>{`Quantidade: `} <span>{product.amount}</span></h3>
+                                    </div>
+                                </li>
+                            ))}
+                        </ul>
+                        <div className="checkout-confirme">
+                            <p className="checktou-title">Resumo</p>
+                            <h1 className="checkout-total">{'Total: '} <span>{totalPrice.toFixed(2)}</span></h1>
+                            <h1 className="checkout-discount">{'Desconto: '} <span>{discount.toFixed(2)}</span></h1>
+                            <div className="checkout-link">
+                                {checkoutLink ? <a href={checkoutLink}>Finalizar compra</a> :
+                                    <div className="checkout-loading">
+                                        <p className="processing">Processando Pedidos</p> 
+                                        <img className="img-loading" src={loading}></img>
+                                    </div>
+                                }
+                            </div>
 
-                        </>
-                        :
-                        <div className="empty-checkout">
-                            <TbShoppingBagExclamation />
                         </div>
-                    }
-                </div>
-            </form>
+                    </>
+                    :
+                    <div className="empty-checkout">
+                        <TbShoppingBagExclamation />
+                        <h6>Sem Produtos</h6>
+                        <Link className="empty-checkout-button" to="/produtos">VER PRODUTOS</Link>
+                    </div>
+                }
+            </div>
         </CheckoutContainer>
             <SimpleFooter />
         </>

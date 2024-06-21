@@ -31,7 +31,7 @@ export const HeaderStyles = styled.header`
   }
 
   .header-options {
-    width: 58%;
+    width: 78%;
     background-color: ${theme.colors.secondary};
 
     .productsNoChanged {
