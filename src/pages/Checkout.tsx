@@ -12,7 +12,7 @@ import { TbShoppingBagExclamation } from "react-icons/tb";
 
 export default function () {
 
-    const { cartProducts, setCartProducts } = useContext(UserContext) as any;
+    const { cartProducts } = useContext(UserContext) as any;
     const [cartLS, setCartLS] = useState<any[]>([]);
     const [totalPrice, setTotalPrice] = useState<number>(0);
     const [discount, setDiscount] = useState<number>(0);
@@ -297,6 +297,7 @@ export default function () {
                         <div className="empty-checkout">
                             <TbShoppingBagExclamation />
                             <h6>Jorge</h6>
+                            <h6>Só pra ter texto {selectedQuota} {totalPrice} {discount}</h6>
                         </div>
                     }
                 </div>
