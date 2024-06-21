@@ -38,7 +38,7 @@ export default function Product() {
         products.forEach((i: any) => {
             if (Number(i.id) === Number(idProduto)) {
                 setProduct([i]);
-                setPrice(idProduto.price);
+                setPrice(Number(i.price));
                 setSelectedImage(i.url_image[0]);
 
             }
