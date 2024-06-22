@@ -36,7 +36,7 @@ export default function App() {
   }, [cartProducts]);
 
   useEffect(() => {
-    localStorage.setItem('products', JSON.stringify(cartProducts));
+    localStorage.setItem('products', JSON.stringify(products));
   }, [products]);
 
   return (

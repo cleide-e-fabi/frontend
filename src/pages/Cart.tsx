@@ -7,12 +7,12 @@ import { TbShoppingCartExclamation } from 'react-icons/tb';
 import { Link } from 'react-router-dom';
 import ShopInfo from '../components/ShopInfo/ShopInfo';
 import SimpleFooter from '../components/SimpleFooter/SimpleFooter';
+import { MdDelete } from 'react-icons/md';
 
 export default function Cart() {
   const { cartProducts, setCartProducts } = useContext(UserContext) as any;
   const [cartLS, setCartLS] = useState<any[]>([]);
   const [totalPrice, setTotalPrice] = useState<number>(0);
-  const [discount, setDiscount] = useState<number>(0);
 
   useEffect(() => {
     setCartLS(JSON.parse(localStorage.getItem('cartProducts') as any));
@@ -27,7 +27,6 @@ export default function Cart() {
     });
 
     setTotalPrice(newTotalPrice);
-    setDiscount(newDiscount);
   }, [cartProducts]);
 
   const handleAmountChange = (productId: number, amountChange: number) => {
@@ -54,6 +53,14 @@ export default function Cart() {
     localStorage.setItem('cartProducts', JSON.stringify(updatedCartProducts));
   };
 
+  const handleDeleteProduct = (productId: number) => {
+    const updatedCartProducts = cartProducts.filter(
+      (product: any) => product.id !== productId,
+    );
+    setCartProducts(updatedCartProducts);
+    localStorage.setItem('cartProducts', JSON.stringify(updatedCartProducts));
+  };
+
   return (
     <>
       <CartContainer>
@@ -65,10 +72,6 @@ export default function Cart() {
         {cartLS.length !== 0 ? (
           <div className="cart-products-container">
             <ul className="cart-ul">
-              <div className="cart-header">
-                <h5 className="cart-quantitie-text">Quantidade</h5>
-                <h6 className="cart-total-text">Total:</h6>
-              </div>
               {cartProducts.map((product: any) => (
                 <li key={product.id} className="cart-li">
                   <div className="cart-product-info">
@@ -78,48 +81,70 @@ export default function Cart() {
                       alt={product.title}
                     />
                     <div className="cart-product-values">
+                      <h2 className="cart-product-category">Categoria</h2>
                       <h1 className="cart-product-title">{product.title}</h1>
-                      <h2 className="cart-product-price">
-                        {`R$ ${product.price}`}{' '}
-                        <span>{`R$ ${product.compare_at_price}`}</span>
-                      </h2>
                     </div>
                   </div>
                   <div className="cart-product-quantities">
-                    <div className="cart-product-amount">
+                    <div className="amount-compare_at_price">
+                      R$ {product.compare_at_price}
+                    </div>
+                    <div className="amount-price">R$ {product.price}</div>
+                    <div className="cart-product-delete">
                       <div
-                        className="amount-minus"
-                        onClick={() => handleAmountChange(product.id, -1)}
+                        className="delete-icon"
+                        onClick={() => handleDeleteProduct(product.id)}
                       >
-                        -
+                        <MdDelete />
                       </div>
-                      <div className="quantity-value">{product.amount}</div>
-                      <div
-                        className="amount-plus"
-                        onClick={() => handleAmountChange(product.id, 1)}
-                      >
-                        +
+                      <div className="cart-product-amount">
+                        <div
+                          className="amount-minus"
+                          onClick={() => handleAmountChange(product.id, -1)}
+                        >
+                          -
+                        </div>
+                        <div className="quantity-value">{product.amount}</div>
+                        <div
+                          className="amount-plus"
+                          onClick={() => handleAmountChange(product.id, 1)}
+                        >
+                          +
+                        </div>
                       </div>
                     </div>
-                    <div className="amount-price">{`R$ ${(product.price * product.amount).toFixed(2)}`}</div>
                   </div>
                 </li>
               ))}
             </ul>
             <div className="cart-products-buy">
-              <p className="total-price">
-                Total: <span>{`R$ ${totalPrice.toFixed(2)}`}</span>
-              </p>
-              <h5 className="total-economy">{`Você economizou R$ ${discount.toFixed(2)}`}</h5>
-              <h6 className="ship-info">
-                Todas as entregas possuem código de rastreio ❤
-              </h6>
-              <Link to="/checkout" className="finalize-purchase">
-                FINALIZAR COMPRA
-              </Link>
-              <Link to="/produtos" className="keep-buying">
-                CONTINUAR COMPRANDO
-              </Link>
+              <div className="cart-products-info">
+                <p className="cart-title">Resumo</p>
+                <ul className="cart-products-list">
+                  {cartProducts.map((i: any) => (
+                    <li className="cart-list-info">
+                      <div className="list-info">
+                        <h6>x{i.amount}</h6>
+                        <h5>{i.title}</h5>
+                      </div>
+                      <h6>{`R$ ${(i.price * i.amount).toFixed(2)}`}</h6>
+                    </li>
+                  ))}
+                </ul>
+                <div className="cart-ship">
+                  <h6>Frete</h6>
+                  <h6>R$ 0.00</h6>
+                </div>
+                <p className="total-price">
+                  Total: <span>{`R$ ${totalPrice.toFixed(2)}`}</span>
+                </p>
+                <Link to="/checkout" className="finalize-purchase">
+                  FINALIZAR COMPRA
+                </Link>
+                <Link to="/produtos" className="keep-buying">
+                  CONTINUAR COMPRANDO
+                </Link>
+              </div>
             </div>
           </div>
         ) : (
@@ -131,8 +156,8 @@ export default function Cart() {
             </Link>
           </div>
         )}
+        <ShopInfo />
       </CartContainer>
-      <ShopInfo />
       <SimpleFooter />
     </>
   );

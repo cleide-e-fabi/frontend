@@ -35,9 +35,9 @@ export const ProductContainer = styled.div`
         height: max-content;
         background-color: ${theme.colors.gray_bg};
         margin-right: 12px;
-        border-radius: 12px;
+        border-radius: 6px;
         box-sizing: border-box;
-        padding: 2px 4px 2px 4px;
+        padding: 2px 2px 0px 2px;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -48,12 +48,11 @@ export const ProductContainer = styled.div`
 
         .img-select {
           width: 100%;
-          margin-top: 4px;
-          margin-bottom: 4px;
+          margin-bottom: 2px;
           border-width: 2px;
           border-style: solid;
           border-color: transparent;
-          border-radius: 6px;
+          border-radius: 4px;
           box-sizing: border-box;
           padding: 3px;
           transition: 300ms;
@@ -68,15 +67,15 @@ export const ProductContainer = styled.div`
         width: 100%;
         height: max-content;
         background-color: ${theme.colors.gray_bg};
-        box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
         box-sizing: border-box;
-        padding: 20px 20px;
-        border-radius: 12px;
+        padding: 12px 12px;
+        border-radius: 6px;
         margin-bottom: 20px;
 
         .product-img {
           width: 100%;
           height: 100%;
+          filter: brightness(0.9);
         }
       }
 
@@ -336,7 +335,7 @@ export const ProductContainer = styled.div`
             width: 80%;
             height: 50px;
             border-radius: 10px;
-            font-size: 18px;
+            font-size: 16px;
             font-weight: 800;
             display: flex;
             align-items: center;
@@ -376,7 +375,7 @@ export const ProductContainer = styled.div`
           .cart-button {
             border-color: ${theme.colors.secondary};
             color: ${theme.colors.secondary};
-            background-color: ${theme.colors.gray_bg};
+            background-color: ${theme.colors.pink_bg};
 
             &:hover {
               background-color: ${theme.colors.secondary};
@@ -390,15 +389,16 @@ export const ProductContainer = styled.div`
         }
 
         .info-credit-cards {
+          width: 100%;
           height: max-content;
-          margin-top: 18px;
+          margin-top: 36px;
           margin-bottom: 12px;
           display: flex;
           align-items: center;
-          justify-content: flex-start;
+          justify-content: center;
 
           .card-icon {
-            font-size: 36px;
+            font-size: 42px;
             margin-right: 10px;
           }
 
@@ -410,10 +410,11 @@ export const ProductContainer = styled.div`
             font-size: 15px;
 
             h2 {
-              font-weight: 400;
+              font-weight: 500;
+              margin-bottom: 4px;
             }
             h3 {
-              font-weight: 700;
+              font-weight: 800;
             }
           }
         }
@@ -424,6 +425,7 @@ export const ProductContainer = styled.div`
           align-items: center;
           justify-content: center;
           margin-top: 14px;
+          margin-bottom: 20px;
 
           .flag {
             width: 38px;

@@ -6,18 +6,17 @@ import { Description } from '../components/Product/Description';
 import SimpleFooter from '../components/SimpleFooter/SimpleFooter';
 import ShopInfo from '../components/ShopInfo/ShopInfo';
 import { FaPix } from 'react-icons/fa6';
-import { CiShoppingCart } from 'react-icons/ci';
+import { HiShoppingCart } from 'react-icons/hi';
 import { FaCreditCard } from 'react-icons/fa6';
 import { IoMdLock } from 'react-icons/io';
 import ShipForm from '../components/ShipForm/ShipForm';
 import { CounterStyles } from '../components/Counter/CounterStyles.styles';
 import * as flags from '../assets/flags';
 import UserContext from '../contexts/UserContext';
-import axios from 'axios';
 
 export default function Product() {
   const { idProduto } = useParams() as any;
-  const { setCartProducts } = useContext(UserContext) as any;
+  const { products, setCartProducts } = useContext(UserContext) as any;
   const [product, setProduct] = useState<any>(null);
   const [price, setPrice] = useState<number>(0);
   const [selectedImage, setSelectedImage] = useState<string>('');
@@ -35,17 +34,18 @@ export default function Product() {
     setCount((prevCount) => Math.max(prevCount - 1, 1));
   };
 
+  const getObjectById = (id: number) => {
+    console.log('entrou aq em get', products, id);
+    const obj = products.find((item: any) => Number(item.id) === Number(id));
+    return obj;
+  };
+
   useEffect(() => {
-    axios
-      .get(`https://gifts-back.onrender.com/products/${idProduto}`)
-      .then((response) => {
-        setProduct(response.data);
-        setPrice(response.data[0].price);
-        setSelectedImage(response.data[0].url_image[0]);
-      })
-      .catch((error) => {
-        console.error('Erro ao buscar o produto:', error);
-      });
+    const obj = getObjectById(Number(idProduto));
+    console.log('obejto peodfds', obj);
+    setProduct([obj]);
+    setPrice(obj.price);
+    setSelectedImage(obj.url_image[0]);
   }, [idProduto]);
 
   const handleImageClick = (image: string) => {
@@ -251,13 +251,13 @@ export default function Product() {
                   className="buy-button"
                   onClick={handleAddToCart}
                 >
-                  <CiShoppingCart />
-                  <span>COMPRAR AGORA</span>
+                  <HiShoppingCart />
+                  <span>Comprar Agora</span>
                 </Link>
               </div>
               <div className="button-container">
                 <button className="cart-button" onClick={handleAddToCart}>
-                  ADICIONAR AO CARRINHO
+                  Adicionar ao Carrinho
                 </button>
               </div>
               <div className="info-credit-cards">

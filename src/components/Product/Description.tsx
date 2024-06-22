@@ -5,7 +5,6 @@ export const Description = styled.div`
     font-size: 15px !important;
     font-weight: 400 !important;
     color: #626262 !important;
-    text-align: justify !important;
     background-color: transparent !important;
     margin-top: 4px !important;
   }
@@ -15,7 +14,7 @@ export const Description = styled.div`
   }
 
   img {
-    width: 100%;
+    width: 80%;
     margin-top: 12px;
     margin-bottom: 20px;
   }
