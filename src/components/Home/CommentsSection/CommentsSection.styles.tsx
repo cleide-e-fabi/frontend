@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import theme from "../../../styles/theme";
+import styled from 'styled-components';
+import theme from '../../../styles/theme';
 
 export const CommentsSectionStyles = styled.section`
   width: 100%;
@@ -16,7 +16,7 @@ export const CommentsSectionStyles = styled.section`
   }
 
   .comment-title {
-    font-family: "Montserrat", sans-serif;
+    font-family: 'Montserrat', sans-serif;
     font-size: 38px;
     font-weight: 700;
     line-height: 48.76px;
@@ -59,7 +59,7 @@ export const CommentsSectionStyles = styled.section`
       }
 
       .product-name {
-        font-family: "Montserrat", sans-serif;
+        font-family: 'Montserrat', sans-serif;
         font-weight: 600;
         font-size: 25px;
         color: ${theme.colors.secondary};
@@ -68,7 +68,7 @@ export const CommentsSectionStyles = styled.section`
 
       .comment-text {
         width: 84%;
-        font-family: "Montserrat", sans-serif;
+        font-family: 'Montserrat', sans-serif;
         font-size: 25px;
         font-weight: 400;
         color: ${theme.colors.secondary};
@@ -76,7 +76,7 @@ export const CommentsSectionStyles = styled.section`
 
       .comment-date {
         position: absolute;
-        font-family: "Montserrat", sans-serif;
+        font-family: 'Montserrat', sans-serif;
         font-size: 25px;
         font-weight: 600;
         color: ${theme.colors.secondary};

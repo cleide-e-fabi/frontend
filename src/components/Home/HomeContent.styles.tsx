@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import theme from "../../styles/theme";
+import styled from 'styled-components';
+import theme from '../../styles/theme';
 
 export const HomeContent = styled.header`
   width: 50%;
@@ -9,7 +9,7 @@ export const HomeContent = styled.header`
   justify-content: center;
   flex-direction: column;
   color: ${theme.colors.secondary};
-  font-family: "Montserrat", sans-serif;
+  font-family: 'Montserrat', sans-serif;
   box-sizing: border-box;
   padding-top: 60px;
 
@@ -40,8 +40,6 @@ export const HomeContent = styled.header`
       box-sizing: border-box;
       padding: 10px 22px;
       font-size: 22px;
-
-      
     }
   }
 
@@ -58,11 +56,11 @@ export const HomeContent = styled.header`
       line-height: 20px;
     }
 
-    span{
-        button{
-            font-size: 18px;
-            padding: 10px 22px;
-        }
+    span {
+      button {
+        font-size: 18px;
+        padding: 10px 22px;
+      }
     }
   }
 `;

@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const FooterElement = styled.div`
   width: 25%;
@@ -6,7 +6,7 @@ export const FooterElement = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: "Montserrat", sans-serif;
+  font-family: 'Montserrat', sans-serif;
   font-size: 20px;
   font-weight: 400;
 

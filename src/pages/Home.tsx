@@ -1,21 +1,20 @@
-import { StyledHome } from "../components/Home/Home.styles";
-import { HomeContent } from "../components/Home/HomeContent.styles";
-import { Mosaico } from "../components/Home/Mosaico.styles";
-import { Footer } from "../components/Home/Footer.styles";
-import { FooterElement } from "../components/Home/FooterElement.styles";
-import { SubHome } from "../components/Home/SubHome.styles";
-import { MainFooter } from "../components/Home/MainFooter.styles";
-import { Title } from "../components/Title";
-import * as imgs from "../assets/imgs";
-import * as svgs from "../assets/svgs";
-import theme from "../styles/theme";
-import Header from "../components/Home/Header/Header";
-import CommentsSection from "../components/Home/CommentsSection/CommentsSection";
-import { useContext } from "react";
-import UserContext from "../contexts/UserContext";
+import { StyledHome } from '../components/Home/Home.styles';
+import { HomeContent } from '../components/Home/HomeContent.styles';
+import { Mosaico } from '../components/Home/Mosaico.styles';
+import { Footer } from '../components/Home/Footer.styles';
+import { FooterElement } from '../components/Home/FooterElement.styles';
+import { SubHome } from '../components/Home/SubHome.styles';
+import { MainFooter } from '../components/Home/MainFooter.styles';
+import { Title } from '../components/Title';
+import * as imgs from '../assets/imgs';
+import * as svgs from '../assets/svgs';
+import theme from '../styles/theme';
+import Header from '../components/Home/Header/Header';
+import CommentsSection from '../components/Home/CommentsSection/CommentsSection';
+import { useContext } from 'react';
+import UserContext from '../contexts/UserContext';
 
 export default function Home() {
-
   const { products } = useContext(UserContext) as any;
 
   return (
@@ -39,26 +38,26 @@ export default function Home() {
           <FooterElement>
             <img src={svgs.truck}></img>
             <h1 style={{ color: `${theme.colors.primary}` }}>
-              {"ENTREGAMOS EM"} <br />
-              {"TODO BRASIL"}
+              {'ENTREGAMOS EM'} <br />
+              {'TODO BRASIL'}
             </h1>
           </FooterElement>
           <FooterElement>
             <img src={svgs.securite}></img>
             <h1 style={{ color: `${theme.colors.primary}` }}>
-              {"PAGAMENTO SEGURO"}
+              {'PAGAMENTO SEGURO'}
             </h1>
           </FooterElement>
           <FooterElement>
             <img src={svgs.edit}></img>
             <h1 style={{ color: `${theme.colors.secondary}` }}>
-              {"PEDIDO PERSONALIZADO"}
+              {'PEDIDO PERSONALIZADO'}
             </h1>
           </FooterElement>
           <FooterElement>
             <img src={svgs.star}></img>
             <h1 style={{ color: `${theme.colors.secondary}` }}>
-              {"SELO DE QUALIDADE"}
+              {'SELO DE QUALIDADE'}
             </h1>
           </FooterElement>
         </Footer>
@@ -125,14 +124,14 @@ export default function Home() {
           <span className="line"></span>
         </Title>
         <ul className="favorites-list">
-          {products.slice(0, 3).map((i: any) =>
+          {products.slice(0, 3).map((i: any) => (
             <li key={i.id} className="favorites-item">
               <img src={svgs.add} className="add-item" />
               <img src={i.url_image} />
               <p>{i.title}</p>
               <h1>{i.price}</h1>
             </li>
-          )}
+          ))}
           <div className="custom-container">
             <p className="custom-text">
               {`Personalize `} <br /> {`seu presente aqui`}

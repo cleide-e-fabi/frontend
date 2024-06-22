@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import theme from "../../../styles/theme";
+import styled from 'styled-components';
+import theme from '../../../styles/theme';
 
 export const HeaderStyles = styled.header`
   width: 80%;
@@ -11,7 +11,7 @@ export const HeaderStyles = styled.header`
   justify-content: flex-end;
   z-index: 9;
   display: flex;
-  font-family: "Montserrat";
+  font-family: 'Montserrat';
 
   .header-logo {
     position: absolute;
@@ -26,7 +26,7 @@ export const HeaderStyles = styled.header`
     align-items: center;
     justify-content: flex-end;
     height: 100%;
-    font-family: "Montserrat", sans-serif;
+    font-family: 'Montserrat', sans-serif;
     font-size: 14px;
   }
 
@@ -45,7 +45,8 @@ export const HeaderStyles = styled.header`
     .productsChanged {
       background-color: ${theme.colors.primary};
       color: ${theme.colors.secondary} !important;
-      box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px,
+      box-shadow:
+        rgba(0, 0, 0, 0.1) 0px 10px 15px -3px,
         rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
 
       .header-triangle {
@@ -67,7 +68,8 @@ export const HeaderStyles = styled.header`
       &:hover {
         background-color: ${theme.colors.primary};
         color: ${theme.colors.secondary};
-        box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px,
+        box-shadow:
+          rgba(0, 0, 0, 0.1) 0px 10px 15px -3px,
           rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
       }
     }
@@ -105,7 +107,8 @@ export const HeaderStyles = styled.header`
           &:hover {
             background-color: ${theme.colors.primary};
             color: ${theme.colors.secondary};
-            box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
+            box-shadow:
+              rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
               rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
           }
         }
@@ -116,7 +119,7 @@ export const HeaderStyles = styled.header`
           height: 100px;
           background-color: ${theme.colors.secondary};
 
-          .product-option{
+          .product-option {
             scale: 1;
           }
 
@@ -147,35 +150,35 @@ export const HeaderStyles = styled.header`
       }
     }
 
-    .added{
-        width: 300px;
-        height: 44px;
-        background-color: ${theme.colors.secondary};
-        position: absolute;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        top: 55px;
-        right: 0px;
-        color: ${theme.colors.primary};
-        font-family: 'Montserrat', sans-serif;
-        font-size: 16px;
-        font-weight: 700;
-        border-radius: 8px 0px 8px 8px;
-        transition: 300ms;
-      }
+    .added {
+      width: 300px;
+      height: 44px;
+      background-color: ${theme.colors.secondary};
+      position: absolute;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      top: 55px;
+      right: 0px;
+      color: ${theme.colors.primary};
+      font-family: 'Montserrat', sans-serif;
+      font-size: 16px;
+      font-weight: 700;
+      border-radius: 8px 0px 8px 8px;
+      transition: 300ms;
+    }
 
-      .added-show{
-        transform: translateY(0%) translateX(0%);
-        opacity: 1;
-        scale: 1;
-      }
+    .added-show {
+      transform: translateY(0%) translateX(0%);
+      opacity: 1;
+      scale: 1;
+    }
 
-      .added-hidden{
-        transform: translateY(100%) translateX(100%);
-        opacity: 0;
-        scale: 0;
-      }
+    .added-hidden {
+      transform: translateY(100%) translateX(100%);
+      opacity: 0;
+      scale: 0;
+    }
   }
 
   @media (max-width: 1400px) {

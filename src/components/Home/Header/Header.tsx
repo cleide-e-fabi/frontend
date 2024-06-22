@@ -1,7 +1,7 @@
-import { HeaderStyles } from "./Header.styles";
-import { Link } from "react-router-dom";
-import * as svgs from "../../../assets/svgs";
-import { GoTriangleDown } from "react-icons/go";
+import { HeaderStyles } from './Header.styles';
+import { Link } from 'react-router-dom';
+import * as svgs from '../../../assets/svgs';
+import { GoTriangleDown } from 'react-icons/go';
 
 export default function Header({ showAdded }: any) {
   return (
@@ -21,10 +21,10 @@ export default function Header({ showAdded }: any) {
           <Link className="route-option" to="/contato">
             CONTATOS
           </Link>
-          <div className={"route-option header-products"}>
+          <div className={'route-option header-products'}>
             INFORMAÇÕES
             <GoTriangleDown className="header-triangle" />
-            <div className={"products-options"}>
+            <div className={'products-options'}>
               <Link className="product-option" to="/troca">
                 TROCA E DEVOLUÇÕES
               </Link>
@@ -38,7 +38,13 @@ export default function Header({ showAdded }: any) {
           <Link className="icon-option" to="/carrinho">
             <img src={svgs.carrinho} />
           </Link>
-          {showAdded ? <div className={`added ${showAdded}`}>Produto adicionado ao carrinho!</div> : <></>}
+          {showAdded ? (
+            <div className={`added ${showAdded}`}>
+              Produto adicionado ao carrinho!
+            </div>
+          ) : (
+            <></>
+          )}
         </div>
       </HeaderStyles>
     </>

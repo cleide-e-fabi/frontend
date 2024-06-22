@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import theme from "../../styles/theme";
+import styled from 'styled-components';
+import theme from '../../styles/theme';
 
 export const StyledHome = styled.section`
   display: flex;
@@ -9,7 +9,7 @@ export const StyledHome = styled.section`
   height: 100vh;
   background-color: ${theme.colors.primary};
 
-  .middle-content{
+  .middle-content {
     width: 100%;
     height: 93%;
     display: flex;

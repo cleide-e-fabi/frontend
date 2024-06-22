@@ -1,6 +1,6 @@
-import styled from "styled-components";
-import theme from "../../styles/theme";
-import banner from "../../assets/imgs/banner.png";
+import styled from 'styled-components';
+import theme from '../../styles/theme';
+import banner from '../../assets/imgs/banner.png';
 
 export const SubHome = styled.section`
   display: flex;
@@ -54,7 +54,7 @@ export const SubHome = styled.section`
           justify-content: center;
 
           .cep-title {
-            font-family: "Montserrat", sans-serif;
+            font-family: 'Montserrat', sans-serif;
             color: #626262;
             font-size: 30px;
             font-weight: 700;
@@ -74,7 +74,7 @@ export const SubHome = styled.section`
               color: #fff;
               box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
               font-size: 14px;
-              font-family: "Montserrat", sans-serif;
+              font-family: 'Montserrat', sans-serif;
             }
             input {
               width: 72%;
@@ -96,7 +96,7 @@ export const SubHome = styled.section`
           }
 
           .cep-link {
-            font-family: "Montserrat", sans-serif;
+            font-family: 'Montserrat', sans-serif;
             font-size: 11px;
             color: #626262;
             text-decoration: underline;
@@ -137,7 +137,7 @@ export const SubHome = styled.section`
         display: flex;
         align-items: center;
         justify-content: center;
-        font-family: "Montserrat", sans-serif;
+        font-family: 'Montserrat', sans-serif;
         font-weight: 700;
         font-size: 22px;
         color: #fff;
@@ -178,7 +178,7 @@ export const SubHome = styled.section`
 
       p,
       h1 {
-        font-family: "Montserrat", sans-serif;
+        font-family: 'Montserrat', sans-serif;
         font-size: 15px;
         color: ${theme.colors.secondary};
       }
@@ -208,7 +208,7 @@ export const SubHome = styled.section`
       }
 
       .custom-text {
-        font-family: "Montserrat", sans-serif;
+        font-family: 'Montserrat', sans-serif;
         font-size: 44px;
         font-weight: 700;
         color: ${theme.colors.secondary};

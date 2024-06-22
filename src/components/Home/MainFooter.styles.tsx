@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import theme from "../../styles/theme";
+import styled from 'styled-components';
+import theme from '../../styles/theme';
 
 export const MainFooter = styled.footer`
   width: 100%;
@@ -18,7 +18,7 @@ export const MainFooter = styled.footer`
     margin-bottom: 80px;
   }
   .footer-info {
-    font-family: "Montserrat", sans-serif;
+    font-family: 'Montserrat', sans-serif;
     font-size: 17px;
     font-weight: 400;
     line-height: 20.72px;
@@ -49,41 +49,37 @@ export const MainFooter = styled.footer`
     width: 32px;
     left: 120px;
   }
-  @media (max-width: 1400px){
+  @media (max-width: 1400px) {
+    padding-bottom: 110px;
 
-  padding-bottom: 110px;
+    .footer-logo {
+      width: 100px;
+      margin-bottom: 56px;
+    }
+    .footer-info {
+      font-size: 15px;
+      line-height: 18px;
+    }
 
+    .footer-wpp,
+    .footer-wppline,
+    .footer-instagram {
+      bottom: 35px;
+    }
 
-  .footer-logo {
-    width: 100px;
-    margin-bottom: 56px;
-  }
-  .footer-info {
+    .footer-wpp {
+      width: 66px;
+      right: 40px;
+    }
 
-    font-size: 15px;
-    line-height: 18px;
-  }
+    .footer-wppline {
+      width: 30px;
+      left: 40px;
+    }
 
-  .footer-wpp,
-  .footer-wppline,
-  .footer-instagram {
-    bottom: 35px;
-
-  }
-
-  .footer-wpp {
-    width: 66px;
-    right: 40px;
-  }
-
-  .footer-wppline {
-    width: 30px;
-    left: 40px;
-  }
-
-  .footer-instagram {
-    width: 30px;
-    left: 110px;
-  }
+    .footer-instagram {
+      width: 30px;
+      left: 110px;
+    }
   }
 `;
