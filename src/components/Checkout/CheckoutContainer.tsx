@@ -178,8 +178,17 @@ export const CheckoutContainer = styled.div`
                         width: 20px;
                     }
 
+                }
+
+                .waiting-container{
                     &:hover{
                         cursor: progress;
+                    }
+                }
+
+                .confirme-container{
+                    &:hover{
+                        cursor: pointer;
                     }
                 }
             }

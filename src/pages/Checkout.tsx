@@ -18,7 +18,6 @@ export default function Checkout() {
     const [discount, setDiscount] = useState<number>(0);
     const [cartToken, setCartToken] = useState<string>("");
     const [itens, setItens] = useState<any[]>([]);
-    const [checkoutLink, setCheckoutLink] = useState<string>("");
 
     useEffect(() => {
         setCartLS(JSON.parse(localStorage.getItem('cartProducts') as any));
@@ -32,6 +31,7 @@ export default function Checkout() {
             newTotalPrice += product.price * product.amount;
             newDiscount += diff * product.amount;
             line_items.push({
+
                 "variant_id": product.variant_id,
                 "quantity": product.amount
             });
@@ -41,22 +41,27 @@ export default function Checkout() {
         setDiscount(newDiscount);
         setItens(line_items);
 
-        const promise = axios.post("https://gifts-back.onrender.com/cart", { line_items })
+        const promise = axios.post("https://gifts-back.onrender.com/cart", line_items)
         promise.then(answer => { (setCartToken(answer.data.cart.token)) })
     }, [cartProducts]);
 
-    console.log("cartTpeke", cartToken);
+    useEffect(() => {
+        document.querySelector('.confirme-container')?.addEventListener('click', createOrder);
+    }, [cartToken]);
 
-    const createOrder = (cartToken: string) => {
+    const createOrder = (event: any) => {
+        event.stopPropagation();
+
         if (cartToken) {
-
             const bodyForm = {
                 "cart_token": cartToken,
                 "line_items": itens
             };
 
-            const promise = axios.post("https://gifts-back.onrender.com/order", { body: bodyForm })
-            promise.then(answer => { (setCheckoutLink(answer.data.order.checkout_link)) })
+            const promise = axios.post("https://gifts-back.onrender.com/order", { body: bodyForm });
+            promise.then(answer => {
+                window.location.href = answer.data.order.checkout_link;
+            });
         }
     };
 
@@ -86,15 +91,18 @@ export default function Checkout() {
                             <p className="checktou-title">Resumo</p>
                             <h1 className="checkout-total">{'Total: '} <span>{totalPrice.toFixed(2)}</span></h1>
                             <h1 className="checkout-discount">{'Desconto: '} <span>{discount.toFixed(2)}</span></h1>
-                            <div className="checkout-link" onClick={createOrder(cartToken)}>
-                                {checkoutLink ? <a href={checkoutLink}>Finalizar compra</a> :
-                                    <div className="checkout-loading">
+                            {cartToken ? <div className="checkout-link">
+                                <div className="checkout-loading confirme-container">
+                                    <p className="processing">Finalizar Compra</p>
+                                </div>
+                            </div> :
+                                <div className="checkout-link">
+                                    <div className="checkout-loading waiting-container">
                                         <p className="processing">Processando Pedidos</p>
                                         <img className="img-loading" src={loading}></img>
                                     </div>
-                                }
-                            </div>
-
+                                </div>
+                            }
                         </div>
                     </>
                     :
