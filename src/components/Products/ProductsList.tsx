@@ -11,8 +11,8 @@ export const ProductsList = styled.ul`
     padding: 0px 40px;
 
     .product-item{
-        width: 310px;
-        height: 380px;
+        width: 300px;
+        height: 470px;
         border-radius: 30px;
         box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
         background-color: #F2F2F2;
@@ -40,12 +40,8 @@ export const ProductsList = styled.ul`
         }
 
         .product-img{
-            background-repeat: no-repeat;
-            background-size: cover;
-            background-position: center center;
             border-radius: 10px;
             width: 100%;
-            height: 64%;
         }
 
         .product-title{

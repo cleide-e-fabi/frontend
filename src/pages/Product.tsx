@@ -13,11 +13,12 @@ import ShipForm from "../components/ShipForm/ShipForm";
 import { CounterStyles } from '../components/Counter/CounterStyles.styles';
 import * as flags from "../assets/flags";
 import UserContext from "../contexts/UserContext";
+import axios from 'axios';
 
 export default function Product() {
 
     const { idProduto } = useParams() as any;
-    const { products, setCartProducts } = useContext(UserContext) as any;
+    const { setCartProducts } = useContext(UserContext) as any;
     const [product, setProduct] = useState<any>(null);
     const [price, setPrice] = useState<number>(0);
     const [selectedImage, setSelectedImage] = useState<string>("");
@@ -35,14 +36,15 @@ export default function Product() {
 
     useEffect(() => {
 
-        products.forEach((i: any) => {
-            if (Number(i.id) === Number(idProduto)) {
-                setProduct([i]);
-                setPrice(Number(i.price));
-                setSelectedImage(i.url_image[0]);
-
-            }
-        });
+        axios.get(`https://gifts-back.onrender.com/products/${idProduto}`)
+            .then(response => {
+                setProduct(response.data);
+                setPrice(response.data[0].price);
+                setSelectedImage(response.data[0].url_image[0]);
+            })
+            .catch(error => {
+                console.error("Erro ao buscar o produto:", error);
+            });
 
     }, [idProduto]);
 

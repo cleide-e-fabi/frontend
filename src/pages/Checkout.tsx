@@ -47,7 +47,7 @@ export default function Checkout() {
 
     console.log("cartTpeke", cartToken);
 
-    useEffect(() => {
+    const createOrder = (cartToken: string) => {
         if (cartToken) {
 
             const bodyForm = {
@@ -55,12 +55,10 @@ export default function Checkout() {
                 "line_items": itens
             };
 
-            console.log("body checktfds", bodyForm);
-
             const promise = axios.post("https://gifts-back.onrender.com/order", { body: bodyForm })
             promise.then(answer => { (setCheckoutLink(answer.data.order.checkout_link)) })
         }
-    }, [cartToken]);
+    };
 
     return (
         <><CheckoutContainer>
@@ -88,10 +86,10 @@ export default function Checkout() {
                             <p className="checktou-title">Resumo</p>
                             <h1 className="checkout-total">{'Total: '} <span>{totalPrice.toFixed(2)}</span></h1>
                             <h1 className="checkout-discount">{'Desconto: '} <span>{discount.toFixed(2)}</span></h1>
-                            <div className="checkout-link">
+                            <div className="checkout-link" onClick={createOrder(cartToken)}>
                                 {checkoutLink ? <a href={checkoutLink}>Finalizar compra</a> :
                                     <div className="checkout-loading">
-                                        <p className="processing">Processando Pedidos</p> 
+                                        <p className="processing">Processando Pedidos</p>
                                         <img className="img-loading" src={loading}></img>
                                     </div>
                                 }

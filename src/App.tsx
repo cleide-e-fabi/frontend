@@ -14,7 +14,7 @@ import Product from "./pages/Product";
 import { useEffect } from "react";
 import Cart from "./pages/Cart";
 import Checkout from "./pages/Checkout";
-import { productsConst } from "./assets/consts/productsConst";
+import axios from "axios";
 
 export default function App() {
 
@@ -23,7 +23,8 @@ export default function App() {
   const [cartProducts, setCartProducts] = useState<any[]>(cartFromLS);
 
   useEffect(() => {
-    setProducts(productsConst);
+    const promise = axios.get("https://gifts-back.onrender.com/products")
+    promise.then(answer => { (setProducts(answer.data)) })
   }, [])
 
   useEffect(() => {

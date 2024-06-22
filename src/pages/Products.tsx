@@ -76,10 +76,7 @@ export default function Products() {
         <ProductsList>
           {filteredProducts.map((i: any) =>
             <Link key={i.id} className="product-item" to={`/produtos/${i.id}`}>
-              <div
-                className="product-img"
-                style={{ backgroundImage: `url(${i.url_image[0]})` }}>
-              </div>
+              <img className="product-img" src={i.url_image[0]}/>
               <p className="product-title">{i.title}</p>
               <h2 className="product-price">R$ {i.price} <span>R$ {i.compare_at_price}</span></h2>
             </Link>
