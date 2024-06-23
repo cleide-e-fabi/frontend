@@ -64,9 +64,29 @@ export const HomeContent = styled.header`
     }
   }
 
-  @media (max-width: 920px) {
+  @media (max-width: 1120px) {
     width: 100%;
     padding-top: 0px;
+    p {
+      font-size: 48px;
+      line-height: 52px;
+    }
+
+    sub {
+      margin-top: 10px;
+      font-size: 20px;
+      line-height: 22px;
+    }
+
+    span {
+      button {
+        font-size: 16px;
+        padding: 9px 20px;
+      }
+    }
+  }
+
+  @media (max-width: 920px) {
     p {
       font-size: 40px;
       line-height: 42px;
@@ -82,25 +102,6 @@ export const HomeContent = styled.header`
       button {
         font-size: 16px;
         padding: 9px 20px;
-      }
-    }
-  }
-  @media (max-width: 560px) {
-    p {
-      font-size: 36px;
-      line-height: 38px;
-    }
-
-    sub {
-      margin-top: 10px;
-      font-size: 13px;
-      line-height: 18px;
-    }
-
-    span {
-      button {
-        font-size: 14px;
-        padding: 8px 18px;
       }
     }
   }

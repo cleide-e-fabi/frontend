@@ -124,20 +124,13 @@ export default function Home() {
           <span className="line"></span>
         </Title>
         <ul className="favorites-list">
-          {products.slice(0, 3).map((i: any) => (
+          {products.slice(2, 6).map((i: any) => (
             <li key={i.id} className="favorites-item">
-              <img src={svgs.add} className="add-item" />
-              <img src={i.url_image} />
+              <img src={i.url_image[0]} />
               <p>{i.title}</p>
               <h1>{i.price}</h1>
             </li>
           ))}
-          <div className="custom-container">
-            <p className="custom-text">
-              {`Personalize `} <br /> {`seu presente aqui`}
-            </p>
-            <img className="custom-img" src={imgs.boxes} />
-          </div>
         </ul>
       </SubHome>
       <CommentsSection />

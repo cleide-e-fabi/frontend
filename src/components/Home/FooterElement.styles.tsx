@@ -24,19 +24,13 @@ export const FooterElement = styled.div`
   }
 
   @media (max-width: 920px) {
-    font-size: 12px;
+    font-size: 11px;
     img {
-    height: 54%;
-    margin-right: 14px;
+    height: 50%;
+    margin-right: 6px;
   }
   }
   @media (max-width: 700px) {
-    font-size: 11px;
-    img {
-    margin-right: 14px;
-  }
-  }
-  @media (max-width: 560px) {
     h1{
       display: none;
     }

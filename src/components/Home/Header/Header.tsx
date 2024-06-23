@@ -48,7 +48,7 @@ export default function Header({ showAdded }: any) {
           )}
         </div>
         <div className="header-mobile">
-          <Link className="header-logo-mobile" to="/carrinho">
+          <Link className="header-logo-mobile" to="/">
             <img src={svgs.logo} />
           </Link>
           <div className="open-options">

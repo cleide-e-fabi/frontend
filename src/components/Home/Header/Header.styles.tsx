@@ -318,13 +318,7 @@ export const HeaderStyles = styled.header`
     }
   }
 
-  @media (max-width: 1080px) {
-    .header-options {
-      width: 160%;
-    }
-  }
-
-  @media (max-width: 920px) {
+  @media (max-width: 1120px) {
     width: 100%;
     height: 60px;
     top: 0px;
