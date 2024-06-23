@@ -247,7 +247,7 @@ export default function Product() {
               </div>
               <div className="button-container">
                 <Link
-                  to="/checkout"
+                  to="/carrinho"
                   className="buy-button"
                   onClick={handleAddToCart}
                 >

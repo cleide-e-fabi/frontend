@@ -15,6 +15,31 @@ export const CartContainer = styled.div`
   color: ${theme.colors.secondary};
   font-family: 'Montserrat', sans-serif;
 
+  .loading {
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.6);
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 999;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    p {
+      font-size: 44px;
+      font-weight: 800;
+      margin-bottom: 12px;
+      color: ${theme.colors.primary};
+    }
+
+    img {
+      width: 100px;
+    }
+  }
+
   .cart-empty {
     display: flex;
     justify-content: center;
@@ -301,6 +326,14 @@ export const CartContainer = styled.div`
         margin-bottom: 12px;
         background-color: ${theme.colors.secondary};
         color: ${theme.colors.primary};
+
+        span{
+          margin-left: 10px;
+
+          img{
+            width: 22px;
+          }
+        }
 
         &:hover {
           background-color: ${theme.colors.primary};

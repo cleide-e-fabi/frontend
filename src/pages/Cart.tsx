@@ -8,11 +8,17 @@ import { Link } from 'react-router-dom';
 import ShopInfo from '../components/ShopInfo/ShopInfo';
 import SimpleFooter from '../components/SimpleFooter/SimpleFooter';
 import { MdDelete } from 'react-icons/md';
+import loading from '../assets/anim/loading.webp';
+import axios from 'axios';
 
 export default function Cart() {
   const { cartProducts, setCartProducts } = useContext(UserContext) as any;
   const [cartLS, setCartLS] = useState<any[]>([]);
   const [totalPrice, setTotalPrice] = useState<number>(0);
+  const [isconfirme, setIsconfirme] = useState<boolean>(false);
+  const [cartToken, setCartToken] = useState<string>('');
+  const [itens, setItens] = useState<any[]>([]);
+  const [isDisabled, setIsDisabled] = useState<boolean>(false);
 
   useEffect(() => {
     setCartLS(JSON.parse(localStorage.getItem('cartProducts') as any));
@@ -28,6 +34,53 @@ export default function Cart() {
 
     setTotalPrice(newTotalPrice);
   }, [cartProducts]);
+
+  useEffect(() => {
+    setCartLS(JSON.parse(localStorage.getItem('cartProducts') as any));
+    setIsDisabled(true);
+
+    let line_items: any = [];
+
+    cartProducts.forEach((product: any) => {
+      line_items.push({
+        variant_id: product.variant_id,
+        quantity: product.amount,
+      });
+    });
+
+    setItens(line_items);
+
+    const promise = axios.post(
+      'https://gifts-back.onrender.com/cart',
+      line_items,
+    );
+    promise.then((answer) => {
+      setCartToken(answer.data.cart.token);
+      setIsDisabled(false);
+    });
+  }, [cartProducts]);
+
+  const createOrder = (event: any) => {
+    event.stopPropagation();
+
+    console.log('entrou aqqq na create');
+
+    setIsconfirme(true);
+
+    if (cartToken) {
+      const bodyForm = {
+        cart_token: cartToken,
+        line_items: itens,
+      };
+
+      const promise = axios.post('https://gifts-back.onrender.com/order', {
+        body: bodyForm,
+      });
+      promise.then((answer) => {
+        window.location.href = answer.data.order.checkout_link;
+      });
+    }
+  };
 
   const handleAmountChange = (productId: number, amountChange: number) => {
     const updatedCartProducts = cartProducts
@@ -89,7 +142,7 @@ export default function Cart() {
                     <div className="amount-compare_at_price">
                       R$ {product.compare_at_price}
                     </div>
-                    <div className="amount-price">R$ {product.price}</div>
+                    <div className="amount-price">R$ {(product.price * product.amount).toFixed(2)}</div>
                     <div className="cart-product-delete">
                       <div
                         className="delete-icon"
@@ -122,7 +175,7 @@ export default function Cart() {
                 <p className="cart-title">Resumo</p>
                 <ul className="cart-products-list">
                   {cartProducts.map((i: any) => (
-                    <li className="cart-list-info">
+                    <li key={i.id} className="cart-list-info">
                       <div className="list-info">
                         <h6>x{i.amount}</h6>
                         <h5>{i.title}</h5>
@@ -138,9 +191,15 @@ export default function Cart() {
                 <p className="total-price">
                   Total: <span>{`R$ ${totalPrice.toFixed(2)}`}</span>
                 </p>
-                <Link to="/checkout" className="finalize-purchase">
-                  FINALIZAR COMPRA
-                </Link>
+                {!isDisabled ?
+                  <div className="finalize-purchase" onClick={createOrder}>
+                    FINALIZAR COMPRA
+                  </div>
+                  :
+                  <div className="finalize-purchase">
+                    ATUALIZANDO CARRINHO <span><img src={loading} /></span>
+                  </div>
+                }
                 <Link to="/produtos" className="keep-buying">
                   CONTINUAR COMPRANDO
                 </Link>
@@ -157,6 +216,15 @@ export default function Cart() {
           </div>
         )}
         <ShopInfo />
+        {isconfirme
+          ?
+          <div className='loading'>
+            <p>Processando Pedido</p>
+            <img src={loading} />
+          </div>
+          :
+          <></>
+        }
       </CartContainer>
       <SimpleFooter />
     </>
