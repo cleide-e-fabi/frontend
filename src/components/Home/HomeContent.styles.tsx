@@ -43,7 +43,7 @@ export const HomeContent = styled.header`
     }
   }
 
-  @media (max-width: 1400px) {
+  @media (max-width: 1580px) {
     padding-top: 100px;
     p {
       font-size: 46px;
@@ -60,6 +60,93 @@ export const HomeContent = styled.header`
       button {
         font-size: 18px;
         padding: 10px 22px;
+      }
+    }
+  }
+
+  @media (max-width: 920px) {
+    width: 100%;
+    padding-top: 0px;
+    p {
+      font-size: 40px;
+      line-height: 42px;
+    }
+
+    sub {
+      margin-top: 10px;
+      font-size: 14px;
+      line-height: 18px;
+    }
+
+    span {
+      button {
+        font-size: 16px;
+        padding: 9px 20px;
+      }
+    }
+  }
+  @media (max-width: 560px) {
+    p {
+      font-size: 36px;
+      line-height: 38px;
+    }
+
+    sub {
+      margin-top: 10px;
+      font-size: 13px;
+      line-height: 18px;
+    }
+
+    span {
+      button {
+        font-size: 14px;
+        padding: 8px 18px;
+      }
+    }
+  }
+
+  @media (max-width: 560px) {
+    p {
+      font-size: 36px;
+      line-height: 38px;
+    }
+
+    sub {
+      margin-top: 10px;
+      font-size: 13px;
+      line-height: 18px;
+    }
+
+    span {
+      button {
+        font-size: 14px;
+        padding: 8px 18px;
+      }
+    }
+  }
+
+  @media (max-width: 460px) {
+    p {
+      font-size: 34px;
+      line-height: 38px;
+      text-align: center;
+    }
+
+    sub {
+      margin-top: 10px;
+      font-size: 13px;
+      line-height: 18px;
+      text-align: center;
+    }
+
+    span {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      button {
+        font-size: 14px;
+        padding: 8px 18px;
       }
     }
   }

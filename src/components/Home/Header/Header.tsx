@@ -2,6 +2,7 @@ import { HeaderStyles } from './Header.styles';
 import { Link } from 'react-router-dom';
 import * as svgs from '../../../assets/svgs';
 import { GoTriangleDown } from 'react-icons/go';
+import { HiShoppingCart } from 'react-icons/hi';
 
 export default function Header({ showAdded }: any) {
   return (
@@ -47,11 +48,37 @@ export default function Header({ showAdded }: any) {
           )}
         </div>
         <div className="header-mobile">
-          <img className="header-logo-mobile" src={svgs.logo} />
+          <Link className="header-logo-mobile" to="/carrinho">
+            <img src={svgs.logo} />
+          </Link>
           <div className="open-options">
             <div className="line-1"></div>
             <div className="line-2"></div>
             <div className="line-3"></div>
+          </div>
+          <Link className="mobile-icon-option" to="/carrinho">
+            <HiShoppingCart />
+          </Link>
+          <div className='header-mobile-options'>
+            <Link className="mobile-route-option" to="/">
+              HOME
+            </Link>
+            <Link className="mobile-route-option" to="/produtos">
+              PRODUTOS
+            </Link>
+            <Link className="mobile-route-option" to="/sobre">
+              SOBRE NÓS
+            </Link>
+            <Link className="mobile-route-option" to="/contato">
+              CONTATOS
+            </Link>
+            <Link className="mobile-route-option" to="/troca">
+              TROCA E DEVOLUÇÕES
+            </Link>
+            <Link className="mobile-route-option" to="/termos">
+              TERMOS DE USO
+            </Link>
+            <img className='bottom-logo' src={svgs.logo} />
           </div>
         </div>
       </HeaderStyles>

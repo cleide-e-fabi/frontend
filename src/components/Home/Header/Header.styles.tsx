@@ -16,20 +16,31 @@ export const HeaderStyles = styled.header`
   .header-mobile {
     display: none;
     width: 100%;
-    height: 100%;
+    height: 60px;
     background-color: ${theme.colors.secondary};
     align-items: center;
     justify-content: center;
-    position: relative;
+    position: fixed;
 
     .header-logo-mobile {
       height: 84%;
     }
 
+    .mobile-icon-option{
+      width: max-content;
+      height: max-content;
+      position: absolute;
+      right: 16px;
+      :nth-child(1){
+        font-size: 30px;
+        color: ${theme.colors.primary};
+      }
+    }
+
     .open-options {
       width: 38px;
       height: 30px;
-      position: absolute;
+      position: fixed;
       left: 20px;
       display: flex;
       flex-direction: column;
@@ -49,11 +60,56 @@ export const HeaderStyles = styled.header`
       &:hover {
         cursor: pointer;
         .line-1 {
-          transform: rotateY(20deg);
+          transform: rotate(-45deg);
+          position: absolute;
+          top: 40%;
+          scale: 1.04;
+        }
+        .line-3 {
+          transform: rotate(45deg);
+          position: absolute;
+          bottom: 40%;
+          scale: 1.04;
         }
         .line-2 {
           background-color: ${theme.colors.secondary};
         }
+      }
+    }
+
+    .header-mobile-options{
+      width: 80%;
+      height: 100vh;
+      position: fixed;
+      top: 60px;
+      left: 0px;
+      background-color: ${theme.colors.secondary};
+      z-index: 999;
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      box-sizing: border-box;
+      padding-top: 50px;
+      position: absolute;
+
+      .mobile-route-option{
+        width: 94%;
+        height: 45px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: ${theme.colors.primary};
+        color: ${theme.colors.secondary};
+        font-size: 16px;
+        font-weight: 700;
+        margin-bottom: 14px;
+      }
+
+      .bottom-logo{
+        width: 90px;
+        position: absolute;
+        bottom: 120px;
       }
     }
   }

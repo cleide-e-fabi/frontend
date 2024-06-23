@@ -62,4 +62,6 @@ export default function App() {
 const Body = styled.div`
   width: 100vw;
   background-color: ${theme.colors.gray};
+  position: relative;
+  z-index: 1;
 `;
