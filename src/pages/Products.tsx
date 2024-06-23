@@ -3,7 +3,6 @@ import { ProductsContainer } from '../components/Products/Products.styles';
 import { ProductsList } from '../components/Products/ProductsList';
 import Header from '../components/Home/Header/Header';
 import { Title } from '../components/Title';
-import { AiFillHeart } from 'react-icons/ai';
 import { FaArrowCircleUp } from 'react-icons/fa';
 import { FaArrowCircleDown } from 'react-icons/fa';
 import { FaSearch } from 'react-icons/fa';
@@ -55,10 +54,6 @@ export default function Products() {
             </div>
           </div>
           <ul className="filters">
-            <li className="filter">
-              <h6>Mais Vendido</h6>
-              <AiFillHeart />
-            </li>
             <li className="filter">
               <h6>Maior Preço</h6>
               <FaArrowCircleUp />

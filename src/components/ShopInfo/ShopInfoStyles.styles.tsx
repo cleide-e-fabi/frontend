@@ -63,4 +63,8 @@ export const ShopInfoStyles = styled.ul`
       }
     }
   }
+
+  @media (max-width: 940px) {
+    display: none;
+  }
 `;
