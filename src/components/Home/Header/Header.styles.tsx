@@ -13,6 +13,51 @@ export const HeaderStyles = styled.header`
   display: flex;
   font-family: 'Montserrat';
 
+  .header-mobile {
+    display: none;
+    width: 100%;
+    height: 100%;
+    background-color: ${theme.colors.secondary};
+    align-items: center;
+    justify-content: center;
+    position: relative;
+
+    .header-logo-mobile {
+      height: 84%;
+    }
+
+    .open-options {
+      width: 38px;
+      height: 30px;
+      position: absolute;
+      left: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: 300ms;
+
+      .line-1,
+      .line-2,
+      .line-3 {
+        width: 100%;
+        height: 6px;
+        background-color: ${theme.colors.primary};
+        border-radius: 3px;
+        transition: 300ms;
+      }
+
+      &:hover {
+        cursor: pointer;
+        .line-1 {
+          transform: rotateY(20deg);
+        }
+        .line-2 {
+          background-color: ${theme.colors.secondary};
+        }
+      }
+    }
+  }
+
   .header-logo {
     position: absolute;
     left: 60px;
@@ -31,7 +76,7 @@ export const HeaderStyles = styled.header`
   }
 
   .header-options {
-    width: 78%;
+    width: 90%;
     background-color: ${theme.colors.secondary};
 
     .productsNoChanged {
@@ -93,7 +138,6 @@ export const HeaderStyles = styled.header`
         top: 118%;
         transition: 0.6s;
         background-color: ${theme.colors.secondary};
-
         .product-option {
           display: flex;
           justify-content: center;
@@ -123,8 +167,8 @@ export const HeaderStyles = styled.header`
             scale: 1;
           }
 
-          @media (max-width: 1400px) {
-            height: 180px;
+          @media (max-width: 1580px) {
+            height: 80px;
           }
         }
         .header-triangle {
@@ -181,7 +225,7 @@ export const HeaderStyles = styled.header`
     }
   }
 
-  @media (max-width: 1400px) {
+  @media (max-width: 1580px) {
     top: 35px;
     height: 45px;
     font-size: 13px;
@@ -200,6 +244,47 @@ export const HeaderStyles = styled.header`
 
     .header-icons {
       font-size: 13px;
+    }
+  }
+
+  @media (max-width: 1340px) {
+    width: 88%;
+    height: 40px;
+
+    .header-logo {
+      margin-left: -24px;
+    }
+    .header-options {
+      width: 130%;
+      .route-option {
+        font-size: 12px;
+      }
+    }
+  }
+
+  @media (max-width: 1080px) {
+    .header-options {
+      width: 160%;
+    }
+  }
+
+  @media (max-width: 920px) {
+    width: 100%;
+    height: 60px;
+    top: 0px;
+    .header-options {
+      display: none;
+    }
+    .header-icons {
+      display: none;
+    }
+
+    .header-logo {
+      display: none;
+    }
+
+    .header-mobile {
+      display: flex;
     }
   }
 `;

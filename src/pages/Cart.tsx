@@ -9,77 +9,36 @@ import ShopInfo from '../components/ShopInfo/ShopInfo';
 import SimpleFooter from '../components/SimpleFooter/SimpleFooter';
 import { MdDelete } from 'react-icons/md';
 import loading from '../assets/anim/loading.webp';
-import axios from 'axios';
 
 export default function Cart() {
   const { cartProducts, setCartProducts } = useContext(UserContext) as any;
   const [cartLS, setCartLS] = useState<any[]>([]);
   const [totalPrice, setTotalPrice] = useState<number>(0);
   const [isconfirme, setIsconfirme] = useState<boolean>(false);
-  const [cartToken, setCartToken] = useState<string>('');
-  const [itens, setItens] = useState<any[]>([]);
-  const [isDisabled, setIsDisabled] = useState<boolean>(false);
 
   useEffect(() => {
     setCartLS(JSON.parse(localStorage.getItem('cartProducts') as any));
 
     let newTotalPrice = 0.0;
-    let newDiscount = 0.0;
 
     cartProducts.forEach((product: any) => {
-      let diff = product.compare_at_price - product.price;
       newTotalPrice += product.price * product.amount;
-      newDiscount += diff * product.amount;
     });
 
     setTotalPrice(newTotalPrice);
   }, [cartProducts]);
 
-  useEffect(() => {
-    setCartLS(JSON.parse(localStorage.getItem('cartProducts') as any));
-    setIsDisabled(true);
-
-    let line_items: any = [];
-
-    cartProducts.forEach((product: any) => {
-      line_items.push({
-        variant_id: product.variant_id,
-        quantity: product.amount,
-      });
-    });
-
-    setItens(line_items);
-
-    const promise = axios.post(
-      'https://gifts-back.onrender.com/cart',
-      line_items,
-    );
-    promise.then((answer) => {
-      setCartToken(answer.data.cart.token);
-      setIsDisabled(false);
-    });
-  }, [cartProducts]);
-
   const createOrder = (event: any) => {
     event.stopPropagation();
-
-    console.log('entrou aqqq na create');
-
     setIsconfirme(true);
 
-    if (cartToken) {
-      const bodyForm = {
-        cart_token: cartToken,
-        line_items: itens,
-      };
+    let url = 'https://cleidefabi.com.br/checkout/';
 
-      const promise = axios.post('https://gifts-back.onrender.com/order', {
-        body: bodyForm,
-      });
-      promise.then((answer) => {
-        window.location.href = answer.data.order.checkout_link;
-      });
-    }
+    cartProducts.forEach((i: any) => {
+      url = url + i.variant_id + ':' + i.amount + '&';
+    });
+    window.location.href = url;
+    setIsconfirme(false);
   };
 
   const handleAmountChange = (productId: number, amountChange: number) => {
@@ -142,7 +101,9 @@ export default function Cart() {
                     <div className="amount-compare_at_price">
                       R$ {product.compare_at_price}
                     </div>
-                    <div className="amount-price">R$ {(product.price * product.amount).toFixed(2)}</div>
+                    <div className="amount-price">
+                      R$ {(product.price * product.amount).toFixed(2)}
+                    </div>
                     <div className="cart-product-delete">
                       <div
                         className="delete-icon"
@@ -191,15 +152,9 @@ export default function Cart() {
                 <p className="total-price">
                   Total: <span>{`R$ ${totalPrice.toFixed(2)}`}</span>
                 </p>
-                {!isDisabled ?
-                  <div className="finalize-purchase" onClick={createOrder}>
-                    FINALIZAR COMPRA
-                  </div>
-                  :
-                  <div className="finalize-purchase">
-                    ATUALIZANDO CARRINHO <span><img src={loading} /></span>
-                  </div>
-                }
+                <div className="finalize-purchase" onClick={createOrder}>
+                  FINALIZAR COMPRA
+                </div>
                 <Link to="/produtos" className="keep-buying">
                   CONTINUAR COMPRANDO
                 </Link>
@@ -216,15 +171,14 @@ export default function Cart() {
           </div>
         )}
         <ShopInfo />
-        {isconfirme
-          ?
-          <div className='loading'>
+        {isconfirme ? (
+          <div className="loading">
             <p>Processando Pedido</p>
             <img src={loading} />
           </div>
-          :
+        ) : (
           <></>
-        }
+        )}
       </CartContainer>
       <SimpleFooter />
     </>

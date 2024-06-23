@@ -35,14 +35,12 @@ export default function Product() {
   };
 
   const getObjectById = (id: number) => {
-    console.log('entrou aq em get', products, id);
     const obj = products.find((item: any) => Number(item.id) === Number(id));
     return obj;
   };
 
   useEffect(() => {
     const obj = getObjectById(Number(idProduto));
-    console.log('obejto peodfds', obj);
     setProduct([obj]);
     setPrice(obj.price);
     setSelectedImage(obj.url_image[0]);

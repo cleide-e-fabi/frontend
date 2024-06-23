@@ -13,7 +13,6 @@ import Contact from './pages/Contact';
 import Product from './pages/Product';
 import { useEffect } from 'react';
 import Cart from './pages/Cart';
-import Checkout from './pages/Checkout';
 import axios from 'axios';
 
 export default function App() {
@@ -52,7 +51,6 @@ export default function App() {
             <Route path="/troca" element={<Replacement />} />
             <Route path="/termos" element={<Policy />} />
             <Route path="/contato" element={<Contact />} />
-            <Route path="/checkout" element={<Checkout />} />
             <Route path="/carrinho" element={<Cart />} />
           </Routes>
         </BrowserRouter>

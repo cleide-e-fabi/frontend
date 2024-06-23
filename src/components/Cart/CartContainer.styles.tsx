@@ -327,10 +327,10 @@ export const CartContainer = styled.div`
         background-color: ${theme.colors.secondary};
         color: ${theme.colors.primary};
 
-        span{
+        span {
           margin-left: 10px;
 
-          img{
+          img {
             width: 22px;
           }
         }

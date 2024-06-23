@@ -46,6 +46,14 @@ export default function Header({ showAdded }: any) {
             <></>
           )}
         </div>
+        <div className="header-mobile">
+          <img className="header-logo-mobile" src={svgs.logo} />
+          <div className="open-options">
+            <div className="line-1"></div>
+            <div className="line-2"></div>
+            <div className="line-3"></div>
+          </div>
+        </div>
       </HeaderStyles>
     </>
   );
