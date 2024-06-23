@@ -36,8 +36,9 @@ export const MainFooter = styled.footer`
   }
 
   .footer-wpp {
-    width: 80px;
+    width: 60px;
     right: 50px;
+    position: fixed;
   }
 
   .footer-wppline {
@@ -49,7 +50,7 @@ export const MainFooter = styled.footer`
     width: 32px;
     left: 120px;
   }
-  @media (max-width: 1400px) {
+  @media (max-width: 1580px) {
     padding-bottom: 110px;
 
     .footer-logo {
@@ -80,6 +81,42 @@ export const MainFooter = styled.footer`
     .footer-instagram {
       width: 30px;
       left: 110px;
+    }
+  }
+
+  @media (max-width: 1580px) {
+    padding-bottom: 80px;
+  }
+
+  @media (max-width: 780px) {
+
+    .footer-logo {
+      margin-bottom: 46px;
+    }
+    .footer-info {
+      font-size: 12px;
+      line-height: 15px;
+    }
+
+    .footer-wpp,
+    .footer-wppline,
+    .footer-instagram {
+      bottom: 35px;
+    }
+
+    .footer-wpp {
+      width: 50px;
+      right: 34px;
+    }
+
+    .footer-wppline {
+      width: 26px;
+      left: 30px;
+    }
+
+    .footer-instagram {
+      width: 26px;
+      left: 80px;
     }
   }
 `;

@@ -86,7 +86,7 @@ export const CommentsSectionStyles = styled.section`
     }
   }
 
-  @media (max-width: 1400px) {
+  @media (max-width: 1580px) {
     clip-path: polygon(0 0, 100% 0, 100% 100%, 0 88%);
     background-color: ${theme.colors.secondary};
     .wave {
@@ -108,6 +108,7 @@ export const CommentsSectionStyles = styled.section`
         padding: 10px 22px;
 
         .comment-stars {
+          margin-top: 14px;
           margin-bottom: 16px;
 
           .star {
@@ -129,6 +130,183 @@ export const CommentsSectionStyles = styled.section`
           font-size: 22px;
           bottom: 20px;
           right: 32px;
+        }
+      }
+    }
+  }
+
+  @media (max-width: 1320px) {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 90%);
+
+    .comment-title {
+      font-size: 28px;
+
+      line-height: 32px;
+    }
+
+    .comment-cards {
+      margin-bottom: 220px;
+
+      .comment-card {
+        width: 330px;
+        height: 210px;
+        border-radius: 30px;
+        padding: 10px 22px;
+
+        .comment-stars {
+          margin-top: 12px;
+          margin-bottom: 16px;
+
+          .star {
+            width: 44px;
+            font-size: 32px;
+          }
+        }
+
+        .product-name {
+          font-size: 20px;
+          margin-bottom: 11px;
+        }
+
+        .comment-text {
+          font-size: 18px;
+        }
+
+        .comment-date {
+          font-size: 17px;
+          bottom: 20px;
+          right: 30px;
+        }
+      }
+    }
+  }
+
+  @media (max-width: 1170px) {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 92%);
+
+    .comment-title {
+      font-size: 27px;
+      line-height: 30px;
+    }
+
+    .comment-cards {
+      margin-bottom: 200px;
+
+      .comment-card {
+        width: 300px;
+        height: 180px;
+        border-radius: 28px;
+        padding: 7px 19px;
+
+        .comment-stars {
+          margin-top: 12px;
+          margin-bottom: 16px;
+
+          .star {
+            width: 44px;
+            font-size: 28px;
+          }
+        }
+
+        .product-name {
+          font-size: 18px;
+          margin-bottom: 11px;
+        }
+
+        .comment-text {
+          font-size: 16px;
+        }
+
+        .comment-date {
+          font-size: 15px;
+          bottom: 20px;
+          right: 30px;
+        }
+      }
+    }
+  }
+
+  @media (max-width: 1170px) {
+    
+    .comment-cards {
+
+      .comment-card {
+        width: 200px;
+        height: 200px;
+        border-radius: 28px;
+        padding: 7px 19px;
+
+        .comment-stars {
+          width: 100%;
+          margin-top: 12px;
+          margin-bottom: 14px;
+          justify-content: space-around;
+
+          .star {
+            width: max-content;
+            font-size: 24px;
+          }
+        }
+
+        .product-name {
+          font-size: 15px;
+          margin-bottom: 11px;
+        }
+
+        .comment-text {
+          font-size: 14px;
+        }
+
+        .comment-date {
+          font-size: 12px;
+          bottom: 20px;
+          right: 30px;
+        }
+      }
+    }
+  }
+
+  @media (max-width: 700px) {
+
+    .comment-title {
+      font-size: 22px;
+      line-height: 30px;
+    }
+    
+    .comment-cards {
+      align-items: center;
+      flex-direction: column;
+
+      .comment-card {
+        width: 300px;
+        height: 240px;
+        border-radius: 28px;
+        padding: 7px 19px;
+        margin-bottom: 30px;
+
+        .comment-stars {
+          width: 100%;
+          margin-top: 12px;
+          margin-bottom: 14px;
+          justify-content: space-around;
+
+          .star {
+            width: max-content;
+            font-size: 32px;
+          }
+        }
+
+        .product-name {
+          font-size: 19px;
+          margin-bottom: 11px;
+        }
+
+        .comment-text {
+          font-size: 16px;
+        }
+
+        .comment-date {
+          font-size: 14px;
         }
       }
     }
