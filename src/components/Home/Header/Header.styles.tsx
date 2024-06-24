@@ -61,31 +61,31 @@ export const HeaderStyles = styled.header`
       }
 
       .line-open-1 {
-          transform: rotate(-45deg);
-          position: absolute;
-          top: 40%;
-          scale: 1.04;
-        }
-        .line-open-3 {
-          transform: rotate(45deg);
-          position: absolute;
-          bottom: 40%;
-          scale: 1.04;
-        }
-        .line-open-2 {
-          background-color: ${theme.colors.secondary};
-        }
+        transform: rotate(-45deg);
+        position: absolute;
+        top: 40%;
+        scale: 1.04;
+      }
+      .line-open-3 {
+        transform: rotate(45deg);
+        position: absolute;
+        bottom: 40%;
+        scale: 1.04;
+      }
+      .line-open-2 {
+        background-color: ${theme.colors.secondary};
+      }
 
       &:hover {
         cursor: pointer;
       }
     }
 
-    .close-side-div{
+    .close-side-div {
       transform: translateX(-100%);
     }
 
-    .open-side-div{
+    .open-side-div {
       transform: translateX(0%);
     }
 

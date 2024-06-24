@@ -79,28 +79,28 @@ export default function Header({ showAdded }: any) {
             <HiShoppingCart />
           </Link>
           <div className={`${openMobile} header-mobile-options`}>
-            <Link className="mobile-route-option" to="/">
+            <Link className="mobile-route-option" to="/" onClick={() => { setOpenMobile("close-side-div"); setLine("line-close"); }}>
               HOME
             </Link>
-            <Link className="mobile-route-option" to="/produtos">
+            <Link className="mobile-route-option" to="/produtos" onClick={() => { setOpenMobile("close-side-div"); setLine("line-close"); }}>
               PRODUTOS
             </Link>
-            <Link className="mobile-route-option" to="/sobre">
+            <Link className="mobile-route-option" to="/sobre" onClick={() => { setOpenMobile("close-side-div"); setLine("line-close"); }}>
               SOBRE NÓS
             </Link>
-            <Link className="mobile-route-option" to="/contato">
+            <Link className="mobile-route-option" to="/contato" onClick={() => { setOpenMobile("close-side-div"); setLine("line-close"); }}>
               CONTATOS
             </Link>
-            <Link className="mobile-route-option" to="/troca">
+            <Link className="mobile-route-option" to="/troca" onClick={() => { setOpenMobile("close-side-div"); setLine("line-close"); }}>
               TROCA E DEVOLUÇÕES
             </Link>
-            <Link className="mobile-route-option" to="/termos">
+            <Link className="mobile-route-option" to="/termos" onClick={() => { setOpenMobile("close-side-div"); setLine("line-close"); }}>
               TERMOS DE USO
             </Link>
             <img className="bottom-logo" src={svgs.logo} />
           </div>
         </div>
-      </HeaderStyles>
+      </HeaderStyles >
     </>
   );
 }
