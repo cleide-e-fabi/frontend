@@ -465,6 +465,7 @@ export const ProductContainer = styled.div`
 
         h2 {
           font-size: 16px;
+          color: #929292;
         }
       }
     }

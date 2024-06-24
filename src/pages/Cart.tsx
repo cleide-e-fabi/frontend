@@ -9,6 +9,7 @@ import ShopInfo from '../components/ShopInfo/ShopInfo';
 import SimpleFooter from '../components/SimpleFooter/SimpleFooter';
 import { MdDelete } from 'react-icons/md';
 import loading from '../assets/anim/loading.webp';
+import { IoMdLock } from 'react-icons/io';
 
 export default function Cart() {
   const { cartProducts, setCartProducts } = useContext(UserContext) as any;
@@ -38,7 +39,6 @@ export default function Cart() {
       url = url + i.variant_id + ':' + i.amount + '&';
     });
     window.location.href = url;
-    setIsconfirme(false);
   };
 
   const handleAmountChange = (productId: number, amountChange: number) => {
@@ -159,6 +159,15 @@ export default function Cart() {
                   CONTINUAR COMPRANDO
                 </Link>
               </div>
+            </div>
+            <div className="payment-warning">
+              <IoMdLock className="warning-lock" />
+              <h1>Pagamento Seguro</h1>
+              <h2>
+                Suas informações de pagamento são processadas com segurança. Nós
+                não armazenamos dados do cartão de crédito nem temos acesso aos
+                números do seu cartão.
+              </h2>
             </div>
           </div>
         ) : (
