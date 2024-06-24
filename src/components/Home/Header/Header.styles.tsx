@@ -26,12 +26,12 @@ export const HeaderStyles = styled.header`
       height: 84%;
     }
 
-    .mobile-icon-option{
+    .mobile-icon-option {
       width: max-content;
       height: max-content;
       position: absolute;
       right: 16px;
-      :nth-child(1){
+      :nth-child(1) {
         font-size: 30px;
         color: ${theme.colors.primary};
       }
@@ -77,7 +77,7 @@ export const HeaderStyles = styled.header`
       }
     }
 
-    .header-mobile-options{
+    .header-mobile-options {
       width: 80%;
       height: 100vh;
       position: fixed;
@@ -85,7 +85,7 @@ export const HeaderStyles = styled.header`
       left: 0px;
       background-color: ${theme.colors.secondary};
       z-index: 999;
-      display: none;
+      display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: flex-start;
@@ -93,7 +93,7 @@ export const HeaderStyles = styled.header`
       padding-top: 50px;
       position: absolute;
 
-      .mobile-route-option{
+      .mobile-route-option {
         width: 94%;
         height: 45px;
         display: flex;
@@ -106,7 +106,7 @@ export const HeaderStyles = styled.header`
         margin-bottom: 14px;
       }
 
-      .bottom-logo{
+      .bottom-logo {
         width: 90px;
         position: absolute;
         bottom: 120px;

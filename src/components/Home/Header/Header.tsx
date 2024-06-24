@@ -59,7 +59,7 @@ export default function Header({ showAdded }: any) {
           <Link className="mobile-icon-option" to="/carrinho">
             <HiShoppingCart />
           </Link>
-          <div className='header-mobile-options'>
+          <div className="header-mobile-options">
             <Link className="mobile-route-option" to="/">
               HOME
             </Link>
@@ -78,7 +78,7 @@ export default function Header({ showAdded }: any) {
             <Link className="mobile-route-option" to="/termos">
               TERMOS DE USO
             </Link>
-            <img className='bottom-logo' src={svgs.logo} />
+            <img className="bottom-logo" src={svgs.logo} />
           </div>
         </div>
       </HeaderStyles>

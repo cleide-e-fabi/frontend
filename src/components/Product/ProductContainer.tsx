@@ -469,4 +469,19 @@ export const ProductContainer = styled.div`
       }
     }
   }
+
+  @media (max-width: 1220px) {
+    .product-content {
+      .product-info {
+        width: 400px;
+      }
+      .product-payment-container {
+        background-color: green;
+        .product-payment {
+          width: 620px;
+          background-color: red;
+        }
+      }
+    }
+  }
 `;

@@ -227,9 +227,7 @@ export const CommentsSectionStyles = styled.section`
   }
 
   @media (max-width: 1170px) {
-    
     .comment-cards {
-
       .comment-card {
         width: 200px;
         height: 200px;
@@ -267,12 +265,11 @@ export const CommentsSectionStyles = styled.section`
   }
 
   @media (max-width: 700px) {
-
     .comment-title {
       font-size: 22px;
       line-height: 30px;
     }
-    
+
     .comment-cards {
       align-items: center;
       flex-direction: column;

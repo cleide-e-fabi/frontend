@@ -97,39 +97,39 @@ export const ProductsContainer = styled.div`
 
   @media (max-width: 830px) {
     .product-filters {
-    display: flex;
-    width: 88%;
-    height: max-content;
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 0px 0px;
-
-    .products-form{
-      width: 100%;
+      display: flex;
+      width: 88%;
       height: max-content;
-      justify-content: flex-end;
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 0px 0px;
 
-      .product-search{
-        height: 30px;
+      .products-form {
+        width: 100%;
+        height: max-content;
+        justify-content: flex-end;
+
+        .product-search {
+          height: 30px;
+        }
+
+        .search-icon {
+          height: 30px;
+          margin-right: 0px;
+        }
       }
 
-      .search-icon{
+      .filters {
+        width: 100%;
         height: 30px;
-        margin-right: 0px;
-      }
-    }
+        margin-top: 10px;
+        justify-content: flex-end;
 
-    .filters{
-      width:100%;
-      height: 30px;
-      margin-top: 10px;
-      justify-content: flex-end;
-
-      .filter{
+        .filter {
           margin-left: 10px;
           margin-right: 0px;
+        }
       }
     }
-  }
   }
 `;

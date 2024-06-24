@@ -89,7 +89,6 @@ export const MainFooter = styled.footer`
   }
 
   @media (max-width: 780px) {
-
     .footer-logo {
       margin-bottom: 46px;
     }

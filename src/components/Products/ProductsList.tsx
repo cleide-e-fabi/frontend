@@ -93,27 +93,27 @@ export const ProductsList = styled.ul`
       margin: 6px 0px;
 
       .product-title {
-      font-size: 12px;
-    }
-
-    .product-price {
-      font-size: 14px;
-      display: flex;
-      flex-direction: column;
-      font-weight: 800;
-      span {
         font-size: 12px;
-        font-weight: 700;
-        margin-left: 0px;
-        margin-top: 1px;
-        margin-bottom: 2px;
       }
-    }
 
-    .product-quota {
-      font-size: 13px;
-      margin-bottom: 3px;
-    }
+      .product-price {
+        font-size: 14px;
+        display: flex;
+        flex-direction: column;
+        font-weight: 800;
+        span {
+          font-size: 12px;
+          font-weight: 700;
+          margin-left: 0px;
+          margin-top: 1px;
+          margin-bottom: 2px;
+        }
+      }
+
+      .product-quota {
+        font-size: 13px;
+        margin-bottom: 3px;
+      }
     }
   }
 `;

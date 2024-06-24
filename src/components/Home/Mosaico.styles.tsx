@@ -5,6 +5,6 @@ export const Mosaico = styled.img`
   height: 100%;
 
   @media (max-width: 1120px) {
-      display: none;
+    display: none;
   }
 `;

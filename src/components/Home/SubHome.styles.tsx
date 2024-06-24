@@ -368,12 +368,12 @@ export const SubHome = styled.section`
                 width: 60%;
                 padding: 6px 12px;
               }
-              button{
+              button {
                 width: 76px;
               }
             }
 
-            .cep-link{
+            .cep-link {
               font-size: 10px;
             }
           }
@@ -396,7 +396,6 @@ export const SubHome = styled.section`
       height: 150px;
 
       .favorites-item {
-
         p,
         h1 {
           font-size: 10px;
@@ -436,7 +435,6 @@ export const SubHome = styled.section`
           padding: 0px 26px;
 
           .cep-search {
-
             .cep-title {
               font-size: 20px;
             }
@@ -452,7 +450,7 @@ export const SubHome = styled.section`
                 width: 62%;
                 padding: 6px 12px;
               }
-              button{
+              button {
                 width: 76px;
               }
             }
@@ -482,7 +480,6 @@ export const SubHome = styled.section`
         }
       }
     }
-
   }
 
   @media (max-width: 680px) {
@@ -499,7 +496,6 @@ export const SubHome = styled.section`
           padding: 0px 26px;
 
           .cep-search {
-
             .cep-title {
               font-size: 20px;
             }
@@ -515,7 +511,7 @@ export const SubHome = styled.section`
                 width: 62%;
                 padding: 6px 12px;
               }
-              button{
+              button {
                 width: 76px;
               }
             }
@@ -533,7 +529,7 @@ export const SubHome = styled.section`
         height: 250px;
         margin-bottom: 40px;
 
-        .category-img{
+        .category-img {
           width: 100%;
           height: 204px;
         }
@@ -545,7 +541,6 @@ export const SubHome = styled.section`
         }
       }
     }
-
   }
 
   @media (max-width: 580px) {
@@ -571,9 +566,7 @@ export const SubHome = styled.section`
             height: 52%;
           }
 
-
           .cep-search {
-
             .cep-title {
               font-size: 16px;
             }
@@ -587,7 +580,7 @@ export const SubHome = styled.section`
               input {
                 width: 290;
               }
-              button{
+              button {
                 width: 70px;
               }
             }
@@ -608,7 +601,7 @@ export const SubHome = styled.section`
       .favorites-item {
         width: 100%;
         margin-bottom: 18px;
-        img{
+        img {
           width: 160px;
           margin-bottom: 4px;
         }
