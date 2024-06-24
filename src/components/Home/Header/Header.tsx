@@ -28,7 +28,7 @@ export default function Header({ showAdded }: any) {
         <img className="header-logo" src={svgs.logo} />
         <div className="header-options">
           <Link className="route-option" to="/">
-            HOME
+            INÍCIO
           </Link>
           <Link className="route-option" to="/produtos">
             PRODUTOS
@@ -85,7 +85,7 @@ export default function Header({ showAdded }: any) {
                 setLine('line-close');
               }}
             >
-              HOME
+              INÍCIO
             </Link>
             <Link
               className="mobile-route-option"
