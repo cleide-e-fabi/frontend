@@ -30,4 +30,12 @@ export const ReplacementContainer = styled.div`
       font-weight: 700;
     }
   }
+
+  @media (max-width: 1260px) {
+    .replacement-text {
+      width: 88%;
+      padding: 0px 0px;
+      font-size: 13px;
+    }
+  }
 `;

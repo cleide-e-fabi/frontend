@@ -781,38 +781,35 @@ export const ProductContainer = styled.div`
   }
 
   @media (max-width: 700px) {
-
     .product-content-mobile {
-      .m-imgs{
+      .m-imgs {
         width: 80%;
       }
     }
   }
 
   @media (max-width: 410px) {
+    .product-content-mobile {
+      .m-name {
+        margin-top: 20px;
+        font-size: 22px;
+      }
 
-.product-content-mobile {
-  .m-name {
-      margin-top: 20px;
-      font-size: 22px;
+      .m-compare {
+        margin-top: 10px;
+        font-size: 18px;
+      }
+
+      .m-price {
+        margin-top: 4px;
+        font-size: 28px;
+      }
+
+      .m-discount {
+        width: 84%;
+        margin-top: 10px;
+        font-size: 18px;
+      }
     }
-
-    .m-compare {
-      margin-top: 10px;
-      font-size: 18px;
-    }
-
-    .m-price {
-      margin-top: 4px;
-      font-size: 28px;
-    }
-
-    .m-discount {
-      width: 84%;
-      margin-top: 10px;
-      font-size: 18px;
-    }
-
-}
-}
+  }
 `;

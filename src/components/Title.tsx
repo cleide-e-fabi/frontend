@@ -25,4 +25,13 @@ export const Title = styled.h1`
     background-color: ${theme.colors.secondary};
     margin-bottom: 14px;
   }
+
+  @media (max-width: 1220px) {
+    font-size: 21px;
+    .line {
+      width: 180px;
+      height: 4px;
+      margin-bottom: 12px;
+    }
+  }
 `;

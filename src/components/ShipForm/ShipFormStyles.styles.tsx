@@ -129,24 +129,22 @@ export const ShipFormStyles = styled.div`
         font-weight: 500;
         color: #929292;
       }
-      
     }
 
-    .invalide-cep, .free-ship-container{
+    .invalide-cep,
+    .free-ship-container {
       display: flex;
       align-items: center;
       justify-content: center;
       margin-top: 12px;
     }
 
-    .invalide-cep{
+    .invalide-cep {
       font-size: 14px;
     }
 
-    .free-ship-container{
+    .free-ship-container {
       width: 100%;
     }
-
-    
   }
 `;

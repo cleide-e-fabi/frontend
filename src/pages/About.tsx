@@ -3,13 +3,14 @@ import Header from '../components/Home/Header/Header';
 import * as svgs from '../assets/svgs';
 import { Title } from '../components/Title';
 import cleidefabi from '../assets/imgs/cleidefabi_img.jpeg';
+import SimpleFooter from '../components/SimpleFooter/SimpleFooter';
 
 export default function About() {
   return (
     <AboutContainer>
       <Header />
       <Title>
-        <p>ONDE TUDO COMEÇOU</p>
+        <p>SOBRE NÓS</p>
         <span className="line"></span>
       </Title>
       <div className="about-content">
@@ -45,6 +46,9 @@ export default function About() {
                     entregues no dia seguinte.`}</h2>
           <h2>{`Para entregas no mesmo dia, entre em contato pelo nosso WhatsApp.`}</h2>
         </div>
+      </footer>
+      <footer className="about-simple-footer">
+        <SimpleFooter />
       </footer>
     </AboutContainer>
   );
