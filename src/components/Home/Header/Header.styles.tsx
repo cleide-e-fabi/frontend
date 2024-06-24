@@ -14,10 +14,10 @@ export const HeaderStyles = styled.header`
   font-family: 'Montserrat';
 
   .header-mobile {
-    display: none;
     width: 100%;
     height: 60px;
     background-color: ${theme.colors.secondary};
+    display: none;
     align-items: center;
     justify-content: center;
     position: fixed;
@@ -47,9 +47,12 @@ export const HeaderStyles = styled.header`
       justify-content: space-between;
       transition: 300ms;
 
-      .line-1,
-      .line-2,
-      .line-3 {
+      .line-close-1,
+      .line-close-2,
+      .line-close-3,
+      .line-open-1,
+      .line-open-2,
+      .line-open-3 {
         width: 100%;
         height: 6px;
         background-color: ${theme.colors.primary};
@@ -57,24 +60,33 @@ export const HeaderStyles = styled.header`
         transition: 300ms;
       }
 
-      &:hover {
-        cursor: pointer;
-        .line-1 {
+      .line-open-1 {
           transform: rotate(-45deg);
           position: absolute;
           top: 40%;
           scale: 1.04;
         }
-        .line-3 {
+        .line-open-3 {
           transform: rotate(45deg);
           position: absolute;
           bottom: 40%;
           scale: 1.04;
         }
-        .line-2 {
+        .line-open-2 {
           background-color: ${theme.colors.secondary};
         }
+
+      &:hover {
+        cursor: pointer;
       }
+    }
+
+    .close-side-div{
+      transform: translateX(-100%);
+    }
+
+    .open-side-div{
+      transform: translateX(0%);
     }
 
     .header-mobile-options {
@@ -85,13 +97,14 @@ export const HeaderStyles = styled.header`
       left: 0px;
       background-color: ${theme.colors.secondary};
       z-index: 999;
-      display: flex;
       flex-direction: column;
       align-items: center;
+      display: flex;
       justify-content: flex-start;
       box-sizing: border-box;
       padding-top: 50px;
       position: absolute;
+      transition: 300ms;
 
       .mobile-route-option {
         width: 94%;

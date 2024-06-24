@@ -3,8 +3,27 @@ import { Link } from 'react-router-dom';
 import * as svgs from '../../../assets/svgs';
 import { GoTriangleDown } from 'react-icons/go';
 import { HiShoppingCart } from 'react-icons/hi';
+import { useState } from 'react';
 
 export default function Header({ showAdded }: any) {
+
+  const [openMobile, setOpenMobile] = useState<string>("close-side-div");
+  const [line, setLine] = useState<string>("line-close");
+  const [isOpen, setIsOpen] = useState<boolean>(false);
+
+  const openMobileOptions = () => {
+    if (isOpen) {
+      setIsOpen(false);
+      setOpenMobile("close-side-div");
+      setLine("line-close");
+    } else {
+      setIsOpen(true);
+      setOpenMobile("open-side-div");
+      setLine("line-open");
+    }
+  };
+
+
   return (
     <>
       <HeaderStyles>
@@ -47,19 +66,19 @@ export default function Header({ showAdded }: any) {
             <></>
           )}
         </div>
-        <div className="header-mobile">
+        <div className={`header-mobile`}>
           <Link className="header-logo-mobile" to="/">
             <img src={svgs.logo} />
           </Link>
-          <div className="open-options">
-            <div className="line-1"></div>
-            <div className="line-2"></div>
-            <div className="line-3"></div>
+          <div className="open-options" onClick={openMobileOptions}>
+            <div className={`${line}-1`}></div>
+            <div className={`${line}-2`}></div>
+            <div className={`${line}-3`}></div>
           </div>
           <Link className="mobile-icon-option" to="/carrinho">
             <HiShoppingCart />
           </Link>
-          <div className="header-mobile-options">
+          <div className={`${openMobile} header-mobile-options`}>
             <Link className="mobile-route-option" to="/">
               HOME
             </Link>
