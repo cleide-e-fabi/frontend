@@ -140,7 +140,7 @@ export default function Product() {
                   {Math.round(
                     ((product[0].compare_num - product[0].price_num) /
                       product[0].compare_num) *
-                      100,
+                    100,
                   )}
                   %
                 </span>
@@ -283,6 +283,40 @@ export default function Product() {
               </h2>
             </div>
           </div>
+        </div>
+        <div className="product-content-mobile">
+          <div className="m-imgs">
+            <img className="m-img" src={product[0].url_image[0]} />
+          </div>
+          <h1 className="m-name">{product[0].title}</h1>
+          <h3 className="m-compare">R$ {product[0].compare_at_price}</h3>
+          <h2 className="m-price">R$ {product[0].price}</h2>
+          <h4 className="m-discount">
+            Economia de R${' '}
+            {(product[0].compare_at_price - product[0].price).toFixed(2)}
+          </h4>
+          <div className="m-ship">
+            <p className="m-ship-title">Calcular Frete e Prazo</p>
+            <ShipForm />
+          </div>
+          <div className="button-container">
+            <Link
+              to="/carrinho"
+              className="buy-button"
+              onClick={handleAddToCart}
+            >
+              <HiShoppingCart />
+              <span>Comprar Agora</span>
+            </Link>
+          </div>
+          <div className="button-container">
+            <button className="cart-button" onClick={handleAddToCart}>
+              Adicionar ao Carrinho
+            </button>
+          </div>
+          <Description
+            dangerouslySetInnerHTML={renderHTML(product[0].description)}
+          ></Description>
         </div>
         <ShopInfo />
       </ProductContainer>

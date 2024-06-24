@@ -6,23 +6,21 @@ import { HiShoppingCart } from 'react-icons/hi';
 import { useState } from 'react';
 
 export default function Header({ showAdded }: any) {
-
-  const [openMobile, setOpenMobile] = useState<string>("close-side-div");
-  const [line, setLine] = useState<string>("line-close");
+  const [openMobile, setOpenMobile] = useState<string>('close-side-div');
+  const [line, setLine] = useState<string>('line-close');
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
   const openMobileOptions = () => {
     if (isOpen) {
       setIsOpen(false);
-      setOpenMobile("close-side-div");
-      setLine("line-close");
+      setOpenMobile('close-side-div');
+      setLine('line-close');
     } else {
       setIsOpen(true);
-      setOpenMobile("open-side-div");
-      setLine("line-open");
+      setOpenMobile('open-side-div');
+      setLine('line-open');
     }
   };
-
 
   return (
     <>
@@ -79,28 +77,70 @@ export default function Header({ showAdded }: any) {
             <HiShoppingCart />
           </Link>
           <div className={`${openMobile} header-mobile-options`}>
-            <Link className="mobile-route-option" to="/" onClick={() => { setOpenMobile("close-side-div"); setLine("line-close"); }}>
+            <Link
+              className="mobile-route-option"
+              to="/"
+              onClick={() => {
+                setOpenMobile('close-side-div');
+                setLine('line-close');
+              }}
+            >
               HOME
             </Link>
-            <Link className="mobile-route-option" to="/produtos" onClick={() => { setOpenMobile("close-side-div"); setLine("line-close"); }}>
+            <Link
+              className="mobile-route-option"
+              to="/produtos"
+              onClick={() => {
+                setOpenMobile('close-side-div');
+                setLine('line-close');
+              }}
+            >
               PRODUTOS
             </Link>
-            <Link className="mobile-route-option" to="/sobre" onClick={() => { setOpenMobile("close-side-div"); setLine("line-close"); }}>
+            <Link
+              className="mobile-route-option"
+              to="/sobre"
+              onClick={() => {
+                setOpenMobile('close-side-div');
+                setLine('line-close');
+              }}
+            >
               SOBRE NÓS
             </Link>
-            <Link className="mobile-route-option" to="/contato" onClick={() => { setOpenMobile("close-side-div"); setLine("line-close"); }}>
+            <Link
+              className="mobile-route-option"
+              to="/contato"
+              onClick={() => {
+                setOpenMobile('close-side-div');
+                setLine('line-close');
+              }}
+            >
               CONTATOS
             </Link>
-            <Link className="mobile-route-option" to="/troca" onClick={() => { setOpenMobile("close-side-div"); setLine("line-close"); }}>
+            <Link
+              className="mobile-route-option"
+              to="/troca"
+              onClick={() => {
+                setOpenMobile('close-side-div');
+                setLine('line-close');
+              }}
+            >
               TROCA E DEVOLUÇÕES
             </Link>
-            <Link className="mobile-route-option" to="/termos" onClick={() => { setOpenMobile("close-side-div"); setLine("line-close"); }}>
+            <Link
+              className="mobile-route-option"
+              to="/termos"
+              onClick={() => {
+                setOpenMobile('close-side-div');
+                setLine('line-close');
+              }}
+            >
               TERMOS DE USO
             </Link>
             <img className="bottom-logo" src={svgs.logo} />
           </div>
         </div>
-      </HeaderStyles >
+      </HeaderStyles>
     </>
   );
 }

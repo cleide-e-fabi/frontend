@@ -38,7 +38,7 @@ export const ShipFormStyles = styled.div`
         height: 38px;
         background-color: ${theme.colors.pink_bg};
         border-style: solid;
-        border-width: 1px;
+        border-width: 2px;
         border-color: ${theme.colors.secondary};
         border-bottom-left-radius: 6px;
         border-top-left-radius: 6px;
@@ -103,5 +103,50 @@ export const ShipFormStyles = styled.div`
       border-bottom-width: 1px;
       border-right-width: 1px;
     }
+  }
+
+  @media (max-width: 920px) {
+    .product-cep-search {
+      flex-direction: column;
+
+      .product-cep-form {
+        display: flex;
+
+        button {
+          height: 48px;
+        }
+
+        input {
+          width: 160px;
+          height: 48px;
+        }
+      }
+
+      .product-cep-link {
+        margin-left: 0px;
+        margin-top: 16px;
+        font-size: 18px;
+        font-weight: 500;
+        color: #929292;
+      }
+      
+    }
+
+    .invalide-cep, .free-ship-container{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 12px;
+    }
+
+    .invalide-cep{
+      font-size: 14px;
+    }
+
+    .free-ship-container{
+      width: 100%;
+    }
+
+    
   }
 `;

@@ -18,4 +18,9 @@ export const Description = styled.div`
     margin-top: 12px;
     margin-bottom: 20px;
   }
+
+  @media (max-width: 920px) {
+    margin-top: 20px;
+    width: 80%;
+  }
 `;
