@@ -18,13 +18,9 @@ export default function Product() {
   const { idProduto } = useParams() as any;
   const { products, setCartProducts } = useContext(UserContext) as any;
   const [product, setProduct] = useState<any>(null);
-  const [price, setPrice] = useState<number>(0);
   const [selectedImage, setSelectedImage] = useState<string>('');
   const [count, setCount] = useState<number>(1);
   const [showAdded, setShowAdded] = useState<string>('added-hidden');
-  const fees = [
-    0.1087, 0.1231, 0.1369, 0.147, 0.1619, 0.1774, 0.1861, 0.2013, 0.2168,
-  ];
 
   const increment = () => {
     setCount((prevCount) => prevCount + 1);
@@ -42,7 +38,6 @@ export default function Product() {
   useEffect(() => {
     const obj = getObjectById(Number(idProduto));
     setProduct([obj]);
-    setPrice(obj.price);
     setSelectedImage(obj.url_image[0]);
   }, [idProduto]);
 
@@ -140,7 +135,7 @@ export default function Product() {
                   {Math.round(
                     ((product[0].compare_num - product[0].price_num) /
                       product[0].compare_num) *
-                      100,
+                    100,
                   )}
                   %
                 </span>
@@ -172,77 +167,6 @@ export default function Product() {
                 Entrega: <span>Calcular frete e prazo</span>
               </p>
               <ShipForm />
-              <div className="quotas-container">
-                <div className="quotas-flags">
-                  <ul className="quotas-card-flags">
-                    <img src={flags.amex} className="quota-flag" />
-                    <img src={flags.elo} className="quota-flag" />
-                    <img src={flags.visa} className="quota-flag" />
-                    <img src={flags.hipercard} className="quota-flag" />
-                    <img src={flags.mastercard} className="quota-flag" />
-                  </ul>
-                  <p className="quotas-text">{`Parcelas:`}</p>
-                </div>
-                <div className="quotas-list">
-                  <ul className="quotas-column">
-                    <li className="quota-value">
-                      <strong>1x</strong>
-                      {` de R$ ${price}`}
-                    </li>
-                    <li className="quota-value">
-                      <strong>2x</strong>
-                      {` de R$ ${Number(price / 2).toFixed(2)}`}
-                    </li>
-                    <li className="quota-value">
-                      <strong>3x</strong>
-                      {` de R$ ${Number(price / 3).toFixed(2)}`}
-                    </li>
-                    <li className="quota-value">
-                      <strong>4x</strong>
-                      {` de R$ ${((Number(price) * (1 + fees[0])) / 4).toFixed(2)}*`}
-                    </li>
-                    <li className="quota-value">
-                      <strong>5x</strong>
-                      {` de R$ ${((Number(price) * (1 + fees[1])) / 5).toFixed(2)}*`}
-                    </li>
-                    <li className="quota-value">
-                      <strong>6x</strong>
-                      {` de R$ ${((Number(price) * (1 + fees[2])) / 6).toFixed(2)}*`}
-                    </li>
-                  </ul>
-                  <ul className="quotas-column">
-                    <li className="quota-value quota-right">
-                      <strong>7x</strong>
-                      {` de R$ ${((Number(price) * (1 + fees[3])) / 7).toFixed(2)}*`}
-                    </li>
-                    <li className="quota-value quota-right">
-                      <strong>8x</strong>
-                      {` de R$ ${((Number(price) * (1 + fees[4])) / 8).toFixed(2)}*`}
-                    </li>
-                    <li className="quota-value quota-right">
-                      <strong>9x</strong>
-                      {` de R$ ${((Number(price) * (1 + fees[5])) / 9).toFixed(2)}*`}
-                    </li>
-                    <li className="quota-value quota-right">
-                      <strong>10x</strong>
-                      {` de R$ ${((Number(price) * (1 + fees[6])) / 10).toFixed(2)}*`}
-                    </li>
-                    <li className="quota-value quota-right">
-                      <strong>11x</strong>
-                      {` de R$ ${((Number(price) * (1 + fees[7])) / 11).toFixed(2)}*`}
-                    </li>
-                    <li className="quota-value quota-right">
-                      <strong>12x</strong>
-                      {` de R$ ${((Number(price) * (1 + fees[8])) / 12).toFixed(2)}*`}
-                    </li>
-                  </ul>
-                </div>
-                <h6 className="fees-text">{`Com juros*`}</h6>
-                <h2 className="pix-discount">
-                  {`5% de desconto no PIX | `}
-                  <strong> {`R$ ${(Number(price) * 0.95).toFixed(2)}`}</strong>
-                </h2>
-              </div>
               <div className="button-container">
                 <Link
                   to="/carrinho"

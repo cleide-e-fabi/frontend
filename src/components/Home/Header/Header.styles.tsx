@@ -35,6 +35,23 @@ export const HeaderStyles = styled.header`
         font-size: 30px;
         color: ${theme.colors.primary};
       }
+
+      .m-cart-quantity{
+        width: 15px;
+        height: 15px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        background-color: ${theme.colors.secondary};
+        font-weight: 700;
+        font-size: 12px;
+        color: ${theme.colors.primary};
+        border: ${theme.colors.primary} solid 2px;
+        border-radius: 20px;
+        top: -8px;
+        right: -8px;
+      }
     }
 
     .open-options {
@@ -255,30 +272,51 @@ export const HeaderStyles = styled.header`
     position: relative;
 
     .icon-option {
-      height: 40%;
+      height: 100%;
+      display: flex;
+      align-items: center;
       margin-left: 40px;
 
       :nth-child(1) {
-        height: 100%;
+        font-size: 25px;
+        color: ${theme.colors.secondary};
+      }
+
+      .cart-quantity{
+        width: 12px;
+        height: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        background-color: ${theme.colors.primary};
+        font-weight: 700;
+        font-size: 11px;
+        color: ${theme.colors.secondary};
+        border: ${theme.colors.secondary} solid 2px;
+        border-radius: 20px;
+        top: 2px;
+        right: 16px;
       }
     }
 
     .added {
-      width: 300px;
-      height: 44px;
-      background-color: ${theme.colors.secondary};
-      position: absolute;
+      width: 400px;
+      height: 90px;
+      background-color: ${theme.colors.primary};
+      position: fixed;
       display: flex;
       align-items: center;
       justify-content: center;
       top: 55px;
-      right: 0px;
-      color: ${theme.colors.primary};
+      right: 40%;
+      color: ${theme.colors.secondary};
       font-family: 'Montserrat', sans-serif;
-      font-size: 16px;
-      font-weight: 700;
-      border-radius: 8px 0px 8px 8px;
+      font-size: 20px;
+      font-weight: 800;
+      border-radius: 8px;
       transition: 300ms;
+      box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
     }
 
     .added-show {

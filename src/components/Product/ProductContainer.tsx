@@ -242,87 +242,6 @@ export const ProductContainer = styled.div`
           }
         }
 
-        .quotas-container {
-          width: 100%;
-          height: max-content;
-          border: ${theme.colors.secondary} solid 1px;
-          border-radius: 10px;
-          box-sizing: border-box;
-          padding: 8px 12px 12px 12px;
-          margin-top: 20px;
-
-          .quotas-flags {
-            display: flex;
-            justify-content: space-between;
-            box-sizing: border-box;
-            padding: 10px 20px;
-            .quotas-card-flags {
-              width: max-content;
-              display: flex;
-              .quota-flag {
-                width: 26px;
-                margin-left: 2px;
-                margin-right: 2px;
-              }
-            }
-
-            .quotas-text {
-              font-size: 15px;
-            }
-          }
-
-          .quotas-list {
-            width: 100%;
-            display: flex;
-            justify-content: space-between;
-            box-sizing: border-box;
-            padding: 8px 20px;
-            border-color: ${theme.colors.secondary};
-            border-style: solid;
-            border-top-width: 1px;
-
-            .quota-value {
-              margin-bottom: 4px;
-              font-size: 14px;
-              font-weight: 400;
-
-              strong {
-                font-weight: 700;
-              }
-            }
-
-            .quota-right {
-              display: flex;
-              justify-content: flex-end;
-            }
-          }
-
-          .fees-text {
-            margin-top: 2px;
-            font-size: 12px;
-            font-weight: 400;
-            margin-left: 20px;
-          }
-
-          .pix-discount {
-            margin-top: 12px;
-            font-size: 14px;
-            font-weight: 400;
-            border-color: ${theme.colors.secondary};
-            border-style: solid;
-            border-top-width: 1px;
-            padding-top: 10px;
-            padding-right: 20px;
-            display: flex;
-            justify-content: flex-end;
-
-            strong {
-              font-weight: 700;
-              margin-left: 4px;
-            }
-          }
-        }
-
         .button-container {
           width: 100%;
           height: max-content;
@@ -567,43 +486,6 @@ export const ProductContainer = styled.div`
             }
           }
 
-          .quotas-container {
-            border-radius: 6px;
-
-            .quotas-flags {
-              padding: 8px 16px;
-              .quotas-card-flags {
-                .quota-flag {
-                  width: 24px;
-                }
-              }
-
-              .quotas-text {
-                font-size: 13px;
-              }
-            }
-
-            .quotas-list {
-              padding: 4px 16px;
-              .quota-value {
-                font-size: 12px;
-
-                strong {
-                  font-weight: 700;
-                }
-              }
-            }
-
-            .fees-text {
-              font-size: 11px;
-            }
-
-            .pix-discount {
-              margin-top: 8px;
-              font-size: 12px;
-            }
-          }
-
           .button-container {
             .cart-button {
               font-size: 14px;
@@ -789,7 +671,7 @@ export const ProductContainer = styled.div`
     }
   }
 
-  @media (max-width: 410px) {
+  @media (max-width: 450px) {
     .product-content-mobile {
       .m-name {
         margin-top: 20px;

@@ -14,7 +14,7 @@ export const Description = styled.div`
   }
 
   img {
-    width: 80%;
+    width: 70%;
     margin-top: 12px;
     margin-bottom: 20px;
   }
