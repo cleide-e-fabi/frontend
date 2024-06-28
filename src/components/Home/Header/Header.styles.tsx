@@ -36,7 +36,7 @@ export const HeaderStyles = styled.header`
         color: ${theme.colors.primary};
       }
 
-      .m-cart-quantity{
+      .m-cart-quantity {
         width: 15px;
         height: 15px;
         display: flex;
@@ -282,7 +282,7 @@ export const HeaderStyles = styled.header`
         color: ${theme.colors.secondary};
       }
 
-      .cart-quantity{
+      .cart-quantity {
         width: 12px;
         height: 12px;
         display: flex;
@@ -316,7 +316,9 @@ export const HeaderStyles = styled.header`
       font-weight: 800;
       border-radius: 8px;
       transition: 300ms;
-      box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+      box-shadow:
+        rgba(0, 0, 0, 0.16) 0px 10px 36px 0px,
+        rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
     }
 
     .added-show {

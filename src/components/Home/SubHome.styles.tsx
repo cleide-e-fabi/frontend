@@ -1,6 +1,16 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import theme from '../../styles/theme';
 import banner from '../../assets/imgs/banner.png';
+import banner2 from '../../assets/imgs/banner2.png';
+
+const changeBackground = keyframes`
+  0% {
+    background-image: url(${banner});
+  }
+  50% {
+    background-image: url(${banner2});
+  }
+`;
 
 export const SubHome = styled.section`
   display: flex;
@@ -18,6 +28,7 @@ export const SubHome = styled.section`
     border-radius: 60px;
     position: relative;
     background-image: url(${banner});
+    animation: ${changeBackground} 9s infinite;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
@@ -119,6 +130,10 @@ export const SubHome = styled.section`
       height: 320px;
       display: flex;
       flex-direction: column;
+      transition: 300ms;
+      &:hover {
+        scale: 1.03;
+      }
 
       .category-img {
         background-repeat: no-repeat;

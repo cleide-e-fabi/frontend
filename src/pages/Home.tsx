@@ -13,6 +13,7 @@ import Header from '../components/Home/Header/Header';
 import CommentsSection from '../components/Home/CommentsSection/CommentsSection';
 import { useContext } from 'react';
 import UserContext from '../contexts/UserContext';
+import { Link } from 'react-router-dom';
 
 export default function Home() {
   const { products } = useContext(UserContext) as any;
@@ -29,7 +30,10 @@ export default function Home() {
               presentear aquela pessoa amada.`}
             </sub>
             <span>
-              <button>{`CONFERIR`}</button>
+              <Link
+                className="conferir-products"
+                to="/produtos"
+              >{`CONFERIR`}</Link>
             </span>
           </HomeContent>
           <Mosaico src={imgs.mosaico} />

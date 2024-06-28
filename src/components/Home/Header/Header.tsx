@@ -5,7 +5,7 @@ import { GoTriangleDown } from 'react-icons/go';
 import { HiShoppingCart } from 'react-icons/hi';
 import { useContext, useState } from 'react';
 import UserContext from '../../../contexts/UserContext';
-import { MdOutlineShoppingCart } from "react-icons/md";
+import { MdOutlineShoppingCart } from 'react-icons/md';
 
 export default function Header({ showAdded }: any) {
   const [openMobile, setOpenMobile] = useState<string>('close-side-div');
@@ -58,7 +58,7 @@ export default function Header({ showAdded }: any) {
         <div className="header-icons">
           <Link className="icon-option" to="/carrinho">
             <MdOutlineShoppingCart />
-            <div className='cart-quantity'>{cartProducts.length}</div>
+            <div className="cart-quantity">{cartProducts.length}</div>
           </Link>
           {showAdded ? (
             <div className={`added ${showAdded}`}>
@@ -79,7 +79,7 @@ export default function Header({ showAdded }: any) {
           </div>
           <Link className="mobile-icon-option" to="/carrinho">
             <HiShoppingCart />
-            <div className='m-cart-quantity'>{cartProducts.length}</div>
+            <div className="m-cart-quantity">{cartProducts.length}</div>
           </Link>
           <div className={`${openMobile} header-mobile-options`}>
             <Link

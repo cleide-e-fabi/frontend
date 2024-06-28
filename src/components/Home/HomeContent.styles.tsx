@@ -31,7 +31,8 @@ export const HomeContent = styled.header`
   span {
     width: 88%;
     margin-top: 40px;
-    button {
+    transition: 300ms;
+    .conferir-products {
       background-color: ${theme.colors.secondary};
       color: ${theme.colors.primary};
       font-weight: 900;
@@ -40,6 +41,10 @@ export const HomeContent = styled.header`
       box-sizing: border-box;
       padding: 10px 22px;
       font-size: 22px;
+    }
+
+    &:hover {
+      scale: 1.02;
     }
   }
 
@@ -57,7 +62,7 @@ export const HomeContent = styled.header`
     }
 
     span {
-      button {
+      .conferir-products {
         font-size: 18px;
         padding: 10px 22px;
       }
@@ -79,7 +84,7 @@ export const HomeContent = styled.header`
     }
 
     span {
-      button {
+      .conferir-products {
         font-size: 16px;
         padding: 9px 20px;
       }
@@ -99,7 +104,7 @@ export const HomeContent = styled.header`
     }
 
     span {
-      button {
+      .conferir-products {
         font-size: 16px;
         padding: 9px 20px;
       }
@@ -119,7 +124,7 @@ export const HomeContent = styled.header`
     }
 
     span {
-      button {
+      .conferir-products {
         font-size: 14px;
         padding: 8px 18px;
       }
@@ -145,7 +150,7 @@ export const HomeContent = styled.header`
       display: flex;
       align-items: center;
       justify-content: center;
-      button {
+      .conferir-products {
         font-size: 14px;
         padding: 8px 18px;
       }
