@@ -33,7 +33,7 @@ export default function Cart() {
     event.stopPropagation();
     setIsconfirme(true);
 
-    let url = 'https://fanaiana.mycartpanda.com/checkout';
+    let url = 'https://fanaiana.mycartpanda.com/checkout/';
 
     cartProducts.forEach((i: any) => {
       url = url + i.variant_id + ':' + i.amount + '&';

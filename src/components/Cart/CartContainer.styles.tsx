@@ -71,6 +71,26 @@ export const CartContainer = styled.div`
     img {
       width: 100px;
     }
+
+    @media (max-width: 1200px) {
+      p {
+        font-size: 38px;
+      }
+
+      img {
+        width: 90px;
+      }
+    }
+
+    @media (max-width: 900px) {
+      p {
+        font-size: 30px;
+      }
+
+      img {
+        width: 80px;
+      }
+    }
   }
 
   .cart-empty {

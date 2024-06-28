@@ -143,9 +143,16 @@ export default function Home() {
         <h5 className="footer-info">{`Cleide e Fabi | CNPJ: 13.895.943/0001-71`}</h5>
         <h5 className="footer-info">{`Porto Velho 597 - Jd Cumbica Guarulhos - São Paulo - SP - 07.240-060`}</h5>
         <h5 className="footer-info">{`cleidefabi.com.br | Whatsapp: (11) 94729-2964`}</h5>
-        <img className="footer-wpp" src={svgs.wpp} />
+        <a href="https://wa.me/5511947292964?text=" target="_blank">
+          <img className="footer-wpp" src={svgs.wpp} />
+        </a>
         <img className="footer-wppline" src={svgs.wppline} />
-        <img className="footer-instagram" src={svgs.instagram} />
+        <a
+          href="https://www.instagram.com/cleidefabipresentes/"
+          target="_blank"
+        >
+          <img className="footer-instagram" src={svgs.instagram} />
+        </a>
       </MainFooter>
     </>
   );
