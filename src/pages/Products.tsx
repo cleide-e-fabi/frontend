@@ -3,8 +3,8 @@ import { ProductsContainer } from '../components/Products/Products.styles';
 import { ProductsList } from '../components/Products/ProductsList';
 import Header from '../components/Home/Header/Header';
 import { Title } from '../components/Title';
-import { FaArrowCircleUp } from 'react-icons/fa';
-import { FaArrowCircleDown } from 'react-icons/fa';
+// import { FaArrowCircleUp } from 'react-icons/fa';
+// import { FaArrowCircleDown } from 'react-icons/fa';
 import { FaSearch } from 'react-icons/fa';
 import UserContext from '../contexts/UserContext';
 import { Link } from 'react-router-dom';
@@ -54,14 +54,14 @@ export default function Products() {
             </div>
           </div>
           <ul className="filters">
-            <li className="filter">
+            {/* <li className="filter">
               <h6>Maior Preço</h6>
               <FaArrowCircleUp />
             </li>
             <li className="filter">
               <h6>Menor Preço</h6>
               <FaArrowCircleDown />
-            </li>
+            </li> */}
           </ul>
         </div>
         <ProductsList>
@@ -73,8 +73,8 @@ export default function Products() {
                 R$ {i.price} <span>R$ {i.compare_at_price}</span>
               </h2>
               <h3 className="product-quota">
-                Até <span>12x</span> de{' '}
-                <span>R$ {((i.price * 1.2168) / 12).toFixed(2)}</span>
+                Até <span>3x</span> de{' '}
+                <span>R$ {(i.price / 3).toFixed(2)}</span>
               </h3>
             </Link>
           ))}

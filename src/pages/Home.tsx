@@ -11,12 +11,43 @@ import * as svgs from '../assets/svgs';
 import theme from '../styles/theme';
 import Header from '../components/Home/Header/Header';
 import CommentsSection from '../components/Home/CommentsSection/CommentsSection';
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import UserContext from '../contexts/UserContext';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
+import loading from '../assets/anim/loading.webp';
 
 export default function Home() {
   const { products } = useContext(UserContext) as any;
+  const [invalidCep, setInvalidCep] = useState<boolean>(false);
+  const [validCep, setValidCep] = useState<boolean>(false);
+  const [showLoading, setShowLoading] = useState<boolean>(false);
+  const [cep, setCep] = useState('');
+
+  const verifyCep = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setShowLoading(true);
+
+    try {
+      const response = await axios.get(`https://viacep.com.br/ws/${cep}/json/`);
+
+      const hasCep = 'cep' in response.data;
+
+      if (hasCep) {
+        setInvalidCep(false);
+        setValidCep(true);
+        setShowLoading(false);
+      } else {
+        setInvalidCep(true);
+        setValidCep(false);
+        setShowLoading(false);
+      }
+    } catch (error) {
+      setInvalidCep(true);
+      setValidCep(false);
+      setShowLoading(false);
+    }
+  };
 
   return (
     <>
@@ -73,14 +104,29 @@ export default function Home() {
               <img className="cep-img" src={svgs.entrega} />
               <div className="cep-search">
                 <p className="cep-title">{`1. CEP de Entrega:`}</p>
-                <form className="cep-form">
+                <form className="cep-form" onSubmit={verifyCep}>
                   <input
+                    onSubmit={verifyCep}
                     type="number"
                     name="cep"
-                    placeholder="00000-000"
+                    placeholder="Digite seu CEP"
+                    value={cep}
+                    onChange={(e) => setCep(e.target.value)}
+                    maxLength={8}
                     required
                   ></input>
-                  <button>{`Buscar`}</button>
+                  <button type="submit">
+                    {`Buscar`}
+                    {showLoading ? (
+                      <img
+                        className="loading-gif"
+                        src={loading}
+                        alt="loading..."
+                      />
+                    ) : (
+                      <></>
+                    )}
+                  </button>
                 </form>
                 <a
                   href="https://buscacepinter.correios.com.br/app/endereco/index.php"
@@ -89,6 +135,17 @@ export default function Home() {
                 >
                   {`Não sei o CEP`}
                 </a>
+                {invalidCep && (
+                  <p className="invalide-cep">
+                    Por favor, digite um CEP válido.
+                  </p>
+                )}
+                {validCep && (
+                  <div className="free-ship-container">
+                    <p className="free-ship-text">Frete Grátis</p>
+                    <h1 className="free-ship-value">R$0,00</h1>
+                  </div>
+                )}
               </div>
             </div>
           </div>

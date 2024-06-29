@@ -19,9 +19,9 @@ export default function CommentsSection() {
               <li className="star">{`★`}</li>
               <li className="star">{`★`}</li>
             </ul>
-            <h6 className="product-name">{`Nome do produto`}</h6>
+            <h6 className="product-name">{`Cesta Café da Manhã`}</h6>
             <h5 className="comment-text">{`Deu tudo certo. Vcs são maravilhosas!`}</h5>
-            <div className="comment-date">{`03/02/24`}</div>
+            <div className="comment-date">{`23/09/23`}</div>
           </li>
           <li className="comment-card">
             <ul className="comment-stars">
@@ -29,20 +29,23 @@ export default function CommentsSection() {
               <li className="star">{`★`}</li>
               <li className="star">{`★`}</li>
               <li className="star">{`★`}</li>
+              <li className="star">{`★`}</li>
             </ul>
-            <h6 className="product-name">{`Nome do produto`}</h6>
-            <h5 className="comment-text">{`Deu tudo certo. Vcs são maravilhosas!`}</h5>
-            <div className="comment-date">{`03/02/24`}</div>
+            <h6 className="product-name">{`Kit Balde de Cerveja do São Paulo`}</h6>
+            <h5 className="comment-text">{`Meu marido amou o presente. Muito Obrigada!`}</h5>
+            <div className="comment-date">{`12/09/23`}</div>
           </li>
           <li className="comment-card">
             <ul className="comment-stars">
               <li className="star">{`★`}</li>
               <li className="star">{`★`}</li>
               <li className="star">{`★`}</li>
+              <li className="star">{`★`}</li>
+              <li className="star">{`★`}</li>
             </ul>
-            <h6 className="product-name">{`Nome do produto`}</h6>
-            <h5 className="comment-text">{`Deu tudo certo. Vcs são maravilhosas!`}</h5>
-            <div className="comment-date">{`03/02/24`}</div>
+            <h6 className="product-name">{`Pelúcia Stitch com Bombons!`}</h6>
+            <h5 className="comment-text">{`Linda a pelúcia e chegou muito rápido.`}</h5>
+            <div className="comment-date">{`07/06/23`}</div>
           </li>
         </ul>
       </CommentsSectionStyles>

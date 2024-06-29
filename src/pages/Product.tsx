@@ -168,14 +168,13 @@ export default function Product() {
               </p>
               <ShipForm />
               <div className="button-container">
-                <Link
-                  to="/carrinho"
+                <a
+                  href={`https://fanaiana.mycartpanda.com/checkout/${product[0].variant_id}:1`}
                   className="buy-button"
-                  onClick={handleAddToCart}
                 >
                   <HiShoppingCart />
                   <span>Comprar Agora</span>
-                </Link>
+                </a>
               </div>
               <div className="button-container">
                 <button className="cart-button" onClick={handleAddToCart}>

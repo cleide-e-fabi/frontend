@@ -103,6 +103,13 @@ export const SubHome = styled.section`
             button {
               width: 24%;
               font-weight: 700;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+
+              .loading-gif {
+                height: 90%;
+              }
             }
           }
 
@@ -111,6 +118,47 @@ export const SubHome = styled.section`
             font-size: 11px;
             color: #626262;
             text-decoration: underline;
+          }
+
+          .invalide-cep {
+            font-size: 12px;
+            font-weight: 600;
+            color: #ff0000;
+            margin-bottom: 12px;
+            margin-top: 10px;
+          }
+
+          .free-ship-container {
+            width: max-content;
+            height: max-content;
+            display: flex;
+            font-size: 14px;
+            color: ${theme.colors.secondary};
+            margin-top: 12px;
+
+            .free-ship-text,
+            .free-ship-value {
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              border-style: solid;
+              border-color: ${theme.colors.secondary};
+              height: 36px;
+            }
+
+            .free-ship-text {
+              width: 108px;
+              font-weight: 400;
+              border-width: 1px;
+            }
+
+            .free-ship-value {
+              width: 80px;
+              font-weight: 600;
+              border-top-width: 1px;
+              border-bottom-width: 1px;
+              border-right-width: 1px;
+            }
           }
         }
       }
@@ -133,6 +181,7 @@ export const SubHome = styled.section`
       transition: 300ms;
       &:hover {
         scale: 1.03;
+        cursor: pointer;
       }
 
       .category-img {
