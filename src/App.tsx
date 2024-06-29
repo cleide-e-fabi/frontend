@@ -13,7 +13,7 @@ import Contact from './pages/Contact';
 import Product from './pages/Product';
 import { useEffect } from 'react';
 import Cart from './pages/Cart';
-import { productsConst } from './assets/consts/productsConst';
+import axios from 'axios';
 
 export default function App() {
   const cartFromLS =
@@ -23,15 +23,11 @@ export default function App() {
   const [products, setProducts] = useState<any[]>(productsFromLS);
   const [cartProducts, setCartProducts] = useState<any[]>(cartFromLS);
 
-  // useEffect(() => {
-  //   const promise = axios.get('https://gifts-back.onrender.com/products');
-  //   promise.then((answer) => {
-  //     setProducts(answer.data);
-  //   });
-  // }, []);
-
   useEffect(() => {
-    setProducts(productsConst);
+    const promise = axios.get('https://gifts-back.onrender.com/products');
+    promise.then((answer) => {
+      setProducts(answer.data);
+    });
   }, []);
 
   useEffect(() => {
