@@ -159,6 +159,23 @@ export const SubHome = styled.section`
               border-bottom-width: 1px;
               border-right-width: 1px;
             }
+
+            @media (max-width: 1000px){
+              font-size: 8px;
+
+              .free-ship-text,
+            .free-ship-value {
+              height: 14px;
+            }
+
+            .free-ship-text {
+              width: 56px;
+            }
+
+            .free-ship-value {
+              width: 30px;
+            }
+            }
           }
         }
       }

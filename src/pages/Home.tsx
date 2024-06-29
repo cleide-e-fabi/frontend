@@ -186,11 +186,11 @@ export default function Home() {
         </Title>
         <ul className="favorites-list">
           {products.slice(2, 6).map((i: any) => (
-            <li key={i.id} className="favorites-item">
+            <Link to={`/produtos`} key={i.id} className="favorites-item">
               <img src={i.url_image[0]} />
               <p>{i.title}</p>
               <h1>{i.price}</h1>
-            </li>
+            </Link>
           ))}
         </ul>
       </SubHome>
