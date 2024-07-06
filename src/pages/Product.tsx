@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { ProductContainer } from '../components/Product/ProductContainer';
 import Header from '../components/Home/Header/Header';
 import { Description } from '../components/Product/Description';
@@ -135,7 +135,7 @@ export default function Product() {
                   {Math.round(
                     ((product[0].compare_num - product[0].price_num) /
                       product[0].compare_num) *
-                      100,
+                    100,
                   )}
                   %
                 </span>
@@ -223,14 +223,13 @@ export default function Product() {
             <ShipForm />
           </div>
           <div className="button-container">
-            <Link
-              to="/carrinho"
+            <a
+              href={`https://fanaiana.mycartpanda.com/checkout/${product[0].variant_id}:1`}
               className="buy-button"
-              onClick={handleAddToCart}
             >
               <HiShoppingCart />
               <span>Comprar Agora</span>
-            </Link>
+            </a>
           </div>
           <div className="button-container">
             <button className="cart-button" onClick={handleAddToCart}>
