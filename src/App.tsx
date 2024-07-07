@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { useState } from 'react';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Route, Routes, useNavigate } from 'react-router-dom';
 import GlobalStyle from './styles/GlobalStyle';
 import UserContext from './contexts/UserContext';
 import Home from './pages/Home';
@@ -16,12 +16,23 @@ import Cart from './pages/Cart';
 import axios from 'axios';
 
 export default function App() {
+  const navigate = useNavigate();
   const cartFromLS =
     JSON.parse(localStorage.getItem('cartProducts') as any) || [];
   const productsFromLS =
     JSON.parse(localStorage.getItem('products') as any) || [];
   const [products, setProducts] = useState<any[]>(productsFromLS);
   const [cartProducts, setCartProducts] = useState<any[]>(cartFromLS);
+
+  const RedirectToRoot = () => {
+    useEffect(() => {
+      if (window.location.pathname !== '/') {
+        navigate('/');
+      }
+    }, [navigate]);
+
+    return null;
+  };
 
   useEffect(() => {
     const promise = axios.get('https://gifts-back.onrender.com/products');
@@ -43,6 +54,7 @@ export default function App() {
       <GlobalStyle />
       <UserContext.Provider value={{ products, cartProducts, setCartProducts }}>
         <BrowserRouter>
+          <RedirectToRoot />
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/produtos" element={<Products />} />
