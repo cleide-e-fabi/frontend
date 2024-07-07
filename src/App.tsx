@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { useState } from 'react';
-import { Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import GlobalStyle from './styles/GlobalStyle';
 import UserContext from './contexts/UserContext';
 import Home from './pages/Home';
@@ -41,18 +41,20 @@ export default function App() {
   return (
     <Body>
       <GlobalStyle />
-      <UserContext.Provider value={{ products, cartProducts, setCartProducts }}>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/produtos" element={<Products />} />
-          <Route path="/produtos/:idProduto" element={<Product />} />
-          <Route path="/sobre" element={<About />} />
-          <Route path="/troca" element={<Replacement />} />
-          <Route path="/termos" element={<Policy />} />
-          <Route path="/contato" element={<Contact />} />
-          <Route path="/carrinho" element={<Cart />} />
-        </Routes>
-      </UserContext.Provider>
+      <BrowserRouter>
+        <UserContext.Provider value={{ products, cartProducts, setCartProducts }}>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/produtos" element={<Products />} />
+            <Route path="/produtos/:idProduto" element={<Product />} />
+            <Route path="/sobre" element={<About />} />
+            <Route path="/troca" element={<Replacement />} />
+            <Route path="/termos" element={<Policy />} />
+            <Route path="/contato" element={<Contact />} />
+            <Route path="/carrinho" element={<Cart />} />
+          </Routes>
+        </UserContext.Provider>
+      </BrowserRouter>
     </Body>
   );
 }
