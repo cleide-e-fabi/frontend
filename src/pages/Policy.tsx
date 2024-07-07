@@ -1,4 +1,4 @@
-import Header from '../components/Home/Header/Header';
+// import Header from '../components/Home/Header/Header';
 import { ReplacementContainer } from '../components/Replacement/ReplacementContainer';
 import SimpleFooter from '../components/SimpleFooter/SimpleFooter';
 import { Title } from '../components/Title';
@@ -7,7 +7,7 @@ export default function Policy() {
   return (
     <>
       <ReplacementContainer>
-        <Header />
+        {/* <Header /> */}
         <Title>
           <p>TERMOS DE USO</p>
           <span className="line"></span>
