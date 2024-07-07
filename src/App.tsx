@@ -16,7 +16,6 @@ import Cart from './pages/Cart';
 import axios from 'axios';
 
 export default function App() {
-  const navigate = useNavigate();
   const cartFromLS =
     JSON.parse(localStorage.getItem('cartProducts') as any) || [];
   const productsFromLS =
@@ -25,6 +24,7 @@ export default function App() {
   const [cartProducts, setCartProducts] = useState<any[]>(cartFromLS);
 
   const RedirectToRoot = () => {
+    const navigate = useNavigate();
     useEffect(() => {
       if (window.location.pathname !== '/') {
         navigate('/');
