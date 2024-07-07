@@ -1,5 +1,5 @@
 import { AboutContainer } from '../components/About/About.styles';
-// import Header from '../components/Home/Header/Header';
+import Header from '../components/Home/Header/Header';
 import * as svgs from '../assets/svgs';
 import { Title } from '../components/Title';
 import cleidefabi from '../assets/imgs/cleidefabi_img.jpeg';
@@ -8,7 +8,7 @@ import SimpleFooter from '../components/SimpleFooter/SimpleFooter';
 export default function About() {
   return (
     <AboutContainer>
-      {/* <Header /> */}
+      <Header />
       <Title>
         <p>SOBRE NÓS</p>
         <span className="line"></span>
