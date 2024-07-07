@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { useState } from 'react';
-import { BrowserRouter, Route, Routes, useNavigate } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import GlobalStyle from './styles/GlobalStyle';
 import UserContext from './contexts/UserContext';
 import Home from './pages/Home';
@@ -23,17 +23,6 @@ export default function App() {
   const [products, setProducts] = useState<any[]>(productsFromLS);
   const [cartProducts, setCartProducts] = useState<any[]>(cartFromLS);
 
-  const RedirectToRoot = () => {
-    const navigate = useNavigate();
-    useEffect(() => {
-      if (window.location.pathname !== '/') {
-        navigate('/');
-      }
-    }, [navigate]);
-
-    return null;
-  };
-
   useEffect(() => {
     const promise = axios.get('https://gifts-back.onrender.com/products');
     promise.then((answer) => {
@@ -53,19 +42,16 @@ export default function App() {
     <Body>
       <GlobalStyle />
       <UserContext.Provider value={{ products, cartProducts, setCartProducts }}>
-        <BrowserRouter>
-          <RedirectToRoot />
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/produtos" element={<Products />} />
-            <Route path="/produtos/:idProduto" element={<Product />} />
-            <Route path="/sobre" element={<About />} />
-            <Route path="/troca" element={<Replacement />} />
-            <Route path="/termos" element={<Policy />} />
-            <Route path="/contato" element={<Contact />} />
-            <Route path="/carrinho" element={<Cart />} />
-          </Routes>
-        </BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/produtos" element={<Products />} />
+          <Route path="/produtos/:idProduto" element={<Product />} />
+          <Route path="/sobre" element={<About />} />
+          <Route path="/troca" element={<Replacement />} />
+          <Route path="/termos" element={<Policy />} />
+          <Route path="/contato" element={<Contact />} />
+          <Route path="/carrinho" element={<Cart />} />
+        </Routes>
       </UserContext.Provider>
     </Body>
   );
