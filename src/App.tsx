@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { useState } from 'react';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, HashRouter, Route, Routes } from 'react-router-dom';
 import GlobalStyle from './styles/GlobalStyle';
 import UserContext from './contexts/UserContext';
 import Home from './pages/Home';
@@ -41,7 +41,7 @@ export default function App() {
   return (
     <Body>
       <GlobalStyle />
-      <BrowserRouter>
+      <HashRouter>
         <UserContext.Provider value={{ products, cartProducts, setCartProducts }}>
           <Routes>
             <Route path="/" element={<Home />} />
@@ -54,7 +54,7 @@ export default function App() {
             <Route path="/carrinho" element={<Cart />} />
           </Routes>
         </UserContext.Provider>
-      </BrowserRouter>
+      </HashRouter>
     </Body>
   );
 }
