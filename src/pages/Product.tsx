@@ -135,7 +135,7 @@ export default function Product() {
                   {Math.round(
                     ((product[0].compare_num - product[0].price_num) /
                       product[0].compare_num) *
-                    100,
+                      100,
                   )}
                   %
                 </span>

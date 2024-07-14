@@ -145,13 +145,14 @@ export default function Cart() {
                     </li>
                   ))}
                 </ul>
-                <div className="cart-ship">
+                {/* <div className="cart-ship">
                   <h6>Frete</h6>
                   <h6>R$ 0.00</h6>
-                </div>
+                </div> */}
                 <p className="total-price">
                   Total: <span>{`R$ ${totalPrice.toFixed(2)}`}</span>
                 </p>
+                <h5 className="frete-warning">*valor sem o frete</h5>
                 <div className="finalize-purchase" onClick={createOrder}>
                   FINALIZAR COMPRA
                 </div>

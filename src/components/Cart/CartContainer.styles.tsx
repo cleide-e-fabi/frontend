@@ -360,6 +360,14 @@ export const CartContainer = styled.div`
         margin-bottom: 6px;
       }
 
+      .frete-warning {
+        width: 100%;
+        font-size: 10px;
+        margin-top: 5px;
+        display: flex;
+        justify-content: flex-end;
+      }
+
       .finalize-purchase,
       .keep-buying {
         width: 100%;

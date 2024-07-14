@@ -160,21 +160,21 @@ export const SubHome = styled.section`
               border-right-width: 1px;
             }
 
-            @media (max-width: 1000px){
+            @media (max-width: 1000px) {
               font-size: 8px;
 
               .free-ship-text,
-            .free-ship-value {
-              height: 14px;
-            }
+              .free-ship-value {
+                height: 14px;
+              }
 
-            .free-ship-text {
-              width: 56px;
-            }
+              .free-ship-text {
+                width: 56px;
+              }
 
-            .free-ship-value {
-              width: 30px;
-            }
+              .free-ship-value {
+                width: 30px;
+              }
             }
           }
         }

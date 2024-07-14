@@ -14,6 +14,7 @@ import Product from './pages/Product';
 import { useEffect } from 'react';
 import Cart from './pages/Cart';
 import axios from 'axios';
+import { productsConst } from './assets/consts/productsConst';
 
 export default function App() {
   const cartFromLS =
@@ -22,6 +23,12 @@ export default function App() {
     JSON.parse(localStorage.getItem('products') as any) || [];
   const [products, setProducts] = useState<any[]>(productsFromLS);
   const [cartProducts, setCartProducts] = useState<any[]>(cartFromLS);
+
+  useEffect(() => {
+    if (products) {
+      setProducts(productsConst);
+    }
+  }, []);
 
   useEffect(() => {
     const promise = axios.get('https://gifts-back.onrender.com/products');
@@ -42,7 +49,9 @@ export default function App() {
     <Body>
       <GlobalStyle />
       <HashRouter>
-        <UserContext.Provider value={{ products, cartProducts, setCartProducts }}>
+        <UserContext.Provider
+          value={{ products, cartProducts, setCartProducts }}
+        >
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/produtos" element={<Products />} />

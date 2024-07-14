@@ -12,12 +12,12 @@ export default function ShopInfo() {
           <span className="info-icon">
             <BsBoxSeam />
           </span>
-          <div className="info-text">
+          {/* <div className="info-text">
             <p className="info-title">Frete Grátis</p>
             <h6>
               Envio rápido e gratuito com código de rastreio via Correios.
             </h6>
-          </div>
+          </div> */}
         </li>
         <li className="info">
           <span className="info-icon-2">

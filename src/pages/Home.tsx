@@ -16,6 +16,7 @@ import UserContext from '../contexts/UserContext';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import loading from '../assets/anim/loading.webp';
+import { addDays, format } from 'date-fns';
 
 export default function Home() {
   const { products } = useContext(UserContext) as any;
@@ -23,6 +24,11 @@ export default function Home() {
   const [validCep, setValidCep] = useState<boolean>(false);
   const [showLoading, setShowLoading] = useState<boolean>(false);
   const [cep, setCep] = useState('');
+  const today = new Date();
+  const date15 = addDays(today, 10);
+  const date30 = addDays(today, 20);
+  const formattedDate15 = format(date15, 'dd/MM');
+  const formattedDate30 = format(date30, 'dd/MM');
 
   const verifyCep = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -141,10 +147,9 @@ export default function Home() {
                   </p>
                 )}
                 {validCep && (
-                  <div className="free-ship-container">
-                    <p className="free-ship-text">Frete Grátis</p>
-                    <h1 className="free-ship-value">R$0,00</h1>
-                  </div>
+                  <p className="free-ship-container">
+                    {`Entrega estimada entre os dias ${formattedDate15} e ${formattedDate30}`}
+                  </p>
                 )}
               </div>
             </div>

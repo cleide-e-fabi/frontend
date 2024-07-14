@@ -75,34 +75,8 @@ export const ShipFormStyles = styled.div`
   }
 
   .free-ship-container {
-    width: max-content;
-    height: max-content;
-    display: flex;
-    font-size: 14px;
-
-    .free-ship-text,
-    .free-ship-value {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-style: solid;
-      border-color: ${theme.colors.secondary};
-      height: 36px;
-    }
-
-    .free-ship-text {
-      width: 108px;
-      font-weight: 400;
-      border-width: 1px;
-    }
-
-    .free-ship-value {
-      width: 80px;
-      font-weight: 600;
-      border-top-width: 1px;
-      border-bottom-width: 1px;
-      border-right-width: 1px;
-    }
+    font-size: 12px;
+    font-weight: 700;
   }
 
   @media (max-width: 920px) {
