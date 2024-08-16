@@ -156,34 +156,34 @@ export default function Home() {
           </div>
         </div>
         <ul className="categories">
-          <li className="category">
+          <Link to="cestas" className="category">
             <div
               style={{ backgroundImage: `url(${imgs.cesta1})` }}
               className="category-img"
             ></div>
             <p className="category-title">CESTAS</p>
-          </li>
-          <li className="category">
+          </Link>
+          <Link to="pelucias" className="category">
             <div
               style={{ backgroundImage: `url(${imgs.ursos})` }}
               className="category-img"
             ></div>
             <p className="category-title">PELÚCIAS</p>
-          </li>
-          <li className="category">
+          </Link>
+          <Link to="lembrancinhas" className="category">
             <div
               style={{ backgroundImage: `url(${imgs.cesta2})` }}
               className="category-img"
             ></div>
             <p className="category-title">LEMBRANCINHAS</p>
-          </li>
-          <li className="category">
+          </Link>
+          <Link to="buques" className="category">
             <div
               style={{ backgroundImage: `url(${imgs.flowers})` }}
               className="category-img"
             ></div>
             <p className="category-title">BUQUÊS</p>
-          </li>
+          </Link>
         </ul>
         <Title>
           <p>FAVORITOS</p>

@@ -15,6 +15,7 @@ import { useEffect } from 'react';
 import Cart from './pages/Cart';
 import axios from 'axios';
 import { productsConst } from './assets/consts/productsConst';
+import Collections from './pages/Collections';
 
 export default function App() {
   const cartFromLS =
@@ -61,6 +62,7 @@ export default function App() {
             <Route path="/termos" element={<Policy />} />
             <Route path="/contato" element={<Contact />} />
             <Route path="/carrinho" element={<Cart />} />
+            <Route path="/:collection" element={<Collections />} />
           </Routes>
         </UserContext.Provider>
       </HashRouter>
