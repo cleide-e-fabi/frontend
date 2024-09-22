@@ -98,7 +98,7 @@ export const CheckoutContainer = styled.div`
         border-width: 1px;
         border-style: solid;
         border-color: ${theme.colors.secondary};
-        transition: 300ms;
+        transition: 400ms;
         margin-top: 30px;
 
         &:hover {

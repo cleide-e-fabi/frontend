@@ -30,7 +30,9 @@ export const MainFooter = styled.footer`
   .footer-instagram {
     position: absolute;
     bottom: 50px;
+    transition: 400ms;
     &:hover {
+      scale: 1.2;
       cursor: pointer;
     }
   }

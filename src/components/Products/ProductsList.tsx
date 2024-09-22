@@ -33,7 +33,7 @@ export const ProductsList = styled.ul`
     border-style: solid;
     border-width: 1px;
     border-color: transparent;
-    transition: 300ms;
+    transition: 400ms;
 
     &:hover {
       box-shadow: 0px 4px 4px 0px #00000040;

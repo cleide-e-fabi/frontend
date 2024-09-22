@@ -195,7 +195,7 @@ export const SubHome = styled.section`
       height: 320px;
       display: flex;
       flex-direction: column;
-      transition: 300ms;
+      transition: 400ms;
       &:hover {
         scale: 1.03;
         cursor: pointer;
@@ -235,17 +235,24 @@ export const SubHome = styled.section`
     justify-content: space-between;
 
     .favorites-item {
-      width: 320px;
+      width: max-content;
+      height: max-content;
       display: flex;
       flex-direction: column;
       align-items: center;
       position: relative;
+      transition: 400ms;
+
+        &:hover {
+          scale: 1.1;
+        }
 
       img {
-        height: 100%;
+        height:  230px;
         border-radius: 13px;
         margin-bottom: 10px;
-        filter: brightness(0.85);
+        filter: brightness(0.90);
+        box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.25);
       }
 
       p,

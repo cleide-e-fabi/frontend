@@ -123,7 +123,7 @@ export const CartContainer = styled.div`
       border-width: 1px;
       border-style: solid;
       border-color: ${theme.colors.secondary};
-      transition: 300ms;
+      transition: 400ms;
 
       &:hover {
         background-color: ${theme.colors.primary};
@@ -242,7 +242,7 @@ export const CartContainer = styled.div`
               background-color: ${theme.colors.secondary};
               border-radius: 8px;
               margin-right: 8px;
-              transition: 300ms;
+              transition: 400ms;
 
               :nth-child(1) {
                 color: ${theme.colors.primary};
@@ -277,7 +277,7 @@ export const CartContainer = styled.div`
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                transition: 300ms;
+                transition: 400ms;
                 border-radius: 6px;
 
                 &:hover {
@@ -378,7 +378,7 @@ export const CartContainer = styled.div`
         display: flex;
         align-items: center;
         justify-content: center;
-        transition: 300ms;
+        transition: 400ms;
         border: ${theme.colors.secondary} solid 1px;
       }
 

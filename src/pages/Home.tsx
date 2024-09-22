@@ -195,7 +195,7 @@ export default function Home() {
             <Link to={`/produtos`} key={i.id} className="favorites-item">
               <img src={i.url_image[0]} />
               <p>{i.title}</p>
-              <h1>{i.price}</h1>
+              <h1>R$ {i.price}</h1>
             </Link>
           ))}
         </ul>

@@ -55,7 +55,7 @@ export const ProductContainer = styled.div`
           border-radius: 4px;
           box-sizing: border-box;
           padding: 3px;
-          transition: 300ms;
+          transition: 400ms;
           &:hover {
             cursor: pointer;
             border-color: ${theme.colors.secondary};
@@ -259,7 +259,7 @@ export const ProductContainer = styled.div`
             display: flex;
             align-items: center;
             justify-content: center;
-            transition: 300ms;
+            transition: 400ms;
           }
 
           .buy-button {
@@ -603,7 +603,7 @@ export const ProductContainer = styled.div`
         display: flex;
         align-items: center;
         justify-content: center;
-        transition: 300ms;
+        transition: 400ms;
       }
 
       .buy-button {

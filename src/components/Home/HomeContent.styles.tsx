@@ -31,7 +31,7 @@ export const HomeContent = styled.header`
   span {
     width: 88%;
     margin-top: 40px;
-    transition: 300ms;
+    transition: 400ms;
     .conferir-products {
       background-color: ${theme.colors.secondary};
       color: ${theme.colors.primary};
