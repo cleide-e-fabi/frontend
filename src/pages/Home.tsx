@@ -58,6 +58,7 @@ export default function Home() {
   return (
     <>
       <StyledHome>
+      <img className="header-logo" src={svgs.logov} />
         <Header />
         <div className="middle-content">
           <HomeContent>

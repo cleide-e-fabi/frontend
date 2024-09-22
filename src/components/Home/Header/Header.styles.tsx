@@ -3,7 +3,7 @@ import theme from '../../../styles/theme';
 
 export const HeaderStyles = styled.header`
   width: 80%;
-  height: 50px;
+  height: 48px;
   position: absolute;
   top: 65px;
   display: flex;
@@ -144,13 +144,6 @@ export const HeaderStyles = styled.header`
     }
   }
 
-  .header-logo {
-    position: absolute;
-    left: 60px;
-    bottom: 5px;
-    height: 80%;
-  }
-
   .header-options,
   .header-icons {
     display: flex;
@@ -158,7 +151,7 @@ export const HeaderStyles = styled.header`
     justify-content: flex-end;
     height: 100%;
     font-family: 'Montserrat', sans-serif;
-    font-size: 14px;
+    font-size: 12px;
   }
 
   .header-options {
@@ -194,7 +187,7 @@ export const HeaderStyles = styled.header`
       padding: 0px 30px;
       color: ${theme.colors.primary};
       transition: 300ms;
-      font-size: 14px;
+      font-size: 13px;
 
       &:hover {
         background-color: ${theme.colors.primary};
@@ -357,12 +350,9 @@ export const HeaderStyles = styled.header`
   }
 
   @media (max-width: 1340px) {
-    width: 88%;
+    width: 76%;
     height: 40px;
 
-    .header-logo {
-      margin-left: -24px;
-    }
     .header-options {
       width: 130%;
       .route-option {
@@ -379,10 +369,6 @@ export const HeaderStyles = styled.header`
       display: none;
     }
     .header-icons {
-      display: none;
-    }
-
-    .header-logo {
       display: none;
     }
 

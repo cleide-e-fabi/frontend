@@ -28,7 +28,6 @@ export default function Header({ showAdded }: any) {
   return (
     <>
       <HeaderStyles>
-        <img className="header-logo" src={svgs.logo} />
         <div className="header-options">
           <Link className="route-option" to="/">
             INÍCIO
