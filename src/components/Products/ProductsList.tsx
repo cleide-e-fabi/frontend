@@ -11,7 +11,7 @@ export const ProductsList = styled.ul`
   padding: 0px 40px;
 
   .product-item {
-    width: 210px;
+    width: 310px;
     height: max-content;
     border-radius: 14px;
     box-shadow:
@@ -50,13 +50,12 @@ export const ProductsList = styled.ul`
 
     .product-title {
       font-family: 'Montserrat', sans-serif;
-      font-size: 14px;
+      font-size: 18px;
       font-weight: 500;
       margin-bottom: 8px;
     }
 
     .product-price {
-      width: 100%;
       font-family: 'Montserrat', sans-serif;
       font-size: 15px;
       font-weight: 700;
@@ -73,7 +72,6 @@ export const ProductsList = styled.ul`
     }
 
     .product-quota {
-      width: 100%;
       font-size: 14px;
       font-weight: 400;
       margin-bottom: 8px;
@@ -81,6 +79,98 @@ export const ProductsList = styled.ul`
       span {
         font-weight: 600;
       }
+    }
+  }
+
+  @media (max-width: 1480px) {
+    .product-item {
+      width: 270px;
+      margin: 14px;
+
+      .product-title {
+      font-size: 15px;
+    }
+
+    .product-price {
+      font-size: 12px;
+
+      span {
+        font-size: 11px;
+      }
+    }
+
+    .product-quota {
+      font-size: 12px;
+    }
+    }
+  }
+
+  @media (max-width: 1020px) {
+    .product-item {
+      width: 210px;
+      margin: 8px;
+
+      .product-title {
+      font-size: 14px;
+    }
+
+    .product-price {
+      font-size: 11px;
+
+      span {
+        font-size: 10px;
+      }
+    }
+
+    .product-quota {
+      font-size: 11px;
+    }
+    }
+  }
+
+  @media (max-width: 760px) {
+    .product-item {
+      width: 190px;
+      margin: 6px;
+
+      .product-title {
+      font-size: 12px;
+    }
+
+    .product-price {
+      font-size: 10px;
+
+      span {
+        font-size: 9px;
+      }
+    }
+
+    .product-quota {
+      font-size: 10px;
+    }
+    }
+  }
+
+  @media (max-width: 690px) {
+    .product-item {
+      width: 160px;
+      margin: 6px;
+
+      .product-title {
+      font-size: 10px;
+    }
+
+    .product-price {
+      font-size: 9px;
+
+      span {
+        font-size: 8px;
+      }
+    }
+
+    .product-quota {
+      font-size: 9px;
+    }
     }
   }
 
