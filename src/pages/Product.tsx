@@ -148,9 +148,9 @@ export default function Product() {
                   PIX!
                 </h4>
               </div>
-              <div className="product-pay-options">
+              {/* <div className="product-pay-options">
                 Ver mais opções de pagamento
-              </div>
+              </div> */}
               <CounterStyles>
                 <h6 className="product-quantity">Quantidade:</h6>
                 <div className="quantity-buttons-container">
