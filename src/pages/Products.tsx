@@ -3,10 +3,8 @@ import { ProductsContainer } from '../components/Products/Products.styles';
 import { ProductsList } from '../components/Products/ProductsList';
 import Header from '../components/Home/Header/Header';
 import { Title } from '../components/Title';
-import { FaArrowCircleUp } from 'react-icons/fa';
-import { FaArrowCircleDown } from 'react-icons/fa';
+import { FaArrowCircleUp, FaArrowCircleDown, FaSearch } from 'react-icons/fa';
 import { LuListFilter } from 'react-icons/lu';
-import { FaSearch } from 'react-icons/fa';
 import UserContext from '../contexts/UserContext';
 import { Link } from 'react-router-dom';
 import SimpleFooter from '../components/SimpleFooter/SimpleFooter';
@@ -14,15 +12,30 @@ import ShopInfo from '../components/ShopInfo/ShopInfo';
 
 export default function Products() {
   const [searchTerm, setSearchTerm] = useState<string>('');
+  const [sortOrder, setSortOrder] = useState<string>(''); // Estado para ordenar
   const { products, productsCategories } = useContext(UserContext) as any;
 
   const handleSearch = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSearchTerm(event.target.value);
   };
 
-  const filteredProducts = products.filter((product: { title: string }) =>
-    product.title.toLowerCase().includes(searchTerm.toLowerCase()),
-  );
+  const handleSort = (order: string) => {
+    setSortOrder(order);
+  };
+
+  const filteredProducts = products
+    .filter((product: { title: string }) =>
+      product.title.toLowerCase().includes(searchTerm.toLowerCase()),
+    )
+    .sort((a: { price: number }, b: { price: number }) => {
+      if (sortOrder === 'asc') {
+        return a.price - b.price;
+      }
+      if (sortOrder === 'desc') {
+        return b.price - a.price;
+      }
+      return 0;
+    });
 
   if (!products) {
     return (
@@ -65,7 +78,7 @@ export default function Products() {
                     key={index}
                     to={`/${category
                       .normalize('NFD')
-                      .replace(/[\u0300-\u036f]/g, '')
+                      .replace(/[\u0300-\u036f]/g, '') // Remover acentos
                       .toLowerCase()}`}
                   >
                     {category}
@@ -73,11 +86,11 @@ export default function Products() {
                 ))}
               </div>
             </li>
-            <li className="filter">
+            <li className="filter" onClick={() => handleSort('desc')}>
               <h6 className="filter-title">Maior Preço</h6>
               <FaArrowCircleUp />
             </li>
-            <li className="filter">
+            <li className="filter" onClick={() => handleSort('asc')}>
               <h6 className="filter-title">Menor Preço</h6>
               <FaArrowCircleDown />
             </li>
