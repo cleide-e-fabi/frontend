@@ -58,7 +58,7 @@ export default function Home() {
   return (
     <>
       <StyledHome>
-      <img className="header-logo" src={svgs.logov} />
+        <img className="header-logo" src={svgs.logov} />
         <Header />
         <div className="middle-content">
           <HomeContent>
@@ -190,15 +190,17 @@ export default function Home() {
           <p>FAVORITOS</p>
           <span className="line"></span>
         </Title>
-        <ul className="favorites-list">
-          {products.slice(2, 6).map((i: any) => (
-            <Link to={`/produtos`} key={i.id} className="favorites-item">
-              <img src={i.url_image[0]} />
-              <p>{i.title}</p>
-              <h1>R$ {i.price}</h1>
-            </Link>
+        <div className="fav">
+          {products.slice(1, 8).map((i: any, index: number) => (
+            <>
+              <Link key={index} to={`/produtos`} className="favorites-item">
+                <img src={i.url_image[0]} />
+                <p>{i.title}</p>
+                <h1>R$ {i.price}</h1>
+              </Link>
+            </>
           ))}
-        </ul>
+        </div>
       </SubHome>
       <CommentsSection />
       <MainFooter>

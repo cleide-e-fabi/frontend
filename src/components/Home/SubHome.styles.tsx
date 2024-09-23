@@ -17,7 +17,7 @@ export const SubHome = styled.section`
   align-items: flex-start;
   flex-direction: column;
   width: 100%;
-  height: max-content;
+  min-height: max-content;
   box-sizing: border-box;
   padding: 45px 30px;
   background-color: ${theme.colors.gray};
@@ -228,11 +228,13 @@ export const SubHome = styled.section`
     }
   }
 
-  .favorites-list {
+  .fav{
     width: 100%;
-    height: 240px;
+    height: max-content;
     display: flex;
-    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
 
     .favorites-item {
       width: max-content;
@@ -242,16 +244,17 @@ export const SubHome = styled.section`
       align-items: center;
       position: relative;
       transition: 400ms;
+      margin: 16px 10px;
 
-        &:hover {
-          scale: 1.1;
-        }
+      &:hover {
+        scale: 1.1;
+      }
 
       img {
-        height:  230px;
+        height: 230px;
         border-radius: 13px;
         margin-bottom: 10px;
-        filter: brightness(0.90);
+        filter: brightness(0.9);
         box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.25);
       }
 
@@ -272,6 +275,7 @@ export const SubHome = styled.section`
       }
     }
   }
+
   .comments-container {
     width: 100%;
     height: 600px;
