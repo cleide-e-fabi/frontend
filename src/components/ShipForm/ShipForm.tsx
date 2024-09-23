@@ -10,8 +10,8 @@ export default function ShipForm() {
   const [showLoading, setShowLoading] = useState<boolean>(false);
   const [cep, setCep] = useState('');
   const today = new Date();
-  const date15 = addDays(today, 10);
-  const date30 = addDays(today, 20);
+  const date15 = addDays(today, 12);
+  const date30 = addDays(today, 14);
   const formattedDate15 = format(date15, 'dd/MM');
   const formattedDate30 = format(date30, 'dd/MM');
 
