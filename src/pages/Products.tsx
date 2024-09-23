@@ -10,6 +10,7 @@ import UserContext from '../contexts/UserContext';
 import { Link } from 'react-router-dom';
 import SimpleFooter from '../components/SimpleFooter/SimpleFooter';
 import ShopInfo from '../components/ShopInfo/ShopInfo';
+import Heart from '../components/Products/Heart';
 
 export default function Products() {
   const [searchTerm, setSearchTerm] = useState<string>('');
