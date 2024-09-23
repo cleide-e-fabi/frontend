@@ -12,7 +12,9 @@ import loading from '../assets/anim/loading.webp';
 import { IoMdLock } from 'react-icons/io';
 
 export default function Cart() {
-  const { cartProducts, setCartProducts } = useContext(UserContext) as any;
+  const { cartProducts, setCartProducts, products } = useContext(
+    UserContext,
+  ) as any;
   const [cartLS, setCartLS] = useState<any[]>([]);
   const [totalPrice, setTotalPrice] = useState<number>(0);
   const [isconfirme, setIsconfirme] = useState<boolean>(false);
@@ -71,6 +73,35 @@ export default function Cart() {
     );
     setCartProducts(updatedCartProducts);
     localStorage.setItem('cartProducts', JSON.stringify(updatedCartProducts));
+  };
+
+  // Função para adicionar/remover produtos ao carrinho
+  const handleCheckboxChange = (product: any, isChecked: boolean) => {
+    if (isChecked) {
+      // Adicionar produto ao carrinho
+      const productInCart = cartProducts.find((p: any) => p.id === product.id);
+      let updatedCartProducts;
+
+      if (productInCart) {
+        // Se já existe no carrinho, apenas aumenta a quantidade
+        updatedCartProducts = cartProducts.map((p: any) =>
+          p.id === product.id ? { ...p, amount: p.amount + 1 } : p,
+        );
+      } else {
+        // Caso contrário, adiciona o produto com quantidade 1
+        updatedCartProducts = [...cartProducts, { ...product, amount: 1 }];
+      }
+
+      setCartProducts(updatedCartProducts);
+      localStorage.setItem('cartProducts', JSON.stringify(updatedCartProducts));
+    } else {
+      // Remover produto do carrinho
+      const updatedCartProducts = cartProducts.filter(
+        (p: any) => p.id !== product.id,
+      );
+      setCartProducts(updatedCartProducts);
+      localStorage.setItem('cartProducts', JSON.stringify(updatedCartProducts));
+    }
   };
 
   return (
@@ -151,10 +182,6 @@ export default function Cart() {
                     </li>
                   ))}
                 </ul>
-                {/* <div className="cart-ship">
-                  <h6>Frete</h6>
-                  <h6>R$ 0.00</h6>
-                </div> */}
                 <p className="total-price">
                   Total: <span>{`R$ ${totalPrice.toFixed(2)}`}</span>
                 </p>
@@ -185,6 +212,37 @@ export default function Cart() {
               VEJA NOSSOS PRODUTOS
             </Link>
           </div>
+        )}
+        {cartLS.length !== 0 ? (
+          <div className="related-itens">
+            <p className="related-title">Aproveite e compre junto!</p>
+            <div className="products-related">
+              {products.slice(-8).map((i: any) => (
+                <div key={i.id} className="product-item">
+                  <img className="product-img" src={i.url_image[0]} />
+                  <p className="product-title">{i.title}</p>
+                  <h2 className="product-price">
+                    R$ {i.price} <span>R$ {i.compare_at_price}</span>
+                  </h2>
+                  <h3 className="product-quota">
+                    Até <span>3x</span> de{' '}
+                    <span>R$ {(i.price / 3).toFixed(2)}</span>
+                  </h3>
+                  {/* Checkbox para adicionar/remover do carrinho */}
+                  <label className="checkbox-product">
+                    <input
+                      type="checkbox"
+                      onChange={(e) =>
+                        handleCheckboxChange(i, e.target.checked)
+                      }
+                    />
+                  </label>
+                </div>
+              ))}
+            </div>
+          </div>
+        ) : (
+          <></>
         )}
         <ShopInfo />
         {isconfirme ? (
