@@ -22,7 +22,12 @@ export default function App() {
     JSON.parse(localStorage.getItem('cartProducts') as any) || [];
   const productsFromLS =
     JSON.parse(localStorage.getItem('products') as any) || [];
+  const categoriesFromLS =
+    JSON.parse(localStorage.getItem('categories') as any) || [];
+
   const [products, setProducts] = useState<any[]>(productsFromLS);
+  const [productsCategories, setProductsCategories] =
+    useState<any[]>(categoriesFromLS);
   const [cartProducts, setCartProducts] = useState<any[]>(cartFromLS);
 
   useEffect(() => {
@@ -33,8 +38,14 @@ export default function App() {
 
   useEffect(() => {
     const promise = axios.get('https://backend-ewwx.onrender.com/products');
+    const promiseCategories = axios.get(
+      'https://backend-ewwx.onrender.com/categories',
+    );
     promise.then((answer) => {
       setProducts(answer.data);
+    });
+    promiseCategories.then((answer) => {
+      setProductsCategories(answer.data);
     });
   }, []);
 
@@ -46,12 +57,21 @@ export default function App() {
     localStorage.setItem('products', JSON.stringify(products));
   }, [products]);
 
+  useEffect(() => {
+    localStorage.setItem('cartProducts', JSON.stringify(productsCategories));
+  }, [productsCategories]);
+
   return (
     <Body>
       <GlobalStyle />
       <HashRouter>
         <UserContext.Provider
-          value={{ products, cartProducts, setCartProducts }}
+          value={{
+            products,
+            cartProducts,
+            setCartProducts,
+            productsCategories,
+          }}
         >
           <Routes>
             <Route path="/" element={<Home />} />

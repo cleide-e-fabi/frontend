@@ -81,7 +81,7 @@ export const ProductsContainer = styled.div`
         height: 100%;
         display: flex;
         box-sizing: border-box;
-        padding: 0px 10px;
+        padding: 0px 4px;
         align-items: center;
         justify-content: space-around;
         background-color: ${theme.colors.secondary};

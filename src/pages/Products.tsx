@@ -3,8 +3,9 @@ import { ProductsContainer } from '../components/Products/Products.styles';
 import { ProductsList } from '../components/Products/ProductsList';
 import Header from '../components/Home/Header/Header';
 import { Title } from '../components/Title';
-// import { FaArrowCircleUp } from 'react-icons/fa';
-// import { FaArrowCircleDown } from 'react-icons/fa';
+import { FaArrowCircleUp } from 'react-icons/fa';
+import { FaArrowCircleDown } from 'react-icons/fa';
+import { MdOutlineFilterList } from 'react-icons/md';
 import { FaSearch } from 'react-icons/fa';
 import UserContext from '../contexts/UserContext';
 import { Link } from 'react-router-dom';
@@ -54,14 +55,18 @@ export default function Products() {
             </div>
           </div>
           <ul className="filters">
-            {/* <li className="filter">
+            <li className="filter">
+              <h6>Categorias</h6>
+              <MdOutlineFilterList />
+            </li>
+            <li className="filter">
               <h6>Maior Preço</h6>
               <FaArrowCircleUp />
             </li>
             <li className="filter">
               <h6>Menor Preço</h6>
               <FaArrowCircleDown />
-            </li> */}
+            </li>
           </ul>
         </div>
         <ProductsList>
