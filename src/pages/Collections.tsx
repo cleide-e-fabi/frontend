@@ -16,18 +16,22 @@ export default function Collections() {
   const { collection } = useParams() as any;
   const [searchTerm, setSearchTerm] = useState<string>('');
   const [productsCollection, setProductsCollection] = useState([]);
+  const [category, setCatogory] = useState('PRODUTOS');
   const { products } = useContext(UserContext) as any;
 
   useEffect(() => {
     const filteredProducts = products.filter(
-      (product: { collection: any }) => product.collection === collection,
+      (product: { collection: any }) =>
+        product.collection
+          .normalize('NFD')
+          .replace(/[\u0300-\u036f]/g, '')
+          .toLowerCase() === collection,
     );
     setProductsCollection(filteredProducts);
-    console.log('poooorraaa', productsCollection);
+    if (filteredProducts) {
+      setCatogory(filteredProducts[0].collection);
+    }
   }, []);
-
-  console.log('poooorraaa dnvvvv',productsCollection);
-
 
   const handleSearch = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSearchTerm(event.target.value);
@@ -52,7 +56,7 @@ export default function Collections() {
       <ProductsContainer>
         <Header />
         <Title>
-          <p>PRODUTOS</p>
+          <p>{category.toUpperCase()}</p>
           <span className="line"></span>
         </Title>
         <div className="product-filters">

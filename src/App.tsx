@@ -32,7 +32,7 @@ export default function App() {
   }, []);
 
   useEffect(() => {
-    const promise = axios.get('https://gifts-back.onrender.com/products');
+    const promise = axios.get('https://backend-ewwx.onrender.com/products');
     promise.then((answer) => {
       setProducts(answer.data);
     });
