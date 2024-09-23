@@ -78,30 +78,34 @@ export default function Cart() {
   // Função para adicionar/remover produtos ao carrinho
   const handleCheckboxChange = (product: any, isChecked: boolean) => {
     if (isChecked) {
-      // Adicionar produto ao carrinho
       const productInCart = cartProducts.find((p: any) => p.id === product.id);
       let updatedCartProducts;
 
       if (productInCart) {
-        // Se já existe no carrinho, apenas aumenta a quantidade
         updatedCartProducts = cartProducts.map((p: any) =>
           p.id === product.id ? { ...p, amount: p.amount + 1 } : p,
         );
       } else {
-        // Caso contrário, adiciona o produto com quantidade 1
         updatedCartProducts = [...cartProducts, { ...product, amount: 1 }];
       }
 
       setCartProducts(updatedCartProducts);
       localStorage.setItem('cartProducts', JSON.stringify(updatedCartProducts));
     } else {
-      // Remover produto do carrinho
       const updatedCartProducts = cartProducts.filter(
         (p: any) => p.id !== product.id,
       );
       setCartProducts(updatedCartProducts);
       localStorage.setItem('cartProducts', JSON.stringify(updatedCartProducts));
     }
+  };
+
+  // Função para filtrar produtos relacionados que já estão no carrinho
+  const getFilteredRelatedProducts = (relatedProducts: any[]) => {
+    return relatedProducts.filter(
+      (relatedProduct) =>
+        !cartProducts.some((cartProduct: any) => cartProduct.id === relatedProduct.id),
+    );
   };
 
   return (
@@ -217,7 +221,7 @@ export default function Cart() {
           <div className="related-itens">
             <p className="related-title">Aproveite e compre junto!</p>
             <div className="products-related">
-              {products.slice(-8).map((i: any) => (
+              {getFilteredRelatedProducts(products.slice(-10)).map((i: any) => (
                 <div key={i.id} className="product-item">
                   <img className="product-img" src={i.url_image[0]} />
                   <p className="product-title">{i.title}</p>
@@ -228,7 +232,6 @@ export default function Cart() {
                     Até <span>3x</span> de{' '}
                     <span>R$ {(i.price / 3).toFixed(2)}</span>
                   </h3>
-                  {/* Checkbox para adicionar/remover do carrinho */}
                   <label className="checkbox-product">
                     <input
                       type="checkbox"
