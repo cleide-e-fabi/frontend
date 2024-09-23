@@ -93,7 +93,13 @@ export default function Cart() {
                       alt={product.title}
                     />
                     <div className="cart-product-values">
-                      <h2 className="cart-product-category">Categoria</h2>
+                      {product.collection == 'buques' ? (
+                        <h2 className="cart-product-category">{'buquês'}</h2>
+                      ) : (
+                        <h2 className="cart-product-category">
+                          {product.collection}
+                        </h2>
+                      )}
                       <h1 className="cart-product-title">{product.title}</h1>
                     </div>
                   </div>
