@@ -87,7 +87,7 @@ export const ProductsContainer = styled.div`
         background-color: ${theme.colors.secondary};
         color: ${theme.colors.primary};
         margin-left: 22px;
-        border-radius: 20px;
+        border-radius: 18px;
         position: relative;
         transition: 300ms;
 
@@ -121,6 +121,7 @@ export const ProductsContainer = styled.div`
             font-weight: 600;
             transition: 300ms;
             color: ${theme.colors.primary};
+            font-size: 15px;
 
             &:hover {
               background-color: ${theme.colors.primary};
@@ -139,7 +140,6 @@ export const ProductsContainer = styled.div`
         .filter-category-title {
           margin-right: 76px;
         }
-
       }
 
       .filter-category {
@@ -147,6 +147,23 @@ export const ProductsContainer = styled.div`
           .categories-list {
             height: 154px;
           }
+        }
+      }
+    }
+  }
+
+  @media (max-width: 1040px) {
+    .product-filters {
+      flex-wrap: wrap;
+      display: flex;
+      justify-content: flex-end;
+      margin-bottom: 40px;
+      margin-right: 40px;
+
+      .products-form {
+        margin-bottom: 10px;
+        .search-icon {
+          margin: 0px;
         }
       }
     }
@@ -160,11 +177,14 @@ export const ProductsContainer = styled.div`
       flex-direction: column;
       align-items: flex-start;
       padding: 0px 0px;
+      margin-bottom: 20px;
+      margin-right: 0px;
 
       .products-form {
         width: 100%;
         height: max-content;
         justify-content: flex-end;
+        margin-bottom: 0px;
 
         .product-search {
           height: 30px;
@@ -172,7 +192,6 @@ export const ProductsContainer = styled.div`
 
         .search-icon {
           height: 30px;
-          margin-right: 0px;
         }
       }
 
@@ -180,11 +199,46 @@ export const ProductsContainer = styled.div`
         width: 100%;
         height: 30px;
         margin-top: 10px;
-        justify-content: flex-end;
+        justify-content: flex-start;
+        flex-direction: row-reverse;
 
         .filter {
           margin-left: 10px;
           margin-right: 0px;
+
+          .categories-list {
+            border-radius: 16px;
+
+            .category-link {
+              padding-left: 18px;
+              font-size: 14px;
+            }
+          }
+        }
+        .filter-category {
+          &:hover {
+            .categories-list {
+              height: 140px;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  @media (max-width: 830px) {
+    .product-filters {
+      .filters {
+        .more-price,
+        .less-price {
+          display: none;
+        }
+
+        .filter {
+          .categories-list {
+            right: 0px;
+            left: auto;
+          }
         }
       }
     }

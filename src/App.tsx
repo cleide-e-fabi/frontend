@@ -54,8 +54,6 @@ export default function App() {
     );
     promiseCategories.then((answer) => {
       setProductsCategories(answer.data);
-      console.log(answer.data);
-      console.log('chegou aq esse carai');
     });
   }, []);
 

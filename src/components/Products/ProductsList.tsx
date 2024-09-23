@@ -128,53 +128,40 @@ export const ProductsList = styled.ul`
     }
   }
 
-  @media (max-width: 760px) {
+  @media (max-width: 850px) {
+    justify-content: center;
     .product-item {
-      width: 190px;
-      margin: 6px;
+      padding: 10px 6px;
+      width: 44%;
+      border-radius: 6px;
+      margin: 20px 10px;
 
       .product-title {
-      font-size: 12px;
-    }
-
-    .product-price {
-      font-size: 10px;
-
-      span {
-        font-size: 9px;
+        font-size: 15px;
       }
-    }
 
-    .product-quota {
-      font-size: 10px;
-    }
+      .product-price {
+        font-size: 17px;
+        display: flex;
+        flex-direction: column;
+        font-weight: 800;
+        span {
+          font-size: 14px;
+          font-weight: 700;
+          margin-left: 0px;
+          margin-top: 1px;
+          margin-bottom: 6px;
+        }
+      }
+
+      .product-quota {
+        font-size: 13px;
+        margin-bottom: 3px;
+      }
     }
   }
 
-  @media (max-width: 690px) {
-    .product-item {
-      width: 160px;
-      margin: 6px;
-
-      .product-title {
-      font-size: 10px;
-    }
-
-    .product-price {
-      font-size: 9px;
-
-      span {
-        font-size: 8px;
-      }
-    }
-
-    .product-quota {
-      font-size: 9px;
-    }
-    }
-  }
-
-  @media (max-width: 580px) {
+  @media (max-width: 680px) {
     justify-content: space-between;
     .product-item {
       padding: 5px 4px;
