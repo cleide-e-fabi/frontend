@@ -547,7 +547,7 @@ export const CartContainer = styled.div`
 
           input {
             width: 20px;
-            height: 20px;
+            height: 20px; 
             border: 1px solid ${theme.colors.secondary};
             border-radius: 5px;
             cursor: pointer;

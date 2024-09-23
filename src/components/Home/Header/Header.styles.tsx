@@ -138,8 +138,7 @@ export const HeaderStyles = styled.header`
 
       .bottom-logo {
         width: 90px;
-        position: absolute;
-        bottom: 120px;
+        margin-top: 60px;
       }
     }
   }
