@@ -5,7 +5,7 @@ import Header from '../components/Home/Header/Header';
 import { Title } from '../components/Title';
 import { FaArrowCircleUp } from 'react-icons/fa';
 import { FaArrowCircleDown } from 'react-icons/fa';
-import { MdOutlineFilterList } from 'react-icons/md';
+import { LuListFilter } from 'react-icons/lu';
 import { FaSearch } from 'react-icons/fa';
 import UserContext from '../contexts/UserContext';
 import { Link } from 'react-router-dom';
@@ -14,7 +14,7 @@ import ShopInfo from '../components/ShopInfo/ShopInfo';
 
 export default function Products() {
   const [searchTerm, setSearchTerm] = useState<string>('');
-  const { products } = useContext(UserContext) as any;
+  const { products, productsCategories } = useContext(UserContext) as any;
 
   const handleSearch = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSearchTerm(event.target.value);
@@ -55,16 +55,30 @@ export default function Products() {
             </div>
           </div>
           <ul className="filters">
-            <li className="filter">
-              <h6>Categorias</h6>
-              <MdOutlineFilterList />
+            <li className="filter-category filter">
+              <h6 className="filter-category-title filter-title">Categorias</h6>
+              <LuListFilter />
+              <div className="categories-list">
+                {productsCategories.map((category: string, index: number) => (
+                  <Link
+                    className="category-link"
+                    key={index}
+                    to={`/${category
+                      .normalize('NFD')
+                      .replace(/[\u0300-\u036f]/g, '')
+                      .toLowerCase()}`}
+                  >
+                    {category}
+                  </Link>
+                ))}
+              </div>
             </li>
             <li className="filter">
-              <h6>Maior Preço</h6>
+              <h6 className="filter-title">Maior Preço</h6>
               <FaArrowCircleUp />
             </li>
             <li className="filter">
-              <h6>Menor Preço</h6>
+              <h6 className="filter-title">Menor Preço</h6>
               <FaArrowCircleDown />
             </li>
           </ul>

@@ -15,6 +15,7 @@ import { useEffect } from 'react';
 import Cart from './pages/Cart';
 import axios from 'axios';
 import { productsConst } from './assets/consts/productsConst';
+import { categoriesConst } from './assets/consts/categoriesConst';
 import Collections from './pages/Collections';
 
 export default function App() {
@@ -23,7 +24,8 @@ export default function App() {
   const productsFromLS =
     JSON.parse(localStorage.getItem('products') as any) || [];
   const categoriesFromLS =
-    JSON.parse(localStorage.getItem('categories') as any) || [];
+    JSON.parse(localStorage.getItem('productsCategories') as any) ||
+    productsConst;
 
   const [products, setProducts] = useState<any[]>(productsFromLS);
   const [productsCategories, setProductsCategories] =
@@ -34,18 +36,26 @@ export default function App() {
     if (products) {
       setProducts(productsConst);
     }
+    if (productsCategories) {
+      setProductsCategories(categoriesConst);
+    }
   }, []);
 
   useEffect(() => {
     const promise = axios.get('https://backend-ewwx.onrender.com/products');
-    const promiseCategories = axios.get(
-      'https://backend-ewwx.onrender.com/categories',
-    );
     promise.then((answer) => {
       setProducts(answer.data);
     });
+  }, []);
+
+  useEffect(() => {
+    const promiseCategories = axios.get(
+      'https://backend-ewwx.onrender.com/categories',
+    );
     promiseCategories.then((answer) => {
       setProductsCategories(answer.data);
+      console.log(answer.data);
+      console.log('chegou aq esse carai');
     });
   }, []);
 
@@ -58,7 +68,10 @@ export default function App() {
   }, [products]);
 
   useEffect(() => {
-    localStorage.setItem('cartProducts', JSON.stringify(productsCategories));
+    localStorage.setItem(
+      'productsCategories',
+      JSON.stringify(productsCategories),
+    );
   }, [productsCategories]);
 
   return (

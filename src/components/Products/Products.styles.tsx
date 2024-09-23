@@ -77,20 +77,77 @@ export const ProductsContainer = styled.div`
       display: flex;
 
       .filter {
-        width: 180px;
-        height: 100%;
+        width: max-content;
+        height: max-content;
         display: flex;
         box-sizing: border-box;
-        padding: 0px 4px;
+        padding: 8px 12px;
         align-items: center;
         justify-content: space-around;
         background-color: ${theme.colors.secondary};
         color: ${theme.colors.primary};
         margin-left: 22px;
         border-radius: 20px;
-        font-family: 'Montserrat', sans-serif;
-        font-weight: 700;
-        font-size: 15px;
+        position: relative;
+        transition: 300ms;
+
+        &:hover {
+          cursor: pointer;
+          background-color: ${theme.colors.primary};
+          color: ${theme.colors.secondary};
+        }
+
+        .categories-list {
+          background-color: ${theme.colors.secondary};
+          display: flex;
+          flex-direction: column;
+          position: absolute;
+          width: 130%;
+          height: 0px;
+          overflow: hidden;
+          transition: height 0.3s linear;
+          top: 120%;
+          left: 0px;
+          z-index: 999;
+          border-radius: 18px;
+
+          .category-link {
+            height: 25%;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            padding-left: 20px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            transition: 300ms;
+            color: ${theme.colors.primary};
+
+            &:hover {
+              background-color: ${theme.colors.primary};
+              color: ${theme.colors.secondary};
+            }
+          }
+        }
+
+        .filter-title {
+          font-size: 16px;
+          font-family: 'Montserrat', sans-serif;
+          font-weight: 600;
+          margin-right: 18px;
+        }
+
+        .filter-category-title {
+          margin-right: 76px;
+        }
+
+      }
+
+      .filter-category {
+        &:hover {
+          .categories-list {
+            height: 154px;
+          }
+        }
       }
     }
   }
