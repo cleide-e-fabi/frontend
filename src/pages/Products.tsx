@@ -86,7 +86,10 @@ export default function Products() {
                 ))}
               </div>
             </li>
-            <li className="more-price filter" onClick={() => handleSort('desc')}>
+            <li
+              className="more-price filter"
+              onClick={() => handleSort('desc')}
+            >
               <h6 className="filter-title">Maior Preço</h6>
               <FaArrowCircleUp />
             </li>

@@ -88,20 +88,20 @@ export const ProductsList = styled.ul`
       margin: 14px;
 
       .product-title {
-      font-size: 15px;
-    }
-
-    .product-price {
-      font-size: 12px;
-
-      span {
-        font-size: 11px;
+        font-size: 15px;
       }
-    }
 
-    .product-quota {
-      font-size: 12px;
-    }
+      .product-price {
+        font-size: 12px;
+
+        span {
+          font-size: 11px;
+        }
+      }
+
+      .product-quota {
+        font-size: 12px;
+      }
     }
   }
 
@@ -111,20 +111,20 @@ export const ProductsList = styled.ul`
       margin: 8px;
 
       .product-title {
-      font-size: 14px;
-    }
-
-    .product-price {
-      font-size: 11px;
-
-      span {
-        font-size: 10px;
+        font-size: 14px;
       }
-    }
 
-    .product-quota {
-      font-size: 11px;
-    }
+      .product-price {
+        font-size: 11px;
+
+        span {
+          font-size: 10px;
+        }
+      }
+
+      .product-quota {
+        font-size: 11px;
+      }
     }
   }
 

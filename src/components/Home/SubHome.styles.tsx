@@ -228,7 +228,7 @@ export const SubHome = styled.section`
     }
   }
 
-  .fav{
+  .fav {
     width: 100%;
     height: max-content;
     display: flex;

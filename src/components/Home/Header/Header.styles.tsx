@@ -27,8 +27,10 @@ export const HeaderStyles = styled.header`
     }
 
     .mobile-icon-option {
-      width: max-content;
-      height: max-content;
+      background-color: ${theme.colors.secondary};
+      width: min-content;
+      height: min-content;
+      padding: 0px;
       position: absolute;
       right: 16px;
       :nth-child(1) {
@@ -265,9 +267,11 @@ export const HeaderStyles = styled.header`
 
     .icon-option {
       height: 100%;
+      padding: 0px;
       display: flex;
       align-items: center;
       margin-left: 40px;
+      background-color: transparent;
 
       :nth-child(1) {
         font-size: 25px;
@@ -289,6 +293,14 @@ export const HeaderStyles = styled.header`
         border-radius: 20px;
         top: 2px;
         right: 16px;
+      }
+      border: none;
+
+      &:hover{
+        border: none;
+      }
+      &:focus{
+        border: none;
       }
     }
 

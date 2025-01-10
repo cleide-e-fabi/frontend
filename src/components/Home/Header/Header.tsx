@@ -6,12 +6,15 @@ import { HiShoppingCart } from 'react-icons/hi';
 import { useContext, useState } from 'react';
 import UserContext from '../../../contexts/UserContext';
 import { MdOutlineShoppingCart } from 'react-icons/md';
+import TagManager from 'react-gtm-module';
+import { useNavigate } from 'react-router-dom';
 
 export default function Header({ showAdded }: any) {
   const [openMobile, setOpenMobile] = useState<string>('close-side-div');
   const [line, setLine] = useState<string>('line-close');
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const { cartProducts } = useContext(UserContext) as any;
+  const navigate = useNavigate();
 
   const openMobileOptions = () => {
     if (isOpen) {
@@ -23,6 +26,19 @@ export default function Header({ showAdded }: any) {
       setOpenMobile('open-side-div');
       setLine('line-open');
     }
+  };
+
+  const cartButtonClick = () => {
+    TagManager.dataLayer({
+      dataLayer: {
+        event: 'cart_button_click',
+        category: 'Button',
+        action: 'Click',
+        label: 'Cart',
+      },
+    });
+
+    navigate('/carrinho');
   };
 
   return (
@@ -55,10 +71,10 @@ export default function Header({ showAdded }: any) {
           </div>
         </div>
         <div className="header-icons">
-          <Link className="icon-option" to="/carrinho">
+          <button onClick={cartButtonClick} className="icon-option">
             <MdOutlineShoppingCart />
             <div className="cart-quantity">{cartProducts.length}</div>
-          </Link>
+          </button>
           {showAdded ? (
             <div className={`added ${showAdded}`}>
               Produto adicionado ao carrinho!
@@ -76,10 +92,10 @@ export default function Header({ showAdded }: any) {
             <div className={`${line}-2`}></div>
             <div className={`${line}-3`}></div>
           </div>
-          <Link className="mobile-icon-option" to="/carrinho">
+          <button onClick={cartButtonClick} className="mobile-icon-option">
             <HiShoppingCart />
             <div className="m-cart-quantity">{cartProducts.length}</div>
-          </Link>
+          </button>
           <div className={`${openMobile} header-mobile-options`}>
             <Link
               className="mobile-route-option"

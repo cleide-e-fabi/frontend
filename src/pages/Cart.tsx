@@ -104,7 +104,9 @@ export default function Cart() {
   const getFilteredRelatedProducts = (relatedProducts: any[]) => {
     return relatedProducts.filter(
       (relatedProduct) =>
-        !cartProducts.some((cartProduct: any) => cartProduct.id === relatedProduct.id),
+        !cartProducts.some(
+          (cartProduct: any) => cartProduct.id === relatedProduct.id,
+        ),
     );
   };
 
