@@ -40,10 +40,10 @@ export default function Products() {
       return 0;
     });
 
-  const productClick = (id: any) => {
+  const productClick = (index: any, id: any) => {
     window.dataLayer.push({
       event: 'click-product',
-      data: products[id],
+      data: products[index],
     });
 
     navigate(`/produtos/${id}`);
@@ -112,11 +112,11 @@ export default function Products() {
           </ul>
         </div>
         <ProductsList>
-          {filteredProducts.map((i: any) => (
+          {filteredProducts.map((i: any, index: any) => (
             <button
-              key={i.id}
+              key={index}
               className="product-item"
-              onClick={() => productClick(i.id)}
+              onClick={() => productClick(index, i.id)}
             >
               <img className="product-img" src={i.url_image[0]} />
               <p className="product-title">{i.title}</p>
