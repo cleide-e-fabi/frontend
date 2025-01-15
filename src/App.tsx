@@ -17,7 +17,6 @@ import axios from 'axios';
 import { productsConst } from './assets/consts/productsConst';
 import { categoriesConst } from './assets/consts/categoriesConst';
 import Collections from './pages/Collections';
-import TagManager from 'react-gtm-module';
 
 export default function App() {
   const cartFromLS =
@@ -32,17 +31,6 @@ export default function App() {
   const [productsCategories, setProductsCategories] =
     useState<any[]>(categoriesFromLS);
   const [cartProducts, setCartProducts] = useState<any[]>(cartFromLS);
-
-  //-----------------GTM-----------------------
-
-  useEffect(() => {
-    const tagManagerArgs = {
-      gtmId: 'GTM-NJQJCQJ8',
-    };
-    TagManager.initialize(tagManagerArgs);
-  }, []);
-
-  //-----------------GTM-----------------------
 
   useEffect(() => {
     if (products) {

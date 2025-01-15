@@ -296,10 +296,10 @@ export const HeaderStyles = styled.header`
       }
       border: none;
 
-      &:hover{
+      &:hover {
         border: none;
       }
-      &:focus{
+      &:focus {
         border: none;
       }
     }

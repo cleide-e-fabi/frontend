@@ -6,7 +6,6 @@ import { HiShoppingCart } from 'react-icons/hi';
 import { useContext, useState } from 'react';
 import UserContext from '../../../contexts/UserContext';
 import { MdOutlineShoppingCart } from 'react-icons/md';
-import TagManager from 'react-gtm-module';
 import { useNavigate } from 'react-router-dom';
 
 export default function Header({ showAdded }: any) {
@@ -29,14 +28,14 @@ export default function Header({ showAdded }: any) {
   };
 
   const cartButtonClick = () => {
-    TagManager.dataLayer({
-      dataLayer: {
-        event: 'cart_button_click',
-        category: 'Button',
-        action: 'Click',
-        label: 'Cart',
-      },
-    });
+    // windo.dataLayer({
+    //   dataLayer: {
+    //     event: 'cart_button_click',
+    //     category: 'Button',
+    //     action: 'Click',
+    //     label: 'Cart',
+    //   },
+    // });
 
     navigate('/carrinho');
   };

@@ -9,11 +9,14 @@ import UserContext from '../contexts/UserContext';
 import { Link } from 'react-router-dom';
 import SimpleFooter from '../components/SimpleFooter/SimpleFooter';
 import ShopInfo from '../components/ShopInfo/ShopInfo';
+import { useNavigate } from 'react-router-dom';
+// import { pushToDataLayer } from '../hooks/usePushToDataLayer';
 
 export default function Products() {
   const [searchTerm, setSearchTerm] = useState<string>('');
-  const [sortOrder, setSortOrder] = useState<string>(''); // Estado para ordenar
+  const [sortOrder, setSortOrder] = useState<string>('');
   const { products, productsCategories } = useContext(UserContext) as any;
+  const navigate = useNavigate();
 
   const handleSearch = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSearchTerm(event.target.value);
@@ -36,6 +39,15 @@ export default function Products() {
       }
       return 0;
     });
+
+  const productClick = (id: any) => {
+    window.dataLayer.push({
+      event: 'click-product',
+      data: products[id],
+    });
+
+    navigate(`/produtos/${id}`);
+  };
 
   if (!products) {
     return (
@@ -101,7 +113,11 @@ export default function Products() {
         </div>
         <ProductsList>
           {filteredProducts.map((i: any) => (
-            <Link key={i.id} className="product-item" to={`/produtos/${i.id}`}>
+            <button
+              key={i.id}
+              className="product-item"
+              onClick={() => productClick(i.id)}
+            >
               <img className="product-img" src={i.url_image[0]} />
               <p className="product-title">{i.title}</p>
               <h2 className="product-price">
@@ -111,7 +127,7 @@ export default function Products() {
                 Até <span>3x</span> de{' '}
                 <span>R$ {(i.price / 3).toFixed(2)}</span>
               </h3>
-            </Link>
+            </button>
           ))}
         </ProductsList>
         <ShopInfo />
