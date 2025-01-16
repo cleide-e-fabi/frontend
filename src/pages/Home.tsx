@@ -17,6 +17,7 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 import loading from '../assets/anim/loading.webp';
 import { addDays, format } from 'date-fns';
+import { useNavigate } from 'react-router-dom';
 
 export default function Home() {
   const { products } = useContext(UserContext) as any;
@@ -29,6 +30,7 @@ export default function Home() {
   const date30 = addDays(today, 20);
   const formattedDate15 = format(date15, 'dd/MM');
   const formattedDate30 = format(date30, 'dd/MM');
+  const navigate = useNavigate();
 
   const verifyCep = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -53,6 +55,23 @@ export default function Home() {
       setValidCep(false);
       setShowLoading(false);
     }
+  };
+
+  const productClick = (index: any, id: any) => {
+    window.dataLayer.push({
+      event: 'click-product',
+      data: {
+        id: products[index]['id'],
+        variant_id: products[index]['variant_id'],
+        title: products[index]['title'],
+        price: products[index]['price'],
+        compare_at_price: products[index]['compare_at_price'],
+        price_num: products[index]['price_num'],
+        compare_num: products[index]['compare_num'],
+      },
+    });
+
+    navigate(`/produtos/${id}`);
   };
 
   return (
@@ -193,11 +212,15 @@ export default function Home() {
         <div className="fav">
           {products.slice(1, 8).map((i: any, index: number) => (
             <>
-              <Link key={index} to={`/produtos`} className="favorites-item">
+              <button
+                key={index}
+                onClick={() => productClick(index, i.id)}
+                className="favorites-item"
+              >
                 <img src={i.url_image[0]} />
                 <p>{i.title}</p>
                 <h1>R$ {i.price}</h1>
-              </Link>
+              </button>
             </>
           ))}
         </div>

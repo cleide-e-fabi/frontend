@@ -31,9 +31,14 @@ export default function Cart() {
     setTotalPrice(newTotalPrice);
   }, [cartProducts]);
 
-  const createOrder = (event: any) => {
-    event.stopPropagation();
+  const createOrder = (e: any) => {
+    e.stopPropagation();
     setIsconfirme(true);
+
+    window.dataLayer.push({
+      event: 'finalize-purcharse',
+      data: cartProducts,
+    });
 
     let url = 'https://fanaiana.mycartpanda.com/checkout/';
 
