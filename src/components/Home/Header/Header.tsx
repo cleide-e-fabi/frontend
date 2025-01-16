@@ -28,15 +28,10 @@ export default function Header({ showAdded }: any) {
   };
 
   const cartButtonClick = () => {
-    // windo.dataLayer({
-    //   dataLayer: {
-    //     event: 'cart_button_click',
-    //     category: 'Button',
-    //     action: 'Click',
-    //     label: 'Cart',
-    //   },
-    // });
-
+    window.dataLayer.push({
+      event: 'click-cart',
+      data: cartProducts,
+    });
     navigate('/carrinho');
   };
 

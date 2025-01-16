@@ -43,7 +43,15 @@ export default function Products() {
   const productClick = (index: any, id: any) => {
     window.dataLayer.push({
       event: 'click-product',
-      data: products[index],
+      data: {
+        id: products[index]['id'],
+        variant_id: products[index]['variant_id'],
+        title: products[index]['title'],
+        price: products[index]['price'],
+        compare_at_price: products[index]['compare_at_price'],
+        price_num: products[index]['price_num'],
+        compare_num: products[index]['compare_num'],
+      },
     });
 
     navigate(`/produtos/${id}`);

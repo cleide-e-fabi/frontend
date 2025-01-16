@@ -2,45 +2,76 @@ import React, { useState, useContext, useEffect } from 'react';
 import { ProductsContainer } from '../components/Products/Products.styles';
 import { ProductsList } from '../components/Products/ProductsList';
 import Header from '../components/Home/Header/Header';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import { Title } from '../components/Title';
-// import { FaArrowCircleUp } from 'react-icons/fa';
-// import { FaArrowCircleDown } from 'react-icons/fa';
-import { FaSearch } from 'react-icons/fa';
+import { FaArrowCircleUp, FaArrowCircleDown, FaSearch } from 'react-icons/fa';
+import { LuListFilter } from 'react-icons/lu';
 import UserContext from '../contexts/UserContext';
-import { Link } from 'react-router-dom';
 import SimpleFooter from '../components/SimpleFooter/SimpleFooter';
 import ShopInfo from '../components/ShopInfo/ShopInfo';
+import { useNavigate } from 'react-router-dom';
 
 export default function Collections() {
   const { collection } = useParams() as any;
   const [searchTerm, setSearchTerm] = useState<string>('');
-  const [productsCollection, setProductsCollection] = useState([]);
-  const [category, setCatogory] = useState('PRODUTOS');
-  const { products } = useContext(UserContext) as any;
+  const [productsCollection, setProductsCollection] = useState<any[]>([]);
+  const [category, setCategory] = useState('PRODUTOS');
+  const [sortOrder, setSortOrder] = useState<string>('');
+  const { products, productsCategories } = useContext(UserContext) as any;
+  const navigate = useNavigate();
 
   useEffect(() => {
     const filteredProducts = products.filter(
-      (product: { collection: any }) =>
+      (product: { collection: string }) =>
         product.collection
           .normalize('NFD')
           .replace(/[\u0300-\u036f]/g, '')
           .toLowerCase() === collection,
     );
     setProductsCollection(filteredProducts);
-    if (filteredProducts) {
-      setCatogory(filteredProducts[0].collection);
+    if (filteredProducts.length > 0) {
+      setCategory(filteredProducts[0].collection);
     }
-  }, []);
+  }, [collection, products]);
 
   const handleSearch = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSearchTerm(event.target.value);
   };
 
-  const filteredProducts = productsCollection.filter(
-    (product: { title: string }) =>
+  const handleSort = (order: string) => {
+    setSortOrder(order);
+  };
+
+  const filteredProducts = productsCollection
+    .filter((product: { title: string }) =>
       product.title.toLowerCase().includes(searchTerm.toLowerCase()),
-  );
+    )
+    .sort((a: { price: number }, b: { price: number }) => {
+      if (sortOrder === 'asc') {
+        return a.price - b.price;
+      }
+      if (sortOrder === 'desc') {
+        return b.price - a.price;
+      }
+      return 0;
+    });
+
+  const productClick = (index: any, id: any) => {
+    window.dataLayer.push({
+      event: 'click-product',
+      data: {
+        id: products[index]['id'],
+        variant_id: products[index]['variant_id'],
+        title: products[index]['title'],
+        price: products[index]['price'],
+        compare_at_price: products[index]['compare_at_price'],
+        price_num: products[index]['price_num'],
+        compare_num: products[index]['compare_num'],
+      },
+    });
+
+    navigate(`/produtos/${id}`);
+  };
 
   if (!products) {
     return (
@@ -73,19 +104,44 @@ export default function Collections() {
             </div>
           </div>
           <ul className="filters">
-            {/* <li className="filter">
-              <h6>Maior Preço</h6>
+            <li className="filter-category filter">
+              <h6 className="filter-category-title filter-title">Categorias</h6>
+              <LuListFilter />
+              <div className="categories-list">
+                {productsCategories.map((category: string, index: number) => (
+                  <Link
+                    className="category-link"
+                    key={index}
+                    to={`/${category
+                      .normalize('NFD')
+                      .replace(/[\u0300-\u036f]/g, '')
+                      .toLowerCase()}`}
+                  >
+                    {category}
+                  </Link>
+                ))}
+              </div>
+            </li>
+            <li
+              className="more-price filter"
+              onClick={() => handleSort('desc')}
+            >
+              <h6 className="filter-title">Maior Preço</h6>
               <FaArrowCircleUp />
             </li>
-            <li className="filter">
-              <h6>Menor Preço</h6>
+            <li className="less-price filter" onClick={() => handleSort('asc')}>
+              <h6 className="filter-title">Menor Preço</h6>
               <FaArrowCircleDown />
-            </li> */}
+            </li>
           </ul>
         </div>
         <ProductsList>
-          {filteredProducts.map((i: any) => (
-            <Link key={i.id} className="product-item" to={`/produtos/${i.id}`}>
+          {filteredProducts.map((i: any, index: any) => (
+            <button
+              key={index}
+              className="product-item"
+              onClick={() => productClick(index, i.id)}
+            >
               <img className="product-img" src={i.url_image[0]} />
               <p className="product-title">{i.title}</p>
               <h2 className="product-price">
@@ -95,7 +151,7 @@ export default function Collections() {
                 Até <span>3x</span> de{' '}
                 <span>R$ {(i.price / 3).toFixed(2)}</span>
               </h3>
-            </Link>
+            </button>
           ))}
         </ProductsList>
         <ShopInfo />
