@@ -245,6 +245,7 @@ export const SubHome = styled.section`
       position: relative;
       transition: 400ms;
       margin: 16px 10px;
+      background-color: transparent;
 
       &:hover {
         scale: 1.1;

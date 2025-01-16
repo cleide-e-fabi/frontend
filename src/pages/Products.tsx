@@ -40,20 +40,22 @@ export default function Products() {
       return 0;
     });
 
-  const productClick = (index: any, id: any) => {
+  const productClick = (id: any) => {
+    const seletedProduct = products.find(
+      (product: { id: any }) => product.id === id,
+    );
     window.dataLayer.push({
       event: 'click-product',
       data: {
-        id: products[index]['id'],
-        variant_id: products[index]['variant_id'],
-        title: products[index]['title'],
-        price: products[index]['price'],
-        compare_at_price: products[index]['compare_at_price'],
-        price_num: products[index]['price_num'],
-        compare_num: products[index]['compare_num'],
+        id: seletedProduct['id'],
+        variant_id: seletedProduct['variant_id'],
+        title: seletedProduct['title'],
+        price: seletedProduct['price'],
+        compare_at_price: seletedProduct['compare_at_price'],
+        price_num: seletedProduct['price_num'],
+        compare_num: seletedProduct['compare_num'],
       },
     });
-
     navigate(`/produtos/${id}`);
   };
 
@@ -124,7 +126,7 @@ export default function Products() {
             <button
               key={index}
               className="product-item"
-              onClick={() => productClick(index, i.id)}
+              onClick={() => productClick(i.id)}
             >
               <img className="product-img" src={i.url_image[0]} />
               <p className="product-title">{i.title}</p>
